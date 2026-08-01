@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
     Store.init();
     renderNav();
     navigateTo('dashboard');
+    // 初始化云端同步
+    CloudSync.init();
 });
 
 // ============ 内联加载种子数据 ============
