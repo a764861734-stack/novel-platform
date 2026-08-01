@@ -449,9 +449,10 @@ const Inspiration = {
             `;
             for (const mat of materials) {
                 const ref = Store.findById(mat.id);
-                if (ref) {
+                if (ref && ref.libId && SCHEMA.getLibrary(ref.libId)) {
                     const lib = SCHEMA.getLibrary(ref.libId);
-                    const title = ref.item[lib.displayFields[1]] || ref.item[lib.displayFields[0]] || mat.id;
+                    const displayFields = lib.displayFields || lib.headers || [];
+                    const title = (displayFields[1] && ref.item[displayFields[1]]) || (displayFields[0] && ref.item[displayFields[0]]) || mat.id;
                     html += `<span class="insp-mat-tag" onclick="Controller.viewItem('${mat.id}')">${lib.icon} ${this.escape(title)} <span class="insp-mat-remove" onclick="event.stopPropagation(); Inspiration.removeMaterial(${idx}, '${stage.id}', '${mat.id}')">✕</span></span>`;
                 }
             }
@@ -604,7 +605,7 @@ const Inspiration = {
                 html += '<div style="margin-top:8px;font-size:12px;color:var(--text-light);">🔗 关联素材: ';
                 for (const mat of materials) {
                     const ref = Store.findById(mat.id);
-                    if (ref) {
+                    if (ref && ref.libId && SCHEMA.getLibrary(ref.libId)) {
                         const lib = SCHEMA.getLibrary(ref.libId);
                         html += `[${mat.id}] ${lib.icon} ${ref.libId} `;
                     }
