@@ -202,7 +202,7 @@ const SCHEMA = {
         let seq = 1;
         let id;
         do {
-            id = `${prefix}-2025-${String(seq).padStart(3, '0')}`;
+            id = `${prefix}-${new Date().getFullYear()}-${String(seq).padStart(3, '0')}`;
             seq++;
         } while (existingIds && existingIds.includes(id));
         return id;
