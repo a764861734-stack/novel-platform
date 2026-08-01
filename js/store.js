@@ -70,6 +70,10 @@ const Store = {
     // ============ 保存 ============
     save: function() {
         localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.data));
+        // 通知云端同步模块数据已变更
+        if (typeof CloudSync !== 'undefined') {
+            CloudSync.markDirty();
+        }
     },
 
     // ============ 获取库数据 ============
