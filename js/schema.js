@@ -164,7 +164,7 @@ const SCHEMA = {
                 { id: 'parser', name: '智能解析', icon: '🤖' },
                 { id: 'characters', name: '角色卡', icon: '👤' },
                 { id: 'controller', name: '故事控制器', icon: '🎮' },
-                { id: 'inspiration', name: '灵感收纳库', icon: '💡' }
+                { id: 'inspiration', name: '灵感收纳库', icon: '💡', badge: 'NEW' }
             ]
         },
         {
