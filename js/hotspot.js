@@ -1,100 +1,180 @@
 /**
- * 热点中心模块
+ * 热点中心模块 v3
  * 功能：
- * 1. 展示自动抓取的热点数据（从 hot-topics.json 加载）
- * 2. 支持手动新增/编辑/删除热点
- * 3. 智能多维度分析：一个热点可同时映射到多个素材库角度
- * 4. 手动校正入口：用户可勾选/编辑要入库的素材库
- * 5. 一键/批量导入热点到对应素材库
- * 6. 按平台/类型/时间筛选
- * 7. 高赞评论金句导入金句库
- * 8. 批量管理和操作（批量选择、批量删除、重复检测）
- * 9. 原文链接展示
+ * 1. 展示自动抓取的热点数据（从 hot-topics.json 加载，无条数限制）
+ * 2. 分页系统（默认80条/页，可选30/50/80/100）
+ * 3. 晋江全维度标签体系（6大类：赛道/人设/剧情/情绪/晋江风格/时效性）
+ * 4. 自动打标引擎 + 手动校正入口
+ * 5. 标签筛选 + 关键词全局检索
+ * 6. 批量标签编辑 + 批量删除 + 重复检测
+ * 7. 多维度入库（一个热点可入多个素材库）
+ * 8. 原文链接展示
+ * 9. 高赞评论导入金句库
  */
 const HotspotModule = {
-    // 本地存储的热点数据
     data: [],
-    // 抓取的远程数据
     remoteData: [],
-    // 筛选状态
-    filters: { platform: 'all', type: 'all', keyword: '' },
-    // 批量选择状态
+    filters: { platform: 'all', type: 'all', keyword: '', jjTag: { cat: 'all', tag: 'all' } },
     selected: new Set(),
-    // 是否已初始化
     _initialized: false,
+    pageSize: 80,
+    currentPage: 1,
 
     STORAGE_KEY: 'hotspot_data',
 
     // 素材库ID映射
     LIB_MAP: {
-        '热梗素材库': '热梗素材库',
-        '冲突素材库': '冲突素材库',
-        '钩子素材库': '钩子素材库',
-        '反转素材库': '反转素材库',
-        '人设基因库': '人设基因库',
-        '场景库': '场景库',
-        '金句库': '金句库',
-        '幽默素材库': '幽默素材库',
-        '情绪库': '情绪库',
-        '法律风险库': '法律风险库',
-        '词汇库': '词汇库',
-        '景色库': '景色库',
-        '动作库': '动作库',
-        '对话库': '对话库'
+        '热梗素材库':'热梗素材库','冲突素材库':'冲突素材库','钩子素材库':'钩子素材库',
+        '反转素材库':'反转素材库','人设基因库':'人设基因库','场景库':'场景库',
+        '金句库':'金句库','幽默素材库':'幽默素材库','情绪库':'情绪库',
+        '法律风险库':'法律风险库','词汇库':'词汇库','景色库':'景色库',
+        '动作库':'动作库','对话库':'对话库'
+    },
+
+    // ====== 晋江全维度标签体系 ======
+    JJ_TAG_SYSTEM: {
+        track: {
+            label: '题材赛道',
+            icon: '📚',
+            tags: {
+                '现代言情': { keywords: ['都市','职场','婚恋','日常','年代文','娱乐圈','现实','都市'] },
+                '古言': { keywords: ['朝堂','宅斗','种田','江湖','武侠','宫廷','穿越','穿书','修仙','仙侠','古风','科举'] },
+                '纯爱': { keywords: ['搭档','强强','破镜重圆','电竞','刑侦','校园纯爱'] },
+                '无CP事业文': { keywords: ['搞事业','自我成长','基建','升职','重启','事业','女主搞事业'] },
+                '现实治愈': { keywords: ['治愈','温暖','日常','小确幸','现实向'] }
+            }
+        },
+        character: {
+            label: '核心人设',
+            icon: '👤',
+            tags: {
+                '大龄追梦': { keywords: ['考研','50岁','大龄','中年','退休','高龄','阿姨','追梦'] },
+                '坚韧女主': { keywords: ['坚持','不放弃','独立','清醒','坚韧','自强'] },
+                '逆袭重生': { keywords: ['逆袭','重生','翻盘','重来','重新开始'] },
+                '美强惨': { keywords: ['美强惨','惨','虐','命运'] },
+                '白切黑': { keywords: ['白切黑','腹黑','伪装'] },
+                '温柔强者': { keywords: ['温柔','强者','温和'] },
+                '外冷内热': { keywords: ['外冷内热','冷漠','冰山'] },
+                '恋爱脑': { keywords: ['恋爱脑','恋爱至上','恋爱大过天'] },
+                '原生拖累': { keywords: ['原生家庭','扶弟魔','凤凰男','父母','重男轻女'] },
+                '人间清醒': { keywords: ['人间清醒','清醒','独立','理性'] },
+                '平凡高光': { keywords: ['普通人','平凡','小人物','高光'] },
+                '大器晚成': { keywords: ['大器晚成','迟来','半路'] },
+                '反差学霸': { keywords: ['学霸','反差','成绩'] },
+                '跨界转行': { keywords: ['转行','跨界','换赛道'] }
+            }
+        },
+        plot: {
+            label: '剧情梗',
+            icon: '🎬',
+            tags: {
+                '逆袭打脸': { keywords: ['逆袭','打脸','翻盘','低估','瞧不起'] },
+                '人生重启': { keywords: ['重启','重新开始','重来','人生重来'] },
+                '破局翻盘': { keywords: ['破局','翻盘','扭转','逆风'] },
+                '双向治愈': { keywords: ['双向','治愈','互相','彼此'] },
+                '自我救赎': { keywords: ['救赎','自我','和解','释然'] },
+                '冲破偏见': { keywords: ['偏见','年龄','歧视','刻板','打破'] },
+                '家人阻拦': { keywords: ['反对','阻拦','不同意','家人','父母反对'] },
+                '异地奔赴': { keywords: ['异地','奔赴','距离','分开'] },
+                '圆梦时刻': { keywords: ['圆梦','上岸','成功','实现'] },
+                '外界质疑': { keywords: ['质疑','不看','嘲笑','嘲讽'] },
+                '破镜重圆': { keywords: ['破镜重圆','复合','重逢','再续'] },
+                '职场逆袭': { keywords: ['升职','加薪','事业','职场','逆袭'] }
+            }
+        },
+        emotion: {
+            label: '情绪氛围',
+            icon: '💭',
+            tags: {
+                '热血励志': { keywords: ['热血','励志','拼搏','奋斗','努力'] },
+                '治愈暖心': { keywords: ['治愈','暖心','温暖','感动','温柔'] },
+                '感动破防': { keywords: ['破防','泪目','哭','感动','泪'] },
+                '心生向往': { keywords: ['向往','羡慕','憧憬','梦想'] },
+                '释然释怀': { keywords: ['释然','释怀','放下','和解'] },
+                '唏嘘感慨': { keywords: ['唏嘘','感慨','无奈','遗憾'] },
+                '破除焦虑': { keywords: ['焦虑','内耗','压力','解压','缓解'] },
+                '无力迷茫': { keywords: ['无力','迷茫','困惑','不知所措'] },
+                '委屈心酸': { keywords: ['委屈','心酸','苦','辛酸'] },
+                '爽感打脸': { keywords: ['爽','痛快','解气','打脸'] }
+            }
+        },
+        jjStyle: {
+            label: '晋江风格',
+            icon: '✨',
+            tags: {
+                'HE': { keywords: ['圆满','好结局','在一起'] },
+                '成长型主角': { keywords: ['成长','蜕变','进步','改变'] },
+                '爽点密集': { keywords: ['爽','痛快','解气','打脸'] },
+                '慢热治愈': { keywords: ['慢热','日常','细腻','治愈'] },
+                '现实向': { keywords: ['现实','真实','接地气'] },
+                '拒绝内耗': { keywords: ['内耗','拒绝','清醒','不纠结'] },
+                '打破刻板': { keywords: ['刻板','偏见','打破','颠覆'] },
+                '人生不设限': { keywords: ['不设限','无限','可能','突破'] }
+            }
+        },
+        timeType: {
+            label: '时效性',
+            icon: '⏰',
+            tags: {
+                '短期流量梗': { keywords: ['热搜','爆','刷屏','出圈','热搜第一'] },
+                '长效现实素材': { keywords: ['人生','故事','真实','现实','经历','事件'] },
+                '本周热点': { keywords: [], auto: true },
+                '当月爆款': { keywords: [], auto: true }
+            }
+        }
     },
 
     // 多维度分类规则（置信度阈值默认40）
     CLASSIFIER_RULES: {
         '热梗素材库': {
-            core: ['热梗', '爆款', '出圈', '文化自信', '文化输出', '国潮', '国产', '国漫', '国货', '崛起', '现象级', '刷屏', ' viral ', ' trending'],
-            assist: ['热点', '讨论', '全网', '关注度', '热议'],
+            core: ['热梗','爆款','出圈','文化自信','文化输出','国潮','国产','国漫','国货','崛起','现象级','刷屏'],
+            assist: ['热点','讨论','全网','关注度','热议'],
             reason: '具备爆款传播潜质或文化符号属性'
         },
         '冲突素材库': {
-            core: ['争议', '批评', '指责', '质疑', '对立', '矛盾', '冲突', '竞争', '排名', '票房战', '口水战', '论战', '翻车', '曝光', '潜规则'],
-            assist: ['对比', '差距', '数据', '市场', '结构变化', '教授指出', '专家指出'],
+            core: ['争议','批评','指责','质疑','对立','矛盾','冲突','竞争','排名','票房战','翻车','曝光','潜规则'],
+            assist: ['对比','差距','数据','市场','教授指出','专家指出'],
             reason: '存在现实矛盾、争议或对比张力'
         },
         '钩子素材库': {
-            core: ['悬念', '揭秘', '预测', '黑马', '爆款预定', '未解', '谜团', '伏笔', '会引发', '拭目以待'],
-            assist: ['引发', '期待', '好奇', '关注'],
+            core: ['悬念','揭秘','预测','黑马','爆款预定','未解','谜团','伏笔','拭目以待'],
+            assist: ['引发','期待','好奇','关注'],
             reason: '适合埋设悬念或引发持续关注'
         },
         '反转素材库': {
-            core: ['反转', '逆袭', '原来', '竟然', '没想到', '意外', '突变', '转折', '由弱到强', '后来居上', '从', '逆袭'],
-            assist: ['改写', '变化', '突破', '转折'],
+            core: ['反转','逆袭','原来','竟然','没想到','意外','突变','转折','后来居上'],
+            assist: ['改写','变化','突破','转折'],
             reason: '含剧情反转或逆袭结构'
         },
         '人设基因库': {
-            core: ['人物', '角色', '主人公', '主角', '人设', '性格', '主播', '博主', '演员', '导演'],
-            assist: ['形象', '标签', '个性'],
+            core: ['人物','角色','主人公','主角','人设','性格','主播','博主','演员','导演'],
+            assist: ['形象','标签','个性'],
             reason: '可提炼为角色原型或性格标签'
         },
         '场景库': {
-            core: ['取景地', '拍摄地', '场景', '地标', '古街', '古镇', '建筑', '城市', '地点', '空间'],
-            assist: ['南京', '北京', '西安', '杭州', '苏州', '成都', '重庆'],
+            core: ['取景地','拍摄地','场景','地标','古街','古镇','建筑','城市','地点','空间'],
+            assist: ['南京','北京','西安','杭州','苏州','成都','重庆'],
             reason: '含可视觉化的地点或空间场景',
-            // 降低误判：若上下文是电影/票房/国漫，地名大概率是电影名
-            suppress: ['电影', '影片', '国漫', '票房', '上映', '档', '总票房']
+            suppress: ['电影','影片','国漫','票房','上映','档','总票房']
         },
         '情绪库': {
-            core: ['感动', '泪目', '破防', '愤怒', '热血', '自豪', '骄傲', '治愈', 'emo', '焦虑', '共鸣', '情绪'],
-            assist: ['打动', '震撼', '戳中', '心疼'],
+            core: ['感动','泪目','破防','愤怒','热血','自豪','骄傲','治愈','emo','焦虑','共鸣','情绪'],
+            assist: ['打动','震撼','戳中','心疼'],
             reason: '携带强情绪触发点'
         },
         '幽默素材库': {
-            core: ['搞笑', '吐槽', '段子', '喜剧', '幽默', '可爱', '笑死', '谐音梗', '错别字', '较真'],
-            assist: ['笑', '萌', '趣', '梗'],
+            core: ['搞笑','吐槽','段子','喜剧','幽默','可爱','笑死','谐音梗','错别字','较真'],
+            assist: ['笑','萌','趣','梗'],
             reason: '含幽默、吐槽或谐音梗元素'
         },
         '金句库': {
-            core: ['语录', '台词', '金句', '名言', '高赞评论', '评论区'],
-            assist: ['一句话', '破防', '扎心'],
+            core: ['语录','台词','金句','名言','高赞评论','评论区'],
+            assist: ['一句话','破防','扎心'],
             reason: '高赞评论或文案可直接提炼为金句'
         },
         '法律风险库': {
-            core: ['侵权', '抄袭', '版权', '法律', '起诉', '被告', '纠纷', '判罚', '合规', '避雷'],
-            assist: ['风险', '诉讼', '维权'],
+            core: ['侵权','抄袭','版权','法律','起诉','被告','纠纷','判罚','合规','避雷'],
+            assist: ['风险','诉讼','维权'],
             reason: '涉及创作法律风险或版权争议'
         }
     },
@@ -102,48 +182,38 @@ const HotspotModule = {
     init: function() {
         if (this._initialized) return;
         this._initialized = true;
-        // 加载本地存储的热点
         this.data = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
-        // 给旧数据补齐 targetLibs
         for (const item of this.data) {
             if (!item.targetLibs || !item.targetLibs.length) {
                 item.targetLibs = this.analyzeTargetLibs(item);
             }
+            // 自动补齐晋江标签
+            if (!item.jjTags) {
+                item.jjTags = this.autoTagJJ(item);
+            }
         }
-        // 尝试加载远程抓取数据（只加载一次，不重复抓取）
         this.loadRemote();
     },
 
-    // 加载自动抓取的热点数据文件
     loadRemote: function() {
-        // 加上时间戳防止缓存
         fetch('js/data/hot-topics.json?t=' + Date.now())
-            .then(r => {
-                if (!r.ok) throw new Error('Not found');
-                return r.json();
-            })
+            .then(r => { if (!r.ok) throw new Error('Not found'); return r.json(); })
             .then(json => {
                 if (json && json.items) {
                     this.remoteData = json.items;
                     this.lastUpdate = json.lastUpdate || '';
-                    // 合并远程数据到本地（去重）
                     this.mergeRemote(json.items, json.lastUpdate || '');
-                    // 只有当前还在热点页面时才重新渲染，避免覆盖其他模块
                     if (typeof currentPage !== 'undefined' && currentPage === 'hotspot') {
                         this.render();
                     }
                 }
             })
-            .catch(e => {
-                console.log('热点抓取数据暂未就绪，使用本地数据');
-            });
+            .catch(e => { console.log('热点抓取数据暂未就绪，使用本地数据'); });
     },
 
-    // 合并远程数据（去重）
     mergeRemote: function(remoteItems, lastUpdate) {
         let newCount = 0;
         for (const item of remoteItems) {
-            // 去重：标题+内容前50字相同则跳过
             const sig = (item.title || '') + (item.content || '').substring(0, 50);
             const exists = this.data.some(d => {
                 const dSig = (d.title || '') + (d.content || '').substring(0, 50);
@@ -153,8 +223,11 @@ const HotspotModule = {
                 item.source = 'auto';
                 item.imported = false;
                 item.id = item.id || ('hot_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6));
-                // 自动多维度分析
                 item.targetLibs = this.analyzeTargetLibs(item);
+                // 自动打晋江标签
+                if (!item.jjTags) {
+                    item.jjTags = this.autoTagJJ(item);
+                }
                 this.data.unshift(item);
                 newCount++;
             }
@@ -165,7 +238,82 @@ const HotspotModule = {
         this.lastUpdate = lastUpdate;
     },
 
-    // 多维度分类分析：返回 [{libId, confidence, reason, checked}]
+    // ====== 晋江标签自动打标引擎 ======
+    autoTagJJ: function(item) {
+        const text = ((item.title || '') + ' ' + (item.content || '') + ' ' + (item.tags || []).join(' ')).toLowerCase();
+        const commentsText = (item.comments || []).map(c => (c.text || c.content || '')).join(' ').toLowerCase();
+        const fullText = text + ' ' + commentsText;
+
+        const result = {};
+        for (const [catKey, cat] of Object.entries(this.JJ_TAG_SYSTEM)) {
+            result[catKey] = [];
+            for (const [tagName, tagDef] of Object.entries(cat.tags)) {
+                if (tagDef.keywords && tagDef.keywords.length > 0) {
+                    if (tagDef.keywords.some(kw => fullText.includes(kw.toLowerCase()))) {
+                        result[catKey].push(tagName);
+                    }
+                }
+            }
+        }
+
+        // 时效性自动判断
+        if (result.timeType.length === 0) {
+            // 默认根据热度判断
+            if (item.heat && item.heat >= 80) {
+                result.timeType.push('短期流量梗');
+            } else {
+                result.timeType.push('长效现实素材');
+            }
+        }
+
+        // 如果赛道为空，根据内容兜底
+        if (result.track.length === 0) {
+            if (fullText.includes('古') || fullText.includes('穿越') || fullText.includes('仙')) {
+                result.track.push('古言');
+            } else if (fullText.includes('事业') || fullText.includes('职场')) {
+                result.track.push('无CP事业文');
+            } else {
+                result.track.push('现代言情');
+            }
+        }
+
+        // 如果情绪为空
+        if (result.emotion.length === 0) {
+            result.emotion.push('热血励志');
+        }
+
+        // 如果人设为空
+        if (result.character.length === 0) {
+            if (fullText.includes('普通人') || fullText.includes('平凡')) {
+                result.character.push('平凡高光');
+            }
+        }
+
+        return result;
+    },
+
+    // 获取所有出现过的晋江标签（用于筛选下拉）
+    getJJTagOptions: function() {
+        const result = {};
+        for (const catKey of Object.keys(this.JJ_TAG_SYSTEM)) {
+            result[catKey] = new Set();
+        }
+        for (const item of this.data) {
+            if (item.jjTags) {
+                for (const [catKey, tags] of Object.entries(item.jjTags)) {
+                    if (Array.isArray(tags)) {
+                        tags.forEach(t => result[catKey] && result[catKey].add(t));
+                    }
+                }
+            }
+        }
+        // 转为数组
+        for (const catKey of Object.keys(result)) {
+            result[catKey] = Array.from(result[catKey]).sort();
+        }
+        return result;
+    },
+
     analyzeTargetLibs: function(item) {
         const text = ((item.title || '') + ' ' + (item.content || '') + ' ' + (item.tags || []).join(' ')).toLowerCase();
         const commentsText = (item.comments || []).map(c => (c.text || c.content || '')).join(' ').toLowerCase();
@@ -175,84 +323,40 @@ const HotspotModule = {
         for (const [libId, rule] of Object.entries(this.CLASSIFIER_RULES)) {
             let score = 0;
             let matched = [];
-
-            // 核心关键词
             for (const kw of rule.core || []) {
-                if (fullText.includes(kw.toLowerCase())) {
-                    score += 30;
-                    matched.push(kw);
-                }
+                if (fullText.includes(kw.toLowerCase())) { score += 30; matched.push(kw); }
             }
-            // 辅助关键词
             for (const kw of rule.assist || []) {
-                if (fullText.includes(kw.toLowerCase())) {
-                    score += 15;
-                    matched.push(kw);
-                }
+                if (fullText.includes(kw.toLowerCase())) { score += 15; matched.push(kw); }
             }
-
-            // 抑制规则（降低误判）
             if (rule.suppress) {
                 const hasSuppress = rule.suppress.some(kw => fullText.includes(kw.toLowerCase()));
-                if (hasSuppress) {
-                    score -= 30;
-                }
+                if (hasSuppress) score -= 30;
             }
-
-            // 评论对金句/幽默/情绪有加成
             if ((libId === '金句库' || libId === '幽默素材库' || libId === '情绪库') && (item.comments || []).length > 0) {
                 const highLikes = item.comments.some(c => (c.likes || 0) >= 100);
-                if (highLikes) score += 15;
-                else score += 5;
+                if (highLikes) score += 15; else score += 5;
             }
-
-            // 标签命中额外加成
             if (item.tags && item.tags.length) {
                 const tagText = item.tags.join(' ').toLowerCase();
                 for (const kw of [...(rule.core || []), ...(rule.assist || [])]) {
-                    if (tagText.includes(kw.toLowerCase())) {
-                        score += 10;
-                    }
+                    if (tagText.includes(kw.toLowerCase())) score += 10;
                 }
             }
-
-            // 默认兜底：保持原有 category 的映射
-            const oldMap = {
-                '热梗': '热梗素材库', '冲突': '冲突素材库', '钩子': '钩子素材库',
-                '反转': '反转素材库', '人设': '人设基因库', '场景': '场景库',
-                '金句': '金句库', '幽默': '幽默素材库', '情绪': '情绪库',
-                '评论金句': '金句库'
-            };
-            if (oldMap[item.category || item.type] === libId) {
-                score += 20;
-            }
+            const oldMap = {'热梗':'热梗素材库','冲突':'冲突素材库','钩子':'钩子素材库','反转':'反转素材库','人设':'人设基因库','场景':'场景库','金句':'金句库','幽默':'幽默素材库','情绪':'情绪库','评论金句':'金句库'};
+            if (oldMap[item.category || item.type] === libId) score += 20;
 
             score = Math.max(0, Math.min(100, score));
             if (score >= 35) {
-                results.push({
-                    libId,
-                    confidence: score,
-                    reason: rule.reason + (matched.length ? '（命中：' + matched.slice(0, 3).join('、') + '）' : ''),
-                    checked: score >= 55  // 默认勾选高置信度
-                });
+                results.push({ libId, confidence: score, reason: rule.reason + (matched.length ? '（命中：' + matched.slice(0, 3).join('、') + '）' : ''), checked: score >= 55 });
             }
         }
-
-        // 按置信度排序
         results.sort((a, b) => b.confidence - a.confidence);
-
-        // 若结果为空，按原 category 兜底
         if (results.length === 0) {
-            const oldMap = {
-                '热梗': '热梗素材库', '冲突': '冲突素材库', '钩子': '钩子素材库',
-                '反转': '反转素材库', '人设': '人设基因库', '场景': '场景库',
-                '金句': '金句库', '幽默': '幽默素材库', '情绪': '情绪库',
-                '评论金句': '金句库'
-            };
+            const oldMap = {'热梗':'热梗素材库','冲突':'冲突素材库','钩子':'钩子素材库','反转':'反转素材库','人设':'人设基因库','场景':'场景库','金句':'金句库','幽默':'幽默素材库','情绪':'情绪库','评论金句':'金句库'};
             const fallback = oldMap[item.category || item.type] || '热梗素材库';
             results.push({ libId: fallback, confidence: 50, reason: '按原单分类兜底', checked: true });
         }
-
         return results;
     },
 
@@ -265,10 +369,10 @@ const HotspotModule = {
         this._initialized = false;
         this.data = [];
         this.selected.clear();
+        this.currentPage = 1;
         this.init();
     },
 
-    // 获取筛选后的数据
     getFiltered: function() {
         let items = this.data;
         if (this.filters.platform !== 'all') {
@@ -281,23 +385,36 @@ const HotspotModule = {
                 return libs.includes(this.filters.type) || category === this.filters.type;
             });
         }
+        // 晋江标签筛选
+        if (this.filters.jjTag.cat !== 'all' && this.filters.jjTag.tag !== 'all') {
+            const cat = this.filters.jjTag.cat;
+            const tag = this.filters.jjTag.tag;
+            items = items.filter(i => {
+                return i.jjTags && i.jjTags[cat] && i.jjTags[cat].includes(tag);
+            });
+        }
         if (this.filters.keyword) {
             const kw = this.filters.keyword.toLowerCase();
             items = items.filter(i => {
-                return Object.values(i).some(v => v && v.toString().toLowerCase().includes(kw));
+                // 搜索标题、内容、标签、晋江标签
+                const searchText = [
+                    i.title, i.content, (i.tags || []).join(' '),
+                    i.platform, i.category
+                ].join(' ').toLowerCase();
+                // 也搜索晋江标签
+                const jjSearch = i.jjTags ? Object.values(i.jjTags).flat().join(' ').toLowerCase() : '';
+                return searchText.includes(kw) || jjSearch.includes(kw);
             });
         }
         return items;
     },
 
-    // 获取唯一平台列表
     getPlatforms: function() {
         const set = new Set();
         this.data.forEach(d => { if (d.platform) set.add(d.platform); });
         return Array.from(set);
     },
 
-    // 获取唯一类型列表（包含所有素材库ID）
     getTypes: function() {
         const set = new Set();
         this.data.forEach(d => {
@@ -308,13 +425,11 @@ const HotspotModule = {
         return Array.from(set);
     },
 
-    // 检测重复热点（标题相同或高度相似）
     findDuplicates: function() {
         const groups = {};
         for (let i = 0; i < this.data.length; i++) {
             const title = (this.data[i].title || '').trim();
             if (!title) continue;
-            // 用标题前15字作为分组key
             const key = title.substring(0, 15);
             if (!groups[key]) groups[key] = [];
             groups[key].push(i);
@@ -333,6 +448,7 @@ const HotspotModule = {
         const content = document.getElementById('contentArea');
         const platforms = this.getPlatforms();
         const types = this.getTypes();
+        const jjTagOptions = this.getJJTagOptions();
         const items = this.getFiltered();
         const autoCount = this.data.filter(d => d.source === 'auto').length;
         const manualCount = this.data.filter(d => d.source !== 'auto').length;
@@ -343,48 +459,56 @@ const HotspotModule = {
         let html = `
         <div class="hotspot-module">
             <div class="hs-stats-bar">
-                <div class="hs-stat">
-                    <span class="hs-stat-num">${this.data.length}</span>
-                    <span class="hs-stat-label">热点总数</span>
-                </div>
-                <div class="hs-stat">
-                    <span class="hs-stat-num">${autoCount}</span>
-                    <span class="hs-stat-label">自动抓取</span>
-                </div>
-                <div class="hs-stat">
-                    <span class="hs-stat-num">${manualCount}</span>
-                    <span class="hs-stat-label">手动录入</span>
-                </div>
-                <div class="hs-stat">
-                    <span class="hs-stat-num">${importedCount}</span>
-                    <span class="hs-stat-label">已入库</span>
-                </div>
+                <div class="hs-stat"><span class="hs-stat-num">${this.data.length}</span><span class="hs-stat-label">热点总数</span></div>
+                <div class="hs-stat"><span class="hs-stat-num">${autoCount}</span><span class="hs-stat-label">自动抓取</span></div>
+                <div class="hs-stat"><span class="hs-stat-num">${manualCount}</span><span class="hs-stat-label">手动录入</span></div>
+                <div class="hs-stat"><span class="hs-stat-num">${importedCount}</span><span class="hs-stat-label">已入库</span></div>
                 ${dupIndices.size > 0 ? `<div class="hs-stat" style="background:#fff3cd;"><span class="hs-stat-num" style="color:#856404;">${dupIndices.size}</span><span class="hs-stat-label">疑似重复</span></div>` : ''}
                 ${this.lastUpdate ? `<div class="hs-stat"><span class="hs-stat-num" style="font-size:14px;">${this.lastUpdate}</span><span class="hs-stat-label">最近抓取</span></div>` : ''}
             </div>
 
             <div class="hs-info-bar">
                 <span class="hs-info-icon">ℹ️</span>
-                <span>数据来源：自动抓取任务每天 8:00 / 20:00 执行，写入 hot-topics.json 后自动合并到本地。<b>打开页面不会重新抓取</b>，只会加载已有数据。点「🔄 刷新」可重新加载。</span>
+                <span>数据来源：自动抓取任务每天 8:00 / 20:00 执行，写入 hot-topics.json 后自动合并到本地。<b>打开页面不会重新抓取</b>，只加载已有数据。单次抓取量 50-80 条，无前端展示上限。</span>
             </div>
 
             <div class="hs-toolbar">
                 <div class="search-box">
-                    <input type="text" id="hsSearch" placeholder="搜索热点内容..." value="${this.filters.keyword}" oninput="HotspotModule.filters.keyword=this.value; HotspotModule.renderList()">
+                    <input type="text" id="hsSearch" placeholder="搜索标题/内容/标签/晋江标签..." value="${this.filters.keyword}" oninput="HotspotModule.filters.keyword=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()">
                 </div>
-                <select class="filter-select" onchange="HotspotModule.filters.platform=this.value; HotspotModule.renderList()">
+                <select class="filter-select" onchange="HotspotModule.filters.platform=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()">
                     <option value="all">平台: 全部</option>
                     ${platforms.map(p => `<option value="${p}" ${this.filters.platform===p?'selected':''}>${p}</option>`).join('')}
                 </select>
-                <select class="filter-select" onchange="HotspotModule.filters.type=this.value; HotspotModule.renderList()">
+                <select class="filter-select" onchange="HotspotModule.filters.type=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()">
                     <option value="all">素材库: 全部</option>
                     ${types.map(t => `<option value="${t}" ${this.filters.type===t?'selected':''}>${t}</option>`).join('')}
+                </select>
+                <select class="filter-select" id="hsJJCatSel" onchange="HotspotModule.onJJCatChange(this.value)">
+                    <option value="all">晋江标签: 全部</option>
+                    ${Object.entries(this.JJ_TAG_SYSTEM).map(([k,v]) => `<option value="${k}" ${this.filters.jjTag.cat===k?'selected':''}>${v.icon} ${v.label}</option>`).join('')}
+                </select>
+                <select class="filter-select" id="hsJJTagSel" onchange="HotspotModule.filters.jjTag.tag=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()" ${this.filters.jjTag.cat==='all'?'disabled':''}>
+                    <option value="all">标签: 全部</option>
+                    ${this.filters.jjTag.cat !== 'all' ? (jjTagOptions[this.filters.jjTag.cat] || []).map(t => `<option value="${t}" ${this.filters.jjTag.tag===t?'selected':''}>${t}</option>`).join('') : ''}
                 </select>
                 <button class="btn btn-primary" onclick="HotspotModule.openEditor()">+ 手动新增</button>
                 <button class="btn btn-secondary" onclick="HotspotModule.refresh()">🔄 刷新数据</button>
                 <button class="btn btn-success" onclick="HotspotModule.batchImport()">📥 批量入库</button>
+                ${selectedCount > 0 ? `<button class="btn btn-accent" onclick="HotspotModule.openBatchTagEditor()">🏷️ 批量打标签(${selectedCount})</button>` : ''}
                 ${selectedCount > 0 ? `<button class="btn btn-danger" onclick="HotspotModule.batchDeleteSelected()">🗑️ 删除选中(${selectedCount})</button>` : ''}
                 ${dupIndices.size > 0 ? `<button class="btn btn-warning" onclick="HotspotModule.selectDuplicates()">⚠️ 选中${dupIndices.size}条重复</button>` : ''}
+            </div>
+
+            <div class="hs-page-size-bar">
+                <span class="hs-page-size-label">每页显示：</span>
+                <select class="filter-select hs-page-size-select" onchange="HotspotModule.pageSize=parseInt(this.value); HotspotModule.currentPage=1; HotspotModule.renderList()">
+                    <option value="30" ${this.pageSize===30?'selected':''}>30 条</option>
+                    <option value="50" ${this.pageSize===50?'selected':''}>50 条</option>
+                    <option value="80" ${this.pageSize===80?'selected':''}>80 条（推荐）</option>
+                    <option value="100" ${this.pageSize===100?'selected':''}>100 条</option>
+                </select>
+                <span class="hs-page-info" id="hsPageInfo"></span>
             </div>
 
             <div id="hsList"></div>
@@ -394,11 +518,39 @@ const HotspotModule = {
         this.renderList();
     },
 
+    onJJCatChange: function(cat) {
+        this.filters.jjTag.cat = cat;
+        this.filters.jjTag.tag = 'all';
+        this.currentPage = 1;
+        // 更新标签下拉
+        const tagSel = document.getElementById('hsJJTagSel');
+        if (cat === 'all') {
+            tagSel.disabled = true;
+            tagSel.innerHTML = '<option value="all">标签: 全部</option>';
+        } else {
+            tagSel.disabled = false;
+            const options = this.getJJTagOptions()[cat] || [];
+            tagSel.innerHTML = '<option value="all">标签: 全部</option>' + options.map(t => `<option value="${t}">${t}</option>`).join('');
+        }
+        this.renderList();
+    },
+
     renderList: function() {
         const wrap = document.getElementById('hsList');
         if (!wrap) return;
         const items = this.getFiltered();
         const dupIndices = this.findDuplicates();
+        const totalPages = Math.max(1, Math.ceil(items.length / this.pageSize));
+        if (this.currentPage > totalPages) this.currentPage = 1;
+        const start = (this.currentPage - 1) * this.pageSize;
+        const end = Math.min(start + this.pageSize, items.length);
+        const pageItems = items.slice(start, end);
+
+        // 更新分页信息
+        const pageInfo = document.getElementById('hsPageInfo');
+        if (pageInfo) {
+            pageInfo.textContent = `第 ${this.currentPage} / ${totalPages} 页 · 共 ${items.length} 条`;
+        }
 
         if (items.length === 0) {
             wrap.innerHTML = `<div style="text-align:center;padding:60px;color:var(--text-light);">
@@ -409,15 +561,15 @@ const HotspotModule = {
             return;
         }
 
-        // 全选 checkbox
+        // 全选 checkbox（当前页全选）
         let html = '<div class="hs-batch-header">';
-        html += `<label class="hs-select-all"><input type="checkbox" onchange="HotspotModule.toggleSelectAll(this.checked)" ${this.selected.size === items.length && items.length > 0 ? 'checked' : ''}> 全选</label>`;
-        html += `<span style="color:var(--text-light);font-size:13px;">显示 ${items.length} / ${this.data.length} 条</span>`;
+        html += `<label class="hs-select-all"><input type="checkbox" onchange="HotspotModule.toggleSelectAll(this.checked)" ${this.selected.size === pageItems.length && pageItems.length > 0 ? 'checked' : ''}> 全选本页</label>`;
+        html += `<span style="color:var(--text-light);font-size:13px;">显示 ${start + 1}-${end} / ${items.length} 条${items.length > this.pageSize ? '（分页中）' : ''}</span>`;
         html += '</div>';
 
         html += '<div class="hs-card-list">';
-        for (let i = 0; i < items.length; i++) {
-            const item = items[i];
+        for (let i = 0; i < pageItems.length; i++) {
+            const item = pageItems[i];
             const realIdx = this.data.indexOf(item);
             const platformIcon = this.getPlatformIcon(item.platform);
             const heatBar = item.heat ? `<div class="hs-heat"><span class="hs-heat-label">热度</span><div class="hs-heat-bar"><div class="hs-heat-fill" style="width:${Math.min(item.heat, 100)}%"></div></div><span class="hs-heat-val">${item.heat || '—'}</span></div>` : '';
@@ -432,13 +584,14 @@ const HotspotModule = {
                 return `<span class="hs-lib-tag ${t.checked ? 'checked' : ''}" title="${escapeAttr(t.reason || '')} 置信度:${t.confidence}">${icon} ${t.libId} <small>${t.confidence}</small></span>`;
             }).join('');
 
-            // 主要推荐库
+            // 晋江标签展示
+            const jjTagsHtml = this.renderJJTagsHtml(item.jjTags);
+
             const primaryLib = targetLibs.find(t => t.checked) || targetLibs[0];
             const primaryBtn = item.imported
                 ? `<button class="btn btn-sm btn-secondary" disabled>✅ 已入库</button>`
                 : (primaryLib ? `<button class="btn btn-sm btn-success" onclick="HotspotModule.openMultiImport(${realIdx})">📥 入 ${primaryLib.libId}</button>` : '📥 入库');
 
-            // 原文链接
             const urlLink = item.url
                 ? `<a href="${escapeAttr(item.url)}" target="_blank" class="hs-source-link" title="查看原文">🔗 原文链接</a>`
                 : (item.sourceUrl
@@ -461,6 +614,7 @@ const HotspotModule = {
                     <div class="hs-card-title">${escapeHtml(item.title || '无标题')}</div>
                     <div class="hs-card-content">${escapeHtml((item.content || '').substring(0, 200))}${(item.content || '').length > 200 ? '...' : ''}</div>
                     ${urlLink}
+                    ${jjTagsHtml}
                     ${item.tags && item.tags.length ? `<div class="hs-card-tags">${item.tags.map(t => `<span class="hs-tag">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
                     ${libTags ? `<div class="hs-lib-tags"><span class="hs-lib-tags-label">可入库角度：</span>${libTags}</div>` : ''}
                     ${heatBar}
@@ -478,6 +632,7 @@ const HotspotModule = {
                         <span class="hs-time">${item.time || item.createdAt || ''}</span>
                         <div class="hs-actions">
                             <button class="btn btn-sm btn-success" onclick="HotspotModule.openMultiImport(${realIdx})">${item.imported ? '🔄 重新入库' : (primaryLib ? '📥 入 ' + primaryLib.libId : '📥 入库')}</button>
+                            <button class="btn btn-sm btn-accent" onclick="HotspotModule.openTagEditor(${realIdx})">🏷️ 标签</button>
                             <button class="btn btn-sm btn-secondary" onclick="HotspotModule.openEditor(${realIdx})">编辑</button>
                             <button class="btn btn-sm btn-danger" onclick="HotspotModule.delete(${realIdx})">删除</button>
                         </div>
@@ -487,41 +642,121 @@ const HotspotModule = {
         }
         html += '</div>';
 
-        // 分页信息
-        html += `<div style="text-align:center;padding:16px;color:var(--text-light);font-size:13px;">显示 ${items.length} / ${this.data.length} 条热点</div>`;
+        // 分页控件
+        html += this.renderPagination(totalPages);
 
         wrap.innerHTML = html;
     },
 
-    // 切换单个选择
-    toggleSelect: function(idx, checked) {
-        if (checked) {
-            this.selected.add(idx);
-        } else {
-            this.selected.delete(idx);
+    // 渲染晋江标签HTML（卡片上的紧凑展示）
+    renderJJTagsHtml: function(jjTags) {
+        if (!jjTags) return '';
+        let html = '<div class="hs-jj-tags">';
+        for (const [catKey, cat] of Object.entries(this.JJ_TAG_SYSTEM)) {
+            const tags = jjTags[catKey];
+            if (tags && tags.length) {
+                html += `<span class="hs-jj-cat">${cat.icon} ${cat.label}：</span>`;
+                for (const t of tags) {
+                    html += `<span class="hs-jj-tag hs-jj-${catKey}" onclick="HotspotModule.filterByJJTag('${catKey}','${escapeAttr(t)}')">${t}</span>`;
+                }
+            }
         }
-        // 更新工具栏的选中计数（不重新渲染整个列表，只更新按钮文字）
-        this.updateSelectionUI();
+        html += '</div>';
+        return html;
     },
 
-    // 全选/取消全选
-    toggleSelectAll: function(checked) {
-        const items = this.getFiltered();
-        if (checked) {
-            for (const item of items) {
-                const realIdx = this.data.indexOf(item);
-                this.selected.add(realIdx);
-            }
-        } else {
-            this.selected.clear();
+    // 点击晋江标签快速筛选
+    filterByJJTag: function(cat, tag) {
+        this.filters.jjTag.cat = cat;
+        this.filters.jjTag.tag = tag;
+        this.currentPage = 1;
+        // 更新下拉
+        const catSel = document.getElementById('hsJJCatSel');
+        const tagSel = document.getElementById('hsJJTagSel');
+        if (catSel) catSel.value = cat;
+        if (tagSel) {
+            tagSel.disabled = false;
+            const options = this.getJJTagOptions()[cat] || [];
+            tagSel.innerHTML = '<option value="all">标签: 全部</option>' + options.map(t => `<option value="${t}" ${t===tag?'selected':''}>${t}</option>`).join('');
         }
         this.renderList();
     },
 
-    // 选中所有重复项
+    // 渲染分页控件
+    renderPagination: function(totalPages) {
+        if (totalPages <= 1) return '';
+
+        let html = '<div class="hs-pagination">';
+        // 上一页
+        html += `<button class="hs-page-btn" ${this.currentPage <= 1 ? 'disabled' : ''} onclick="HotspotModule.goToPage(${this.currentPage - 1})">‹ 上一页</button>`;
+
+        // 页码（最多显示7个）
+        const maxBtns = 7;
+        let startPage = Math.max(1, this.currentPage - 3);
+        let endPage = Math.min(totalPages, startPage + maxBtns - 1);
+        if (endPage - startPage < maxBtns - 1) {
+            startPage = Math.max(1, endPage - maxBtns + 1);
+        }
+
+        if (startPage > 1) {
+            html += `<button class="hs-page-btn" onclick="HotspotModule.goToPage(1)">1</button>`;
+            if (startPage > 2) html += '<span class="hs-page-ellipsis">...</span>';
+        }
+        for (let p = startPage; p <= endPage; p++) {
+            html += `<button class="hs-page-btn ${p === this.currentPage ? 'active' : ''}" onclick="HotspotModule.goToPage(${p})">${p}</button>`;
+        }
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) html += '<span class="hs-page-ellipsis">...</span>';
+            html += `<button class="hs-page-btn" onclick="HotspotModule.goToPage(${totalPages})">${totalPages}</button>`;
+        }
+
+        // 下一页
+        html += `<button class="hs-page-btn" ${this.currentPage >= totalPages ? 'disabled' : ''} onclick="HotspotModule.goToPage(${this.currentPage + 1})">下一页 ›</button>`;
+
+        // 跳转
+        html += `<span class="hs-page-jump">第 <input type="number" min="1" max="${totalPages}" value="${this.currentPage}" style="width:50px;" onchange="HotspotModule.goToPage(parseInt(this.value))"> 页</span>`;
+        html += '</div>';
+        return html;
+    },
+
+    goToPage: function(page) {
+        const items = this.getFiltered();
+        const totalPages = Math.max(1, Math.ceil(items.length / this.pageSize));
+        if (page < 1) page = 1;
+        if (page > totalPages) page = totalPages;
+        this.currentPage = page;
+        this.renderList();
+        // 滚动到列表顶部
+        const wrap = document.getElementById('hsList');
+        if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    },
+
+    toggleSelect: function(idx, checked) {
+        if (checked) { this.selected.add(idx); } else { this.selected.delete(idx); }
+        this.updateSelectionUI();
+    },
+
+    toggleSelectAll: function(checked) {
+        const items = this.getFiltered();
+        const start = (this.currentPage - 1) * this.pageSize;
+        const end = Math.min(start + this.pageSize, items.length);
+        const pageItems = items.slice(start, end);
+        if (checked) {
+            for (const item of pageItems) {
+                const realIdx = this.data.indexOf(item);
+                this.selected.add(realIdx);
+            }
+        } else {
+            for (const item of pageItems) {
+                const realIdx = this.data.indexOf(item);
+                this.selected.delete(realIdx);
+            }
+        }
+        this.renderList();
+    },
+
     selectDuplicates: function() {
         const dupIndices = this.findDuplicates();
-        // 对每组重复，保留第一条（最早的），选中其余的
         const groups = {};
         const indices = Array.from(dupIndices).sort((a, b) => a - b);
         for (const idx of indices) {
@@ -530,7 +765,6 @@ const HotspotModule = {
             groups[title].push(idx);
         }
         for (const title in groups) {
-            // 保留第一条，选中其余
             for (let i = 1; i < groups[title].length; i++) {
                 this.selected.add(groups[title][i]);
             }
@@ -539,47 +773,24 @@ const HotspotModule = {
         this.render();
     },
 
-    // 更新选择UI（不重新渲染列表）
     updateSelectionUI: function() {
-        // 更新全选checkbox
         const selectAllCb = document.querySelector('.hs-select-all input');
         if (selectAllCb) {
             const items = this.getFiltered();
-            const allSelected = items.length > 0 && items.every(item => this.selected.has(this.data.indexOf(item)));
+            const start = (this.currentPage - 1) * this.pageSize;
+            const end = Math.min(start + this.pageSize, items.length);
+            const pageItems = items.slice(start, end);
+            const allSelected = pageItems.length > 0 && pageItems.every(item => this.selected.has(this.data.indexOf(item)));
             selectAllCb.checked = allSelected;
-        }
-        // 更新或显示删除按钮
-        const toolbar = document.querySelector('.hs-toolbar');
-        if (!toolbar) return;
-        let btn = document.getElementById('hs-batch-del-btn');
-        if (this.selected.size > 0) {
-            if (!btn) {
-                btn = document.createElement('button');
-                btn.id = 'hs-batch-del-btn';
-                btn.className = 'btn btn-danger';
-                btn.onclick = () => this.batchDeleteSelected();
-                toolbar.appendChild(btn);
-            }
-            btn.textContent = `🗑️ 删除选中(${this.selected.size})`;
-        } else if (btn) {
-            btn.remove();
         }
     },
 
-    // 批量删除选中
     batchDeleteSelected: function() {
-        if (this.selected.size === 0) {
-            showToast('请先选择要删除的热点', 'info');
-            return;
-        }
+        if (this.selected.size === 0) { showToast('请先选择要删除的热点', 'info'); return; }
         const count = this.selected.size;
         if (!confirm(`确定删除选中的 ${count} 条热点吗？此操作不可撤销。`)) return;
-
-        // 从大到小排序删除，避免索引偏移
         const indices = Array.from(this.selected).sort((a, b) => b - a);
-        for (const idx of indices) {
-            this.data.splice(idx, 1);
-        }
+        for (const idx of indices) { this.data.splice(idx, 1); }
         this.selected.clear();
         this.save();
         showToast(`已删除 ${count} 条热点`, 'success');
@@ -587,28 +798,199 @@ const HotspotModule = {
         renderNav();
     },
 
+    // ====== 单条标签编辑器 ======
+    openTagEditor: function(idx) {
+        const item = this.data[idx];
+        if (!item) return;
+        if (!item.jjTags) item.jjTags = this.autoTagJJ(item);
+
+        const modalBody = document.getElementById('modalBody');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalFooter = document.getElementById('modalFooter');
+        modalTitle.textContent = '编辑晋江标签';
+
+        let html = `<div class="hs-tag-editor">
+            <div class="hs-tag-editor-header">
+                <div class="hs-tag-editor-title">${escapeHtml(item.title || '')}</div>
+                <div class="hs-tag-editor-meta">${item.platform || ''} · ${item.category || ''}</div>
+            </div>`;
+
+        for (const [catKey, cat] of Object.entries(this.JJ_TAG_SYSTEM)) {
+            const currentTags = item.jjTags[catKey] || [];
+            // 所有可选标签 + 当前已有但不在系统中的
+            const allTags = Object.keys(cat.tags);
+            const extra = currentTags.filter(t => !allTags.includes(t));
+            const displayTags = [...allTags, ...extra];
+
+            html += `<div class="hs-tag-cat">
+                <div class="hs-tag-cat-header">${cat.icon} ${cat.label}</div>
+                <div class="hs-tag-cat-tags">`;
+            for (const tag of displayTags) {
+                const checked = currentTags.includes(tag);
+                html += `<label class="hs-tag-chip ${checked ? 'checked' : ''}">
+                    <input type="checkbox" value="${escapeAttr(tag)}" ${checked ? 'checked' : ''} onchange="this.parentElement.classList.toggle('checked', this.checked)">
+                    ${tag}
+                </label>`;
+            }
+            // 添加自定义标签
+            html += `<input type="text" class="hs-tag-add-input" placeholder="+ 自定义${cat.label}标签" onkeydown="if(event.key==='Enter'){HotspotModule.addCustomTag(this, '${catKey}')}">`;
+            html += `</div></div>`;
+        }
+
+        html += `<div class="hs-tag-editor-actions">
+            <button class="btn btn-sm btn-secondary" onclick="HotspotModule.reAutoTag(${idx})">🔄 重新自动打标</button>
+        </div></div>`;
+
+        modalBody.innerHTML = html;
+        modalFooter.innerHTML = `
+            <button class="btn btn-secondary" onclick="closeModal()">取消</button>
+            <button class="btn btn-primary" onclick="HotspotModule.saveTags(${idx})">保存标签</button>
+        `;
+        openModal();
+    },
+
+    addCustomTag: function(input, catKey) {
+        const val = input.value.trim();
+        if (!val) return;
+        // 创建新chip
+        const container = input.parentElement;
+        const label = document.createElement('label');
+        label.className = 'hs-tag-chip checked';
+        label.innerHTML = `<input type="checkbox" value="${escapeAttr(val)}" checked onchange="this.parentElement.classList.toggle('checked', this.checked)">${val}`;
+        container.insertBefore(label, input);
+        input.value = '';
+    },
+
+    reAutoTag: function(idx) {
+        const item = this.data[idx];
+        if (!item) return;
+        item.jjTags = this.autoTagJJ(item);
+        showToast('已重新自动打标', 'info');
+        this.openTagEditor(idx);
+    },
+
+    saveTags: function(idx) {
+        const item = this.data[idx];
+        if (!item) return;
+        const allNew = {};
+        const catDivs = document.querySelectorAll('.hs-tag-cat');
+        catDivs.forEach((div, i) => {
+            const catKey = Object.keys(this.JJ_TAG_SYSTEM)[i];
+            const checked = Array.from(div.querySelectorAll('.hs-tag-chip input:checked')).map(cb => cb.value);
+            allNew[catKey] = checked;
+        });
+        item.jjTags = allNew;
+        this.save();
+        closeModal();
+        showToast('标签已保存', 'success');
+        this.renderList();
+    },
+
+    // ====== 批量标签编辑器 ======
+    openBatchTagEditor: function() {
+        if (this.selected.size === 0) { showToast('请先选择热点', 'info'); return; }
+        const indices = Array.from(this.selected);
+        // 汇总当前选中项已有的标签
+        const existing = {};
+        for (const catKey of Object.keys(this.JJ_TAG_SYSTEM)) {
+            existing[catKey] = {};
+        }
+        for (const idx of indices) {
+            const item = this.data[idx];
+            if (item.jjTags) {
+                for (const [catKey, tags] of Object.entries(item.jjTags)) {
+                    if (Array.isArray(tags)) {
+                        for (const t of tags) {
+                            if (!existing[catKey][t]) existing[catKey][t] = 0;
+                            existing[catKey][t]++;
+                        }
+                    }
+                }
+            }
+        }
+
+        const modalBody = document.getElementById('modalBody');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalFooter = document.getElementById('modalFooter');
+        modalTitle.textContent = `批量编辑标签（${indices.length} 条）`;
+
+        let html = '<div class="hs-tag-editor"><div class="hs-batch-tag-tip">💡 勾选的标签将<b>追加</b>到所有选中热点上，不会清除已有标签。取消勾选不会移除。</div>';
+
+        for (const [catKey, cat] of Object.entries(this.JJ_TAG_SYSTEM)) {
+            const allTags = Object.keys(cat.tags);
+            // 加上已有的额外标签
+            const extra = Object.keys(existing[catKey]).filter(t => !allTags.includes(t));
+            const displayTags = [...allTags, ...extra];
+
+            html += `<div class="hs-tag-cat">
+                <div class="hs-tag-cat-header">${cat.icon} ${cat.label}</div>
+                <div class="hs-tag-cat-tags">`;
+            for (const tag of displayTags) {
+                const count = existing[catKey][tag] || 0;
+                const hint = count > 0 ? `（${count}/${indices.length}已有）` : '';
+                html += `<label class="hs-tag-chip">
+                    <input type="checkbox" value="${escapeAttr(tag)}" onchange="this.parentElement.classList.toggle('checked', this.checked)">
+                    ${tag}${hint}
+                </label>`;
+            }
+            html += `<input type="text" class="hs-tag-add-input" placeholder="+ 自定义${cat.label}标签" onkeydown="if(event.key==='Enter'){HotspotModule.addCustomTag(this, '${catKey}')}">`;
+            html += `</div></div>`;
+        }
+        html += '</div>';
+
+        modalBody.innerHTML = html;
+        modalFooter.innerHTML = `
+            <button class="btn btn-secondary" onclick="closeModal()">取消</button>
+            <button class="btn btn-primary" onclick="HotspotModule.confirmBatchTags()">追加标签到选中项</button>
+        `;
+        openModal();
+    },
+
+    confirmBatchTags: function() {
+        const indices = Array.from(this.selected);
+        const catDivs = document.querySelectorAll('.hs-tag-cat');
+        const tagsToAdd = {};
+        catDivs.forEach((div, i) => {
+            const catKey = Object.keys(this.JJ_TAG_SYSTEM)[i];
+            const checked = Array.from(div.querySelectorAll('.hs-tag-chip input:checked')).map(cb => cb.value);
+            tagsToAdd[catKey] = checked;
+        });
+
+        let updated = 0;
+        for (const idx of indices) {
+            const item = this.data[idx];
+            if (!item.jjTags) item.jjTags = this.autoTagJJ(item);
+            for (const [catKey, tags] of Object.entries(tagsToAdd)) {
+                if (!item.jjTags[catKey]) item.jjTags[catKey] = [];
+                for (const t of tags) {
+                    if (!item.jjTags[catKey].includes(t)) {
+                        item.jjTags[catKey].push(t);
+                    }
+                }
+            }
+            updated++;
+        }
+        this.save();
+        closeModal();
+        showToast(`已为 ${updated} 条热点追加标签`, 'success');
+        this.renderList();
+    },
+
     getPlatformIcon: function(platform) {
         const icons = {
-            '微博': '🔴', '抖音': '🎵', '小红书': '📕', '知乎': '💙',
-            '今日头条': '📰', 'B站': '📺', '豆瓣': '🎬', '快手': '⚡',
-            '百度': '🔍', '腾讯新闻': '🐧'
+            '微博':'🔴','抖音':'🎵','小红书':'📕','知乎':'💙',
+            '今日头条':'📰','B站':'📺','豆瓣':'🎬','快手':'⚡',
+            '百度':'🔍','腾讯新闻':'🐧'
         };
         return icons[platform] || '📌';
     },
 
-    // 打开多库入库/校正弹窗
     openMultiImport: function(idx) {
         const item = this.data[idx];
         if (!item) return;
-
-        // 防重复入库提示
         if (item.imported) {
-            if (!confirm('该热点已入库，确定要再次入库吗？这会在素材库中创建重复条目。')) {
-                return;
-            }
+            if (!confirm('该热点已入库，确定要再次入库吗？这会在素材库中创建重复条目。')) return;
         }
-
-        // 确保有分析结果
         if (!item.targetLibs || !item.targetLibs.length) {
             item.targetLibs = this.analyzeTargetLibs(item);
         }
@@ -616,10 +998,8 @@ const HotspotModule = {
         const modalBody = document.getElementById('modalBody');
         const modalTitle = document.getElementById('modalTitle');
         const modalFooter = document.getElementById('modalFooter');
-
         modalTitle.textContent = '多库入库校正';
 
-        // 生成各库预览
         const rows = item.targetLibs.map((t, i) => {
             const lib = SCHEMA.getLibrary(t.libId);
             const preview = this.buildFieldsPreview(item, t.libId);
@@ -642,7 +1022,6 @@ const HotspotModule = {
             </div>`;
         }).join('');
 
-        // 未命中但用户可手动添加的库
         const allLibIds = Object.keys(this.LIB_MAP);
         const existingIds = new Set(item.targetLibs.map(t => t.libId));
         const extraOptions = allLibIds.filter(id => !existingIds.has(id)).map(id => {
@@ -656,20 +1035,14 @@ const HotspotModule = {
                 <div class="hs-mi-source-meta">${item.platform || ''} · 热度 ${item.heat || '—'}${item.imported ? ' · ⚠️ 已入库过' : ''}</div>
                 ${item.url || item.sourceUrl ? `<a href="${escapeAttr(item.url || item.sourceUrl)}" target="_blank" class="hs-source-link">🔗 查看原文</a>` : ''}
             </div>
-            <div class="hs-mi-list">
-                ${rows || '<div style="padding:20px;text-align:center;color:var(--text-light);">暂无推荐入库角度</div>'}
-            </div>
+            <div class="hs-mi-list">${rows || '<div style="padding:20px;text-align:center;color:var(--text-light);">暂无推荐入库角度</div>'}</div>
             <div class="hs-mi-add">
                 <label>手动添加其他素材库：</label>
-                <select id="mi-add-lib">
-                    <option value="">选择素材库...</option>
-                    ${extraOptions}
-                </select>
+                <select id="mi-add-lib"><option value="">选择素材库...</option>${extraOptions}</select>
                 <button class="btn btn-sm btn-secondary" onclick="HotspotModule.addManualLib(${idx})">添加</button>
             </div>
             <div class="hs-mi-tip">💡 点击列表项可切换是否入库；入库时会为每个勾选的库生成一条素材。</div>
         `;
-
         modalFooter.innerHTML = `
             <button class="btn btn-secondary" onclick="closeModal()">取消</button>
             <button class="btn btn-primary" onclick="HotspotModule.confirmMultiImport(${idx})">确认入库</button>
@@ -678,14 +1051,10 @@ const HotspotModule = {
     },
 
     toggleMiCheck: function(i) {
-        // 防止事件冒泡导致重复触发
         const row = document.querySelector(`.hs-mi-row[data-idx="${i}"]`);
         if (!row) return;
         const cb = document.getElementById(`mi-check-${i}`);
-        // 如果点击的是checkbox本身，状态已经改变；否则需要切换
-        if (event && event.target !== cb) {
-            cb.checked = !cb.checked;
-        }
+        if (event && event.target !== cb) { cb.checked = !cb.checked; }
         row.classList.toggle('checked', cb.checked);
     },
 
@@ -695,44 +1064,27 @@ const HotspotModule = {
         const libId = select.value;
         if (!libId) return;
         if (!item.targetLibs) item.targetLibs = [];
-        if (item.targetLibs.some(t => t.libId === libId)) {
-            showToast('该库已在列表中', 'warning');
-            return;
-        }
-        item.targetLibs.push({
-            libId,
-            confidence: 60,
-            reason: '手动添加',
-            checked: true
-        });
+        if (item.targetLibs.some(t => t.libId === libId)) { showToast('该库已在列表中', 'warning'); return; }
+        item.targetLibs.push({ libId, confidence: 60, reason: '手动添加', checked: true });
         this.save();
-        this.openMultiImport(idx); // 重新渲染弹窗
+        this.openMultiImport(idx);
     },
 
     confirmMultiImport: function(idx) {
         const item = this.data[idx];
         if (!item || !item.targetLibs) return;
-
-        // 收集勾选状态
         item.targetLibs.forEach((t, i) => {
             const cb = document.getElementById(`mi-check-${i}`);
             if (cb) t.checked = cb.checked;
         });
-
         const selected = item.targetLibs.filter(t => t.checked);
-        if (selected.length === 0) {
-            showToast('请至少选择一个素材库', 'warning');
-            return;
-        }
+        if (selected.length === 0) { showToast('请至少选择一个素材库', 'warning'); return; }
 
         let importedCount = 0;
         let goldenCount = 0;
         for (const t of selected) {
-            const result = this.importSingleToLib(item, t.libId);
-            if (result) importedCount++;
+            if (this.importSingleToLib(item, t.libId)) importedCount++;
         }
-
-        // 高赞评论导入金句库（如果金句库不在选中项中）
         if (!selected.some(t => t.libId === '金句库') && item.comments && item.comments.length) {
             for (const comment of item.comments) {
                 if (comment.likes && comment.likes >= 100) {
@@ -746,7 +1098,6 @@ const HotspotModule = {
                 }
             }
         }
-
         item.imported = true;
         this.save();
         closeModal();
@@ -755,26 +1106,24 @@ const HotspotModule = {
         renderNav();
     },
 
-    // 导入单个热点到单个素材库（返回是否成功）
     importSingleToLib: function(item, libId) {
         const lib = SCHEMA.getLibrary(libId);
         if (!lib) return false;
-
         const fields = this.buildFieldsForLib(item, libId);
         Store.addItem(libId, fields);
         return true;
     },
 
-    // 构建某个库的字段映射（返回字段对象）
     buildFieldsForLib: function(item, libId) {
         const lib = SCHEMA.getLibrary(libId);
         if (!lib) return {};
-
         const fields = {};
         fields['编号'] = SCHEMA.generateId(lib.prefix, Store.getExistingIds(libId));
+        // 晋江标签拼入类型标签
+        const jjTagStr = item.jjTags ? Object.values(item.jjTags).flat().join('、') : '';
 
         if (libId === '热梗素材库') {
-            fields['类型标签'] = (item.tags || []).map(t => '#' + t).join(' ');
+            fields['类型标签'] = (item.tags || []).map(t => '#' + t).join(' ') + (jjTagStr ? ' #' + jjTagStr.replace(/、/g, ' #') : '');
             fields['来源平台'] = item.platform || '';
             fields['核心冲突点'] = item.title || '';
             fields['改编方向'] = item.content || '';
@@ -801,7 +1150,7 @@ const HotspotModule = {
             fields['现实原型'] = item.platform || '';
         } else if (libId === '人设基因库') {
             fields['角色定位'] = '热点原型';
-            fields['性格标签'] = (item.tags || []).join('、');
+            fields['性格标签'] = (item.tags || []).join('、') + (jjTagStr ? '、' + jjTagStr : '');
             fields['职业/身份'] = this.extractRoleIdentity(item);
             fields['适用情节'] = item.title || '';
         } else if (libId === '场景库') {
@@ -826,10 +1175,9 @@ const HotspotModule = {
             fields['幽默类型'] = item.category || '谐音梗/吐槽';
             fields['高频关键词'] = (item.tags || []).join(',');
         } else {
-            // 通用映射
             for (const h of lib.headers) {
                 if (h === '编号') continue;
-                if (h.includes('标签')) fields[h] = (item.tags || []).map(t => '#' + t).join(' ');
+                if (h.includes('标签')) fields[h] = (item.tags || []).map(t => '#' + t).join(' ') + (jjTagStr ? ' #' + jjTagStr.replace(/、/g, ' #') : '');
                 else if (h.includes('平台') || h.includes('来源')) fields[h] = item.platform || '';
                 else if (h.includes('内容') || h.includes('原文') || h.includes('方向')) fields[h] = item.content || '';
                 else if (h.includes('类型') || h.includes('分类')) fields[h] = item.category || '';
@@ -837,16 +1185,13 @@ const HotspotModule = {
                 else fields[h] = '';
             }
         }
-
         return fields;
     },
 
-    // 字段预览（用于弹窗展示）
     buildFieldsPreview: function(item, libId) {
         const fields = this.buildFieldsForLib(item, libId);
         const lib = SCHEMA.getLibrary(libId);
         if (!lib) return fields;
-        // 只展示 displayFields 中的关键字段
         const preview = {};
         for (const key of lib.displayFields || Object.keys(fields)) {
             if (fields[key]) preview[key] = fields[key];
@@ -854,16 +1199,15 @@ const HotspotModule = {
         return preview;
     },
 
-    // 提取主要情绪关键词
     extractPrimaryEmotion: function(item) {
         const text = ((item.title || '') + ' ' + (item.content || '')).toLowerCase();
         const emotions = {
-            '感动': ['感动', '泪目', '破防', '温暖', '治愈'],
-            '愤怒': ['愤怒', '气愤', ' outrage', '不公', '欺负'],
-            '自豪': ['自豪', '骄傲', '文化自信', '热血', '振奋'],
-            '焦虑': ['焦虑', '担忧', '压力', '迷茫', '内卷'],
-            '喜悦': ['喜悦', '开心', '欢乐', '搞笑', '可爱'],
-            '反转': ['意外', '震惊', '没想到', '竟然']
+            '感动': ['感动','泪目','破防','温暖','治愈'],
+            '愤怒': ['愤怒','气愤','不公','欺负'],
+            '自豪': ['自豪','骄傲','文化自信','热血','振奋'],
+            '焦虑': ['焦虑','担忧','压力','迷茫','内卷'],
+            '喜悦': ['喜悦','开心','欢乐','搞笑','可爱'],
+            '反转': ['意外','震惊','没想到','竟然']
         };
         for (const [emotion, kws] of Object.entries(emotions)) {
             if (kws.some(kw => text.includes(kw))) return emotion;
@@ -871,7 +1215,6 @@ const HotspotModule = {
         return '共鸣';
     },
 
-    // 提取情绪曲线描述
     extractEmotionCurve: function(item) {
         const text = ((item.title || '') + ' ' + (item.content || '')).toLowerCase();
         if (text.includes('反转') || text.includes('意外')) return '意外→释然/震惊';
@@ -882,7 +1225,6 @@ const HotspotModule = {
         return '关注→共鸣→讨论';
     },
 
-    // 提取故事角度
     extractStoryAngle: function(item, angle) {
         const content = item.content || item.title || '';
         if (angle === '热梗') return '借用热点事件作为故事引子，引发读者共鸣';
@@ -892,7 +1234,6 @@ const HotspotModule = {
         return content.substring(0, 40);
     },
 
-    // 提取角色身份
     extractRoleIdentity: function(item) {
         const text = (item.title || '') + ' ' + (item.content || '');
         if (text.includes('教授')) return '学者/评论者';
@@ -903,42 +1244,26 @@ const HotspotModule = {
         return '热点事件参与者';
     },
 
-    // 导入热点到素材库（兼容旧版单库入口）
-    importToLib: function(idx, libId) {
-        this.openMultiImport(idx);
-    },
+    importToLib: function(idx, libId) { this.openMultiImport(idx); },
 
-    // 批量导入所有未入库的热点
     batchImport: function() {
         const unimported = this.data.filter(d => !d.imported);
-        if (unimported.length === 0) {
-            showToast('没有待入库的热点', 'info');
-            return;
-        }
-
-        // 先确保所有未入库热点都有分析结果
+        if (unimported.length === 0) { showToast('没有待入库的热点', 'info'); return; }
         for (const item of unimported) {
-            if (!item.targetLibs || !item.targetLibs.length) {
-                item.targetLibs = this.analyzeTargetLibs(item);
-            }
+            if (!item.targetLibs || !item.targetLibs.length) item.targetLibs = this.analyzeTargetLibs(item);
         }
 
         const modalBody = document.getElementById('modalBody');
         const modalTitle = document.getElementById('modalTitle');
         const modalFooter = document.getElementById('modalFooter');
-
         modalTitle.textContent = '批量入库确认';
 
-        // 统计每个库将要入库的数量
         const stats = {};
         for (const item of unimported) {
             for (const t of (item.targetLibs || [])) {
-                if (t.checked) {
-                    stats[t.libId] = (stats[t.libId] || 0) + 1;
-                }
+                if (t.checked) stats[t.libId] = (stats[t.libId] || 0) + 1;
             }
         }
-
         const statRows = Object.entries(stats).map(([libId, count]) => {
             const lib = SCHEMA.getLibrary(libId);
             return `<div class="hs-batch-stat"><span>${lib ? lib.icon : '📌'} ${libId}</span><span class="hs-batch-num">${count} 条</span></div>`;
@@ -948,9 +1273,7 @@ const HotspotModule = {
             <div class="hs-batch-summary">
                 <div class="hs-batch-count">共 ${unimported.length} 条热点待入库</div>
                 <div class="hs-batch-tip">系统将按每条热点分析出的"可入库角度"分别生成素材。已勾选的库才会入库。</div>
-                <div class="hs-batch-stats">
-                    ${statRows || '<div style="color:var(--text-light)">暂无推荐入库角度，请先到单条热点中校正。</div>'}
-                </div>
+                <div class="hs-batch-stats">${statRows || '<div style="color:var(--text-light)">暂无推荐入库角度，请先到单条热点中校正。</div>'}</div>
             </div>
             <div class="hs-batch-list">
                 ${unimported.map((item, i) => {
@@ -959,7 +1282,6 @@ const HotspotModule = {
                 }).join('')}
             </div>
         `;
-
         modalFooter.innerHTML = `
             <button class="btn btn-secondary" onclick="closeModal()">取消</button>
             <button class="btn btn-primary" onclick="HotspotModule.confirmBatchImport()">确认批量入库</button>
@@ -970,7 +1292,6 @@ const HotspotModule = {
     confirmBatchImport: function() {
         const unimported = this.data.filter(d => !d.imported);
         if (unimported.length === 0) return;
-
         let totalImported = 0;
         let totalGolden = 0;
         for (const item of unimported) {
@@ -979,7 +1300,6 @@ const HotspotModule = {
             for (const t of selected) {
                 if (this.importSingleToLib(item, t.libId)) totalImported++;
             }
-            // 评论金句
             if (!selected.some(t => t.libId === '金句库') && item.comments && item.comments.length) {
                 for (const comment of item.comments) {
                     if (comment.likes && comment.likes >= 100) {
@@ -995,7 +1315,6 @@ const HotspotModule = {
             }
             item.imported = true;
         }
-
         this.save();
         closeModal();
         showToast(`批量入库完成：${totalImported} 条素材${totalGolden ? '（含' + totalGolden + '条高赞金句）' : ''}`, 'success');
@@ -1007,18 +1326,15 @@ const HotspotModule = {
         const isEdit = idx !== undefined && idx !== null;
         const item = isEdit ? this.data[idx] : {
             title: '', content: '', platform: '', category: '热梗',
-            tags: [], heat: 50, source: 'manual', comments: [], targetLibs: [], url: ''
+            tags: [], heat: 50, source: 'manual', comments: [], targetLibs: [], url: '', jjTags: {}
         };
+        if (isEdit && (!item.targetLibs || !item.targetLibs.length)) item.targetLibs = this.analyzeTargetLibs(item);
+        if (isEdit && !item.jjTags) item.jjTags = this.autoTagJJ(item);
+        if (!isEdit) item.jjTags = this.autoTagJJ(item);
 
-        // 确保编辑时有分析结果
-        if (isEdit && (!item.targetLibs || !item.targetLibs.length)) {
-            item.targetLibs = this.analyzeTargetLibs(item);
-        }
+        const platforms = ['微博','抖音','小红书','知乎','今日头条','B站','豆瓣','快手','百度','其他'];
+        const categories = ['热梗','冲突','钩子','反转','人设','场景','金句','幽默','情绪','评论金句'];
 
-        const platforms = ['微博', '抖音', '小红书', '知乎', '今日头条', 'B站', '豆瓣', '快手', '百度', '其他'];
-        const categories = ['热梗', '冲突', '钩子', '反转', '人设', '场景', '金句', '幽默', '情绪', '评论金句'];
-
-        // 可入库角度编辑
         const libOptions = Object.keys(this.LIB_MAP).map(libId => {
             const lib = SCHEMA.getLibrary(libId);
             const exists = (item.targetLibs || []).some(t => t.libId === libId);
@@ -1029,10 +1345,29 @@ const HotspotModule = {
             </label>`;
         }).join('');
 
+        // 晋江标签编辑区
+        let jjTagsHtml = '';
+        for (const [catKey, cat] of Object.entries(this.JJ_TAG_SYSTEM)) {
+            const currentTags = (item.jjTags && item.jjTags[catKey]) || [];
+            const allTags = Object.keys(cat.tags);
+            const extra = currentTags.filter(t => !allTags.includes(t));
+            const displayTags = [...allTags, ...extra];
+            jjTagsHtml += `<div class="hs-editor-jj-cat">
+                <div class="hs-editor-jj-cat-header">${cat.icon} ${cat.label}</div>
+                <div class="hs-editor-jj-cat-tags">`;
+            for (const tag of displayTags) {
+                const checked = currentTags.includes(tag);
+                jjTagsHtml += `<label class="hs-tag-chip ${checked ? 'checked' : ''}">
+                    <input type="checkbox" class="jj-tag-cb" data-cat="${catKey}" value="${escapeAttr(tag)}" ${checked ? 'checked' : ''} onchange="this.parentElement.classList.toggle('checked', this.checked)">
+                    ${tag}
+                </label>`;
+            }
+            jjTagsHtml += `</div></div>`;
+        }
+
         const modalBody = document.getElementById('modalBody');
         const modalTitle = document.getElementById('modalTitle');
         const modalFooter = document.getElementById('modalFooter');
-
         modalTitle.textContent = isEdit ? '编辑热点' : '手动新增热点';
         modalBody.innerHTML = `
             <div class="modal-form">
@@ -1043,17 +1378,13 @@ const HotspotModule = {
                     </div>
                     <div class="form-group">
                         <label>来源平台</label>
-                        <select id="hs-platform">
-                            ${platforms.map(p => `<option value="${p}" ${item.platform===p?'selected':''}>${p}</option>`).join('')}
-                        </select>
+                        <select id="hs-platform">${platforms.map(p => `<option value="${p}" ${item.platform===p?'selected':''}>${p}</option>`).join('')}</select>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>分类</label>
-                        <select id="hs-category">
-                            ${categories.map(c => `<option value="${c}" ${item.category===c?'selected':''}>${c}</option>`).join('')}
-                        </select>
+                        <select id="hs-category">${categories.map(c => `<option value="${c}" ${item.category===c?'selected':''}>${c}</option>`).join('')}</select>
                     </div>
                     <div class="form-group">
                         <label>热度值 (0-100)</label>
@@ -1062,7 +1393,7 @@ const HotspotModule = {
                 </div>
                 <div class="form-group" style="grid-column:1/-1;">
                     <label>原文链接 URL</label>
-                    <input type="text" id="hs-url" value="${escapeAttr(item.url || item.sourceUrl || '')}" placeholder="https://...  （可选，方便回溯原文）">
+                    <input type="text" id="hs-url" value="${escapeAttr(item.url || item.sourceUrl || '')}" placeholder="https://...  （方便回溯原文）">
                 </div>
                 <div class="form-group" style="grid-column:1/-1;">
                     <label>内容详情</label>
@@ -1070,13 +1401,15 @@ const HotspotModule = {
                 </div>
                 <div class="form-group" style="grid-column:1/-1;">
                     <label>标签（逗号分隔）</label>
-                    <input type="text" id="hs-tags" value="${escapeAttr((item.tags || []).join(', '))}" placeholder="#重生, #复仇, #甜宠">
+                    <input type="text" id="hs-tags" value="${escapeAttr((item.tags || []).join(', '))}" placeholder="重生, 复仇, 甜宠">
                 </div>
                 <div class="form-group" style="grid-column:1/-1;">
-                    <label>可入库角度（可多选，保存后会按勾选库生成素材）</label>
-                    <div class="hs-editor-libs">
-                        ${libOptions}
-                    </div>
+                    <label>晋江全维度标签（点击切换，保存即生效）</label>
+                    <div class="hs-editor-jj-tags">${jjTagsHtml}</div>
+                </div>
+                <div class="form-group" style="grid-column:1/-1;">
+                    <label>可入库角度（可多选，保存后按勾选库生成素材）</label>
+                    <div class="hs-editor-libs">${libOptions}</div>
                     <div style="font-size:12px;color:var(--text-light);margin-top:6px;">💡 若留空，保存时会自动分析推荐</div>
                 </div>
                 <div class="form-group" style="grid-column:1/-1;">
@@ -1110,29 +1443,28 @@ const HotspotModule = {
             return { text: parts[0] || '', likes: parseInt(parts[1]) || 0 };
         }) : [];
 
-        // 收集手动勾选的库
         const checkedLibs = Array.from(document.querySelectorAll('.hs-editor-lib input:checked')).map(cb => cb.value);
+
+        // 收集晋江标签
+        const jjTags = {};
+        for (const catKey of Object.keys(this.JJ_TAG_SYSTEM)) {
+            const checked = Array.from(document.querySelectorAll(`.jj-tag-cb[data-cat="${catKey}"]:checked`)).map(cb => cb.value);
+            jjTags[catKey] = checked;
+        }
 
         const isEdit = idx >= 0;
         const baseItem = isEdit ? this.data[idx] : {};
-
         const item = {
             id: isEdit ? baseItem.id : ('hot_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6)),
-            title, platform, category, heat, content, tags, comments, url,
+            title, platform, category, heat, content, tags, comments, url, jjTags,
             source: isEdit ? baseItem.source : 'manual',
             imported: isEdit ? baseItem.imported : false,
             time: isEdit ? baseItem.time : new Date().toISOString().slice(0, 16).replace('T', ' '),
             createdAt: isEdit ? baseItem.createdAt : new Date().toISOString()
         };
 
-        // 如果有手动勾选，生成 targetLibs；否则自动分析
         if (checkedLibs.length) {
-            item.targetLibs = checkedLibs.map(libId => ({
-                libId,
-                confidence: 70,
-                reason: '手动指定',
-                checked: true
-            }));
+            item.targetLibs = checkedLibs.map(libId => ({ libId, confidence: 70, reason: '手动指定', checked: true }));
         } else {
             item.targetLibs = this.analyzeTargetLibs(item);
         }
@@ -1144,7 +1476,6 @@ const HotspotModule = {
             this.data.unshift(item);
             showToast('热点已创建', 'success');
         }
-
         this.save();
         closeModal();
         this.render();
@@ -1157,7 +1488,6 @@ const HotspotModule = {
         if (confirm(`确定删除 "${item.title}" 吗？`)) {
             this.data.splice(idx, 1);
             this.selected.delete(idx);
-            // 修正选中索引（删除后后面的索引前移）
             const newSelected = new Set();
             for (const selIdx of this.selected) {
                 if (selIdx > idx) newSelected.add(selIdx - 1);
@@ -1171,7 +1501,6 @@ const HotspotModule = {
         }
     },
 
-    // 批量删除已入库的热点
     clearImported: function() {
         const imported = this.data.filter(d => d.imported);
         if (imported.length === 0) { showToast('没有已入库的热点', 'info'); return; }
