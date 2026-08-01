@@ -139,6 +139,25 @@ const SCHEMA = {
     // ============ 导航菜单结构 ============
     nav: [
         {
+            section: '创作工作台',
+            items: [
+                { id: 'daily', name: '每日工作台', icon: '⏰' },
+                { id: 'chapter-check', name: '章节质量检查', icon: '✅' },
+                { id: 'analysis', name: '拆文分析', icon: '🔬' },
+                { id: 'maintenance', name: '素材库维护', icon: '🔧' },
+                { id: 'projects', name: '项目管理', icon: '📁' },
+                { id: 'revenue', name: '收益计算器', icon: '💰' }
+            ]
+        },
+        {
+            section: '辅助工具',
+            items: [
+                { id: 'hotspot', name: '热点中心', icon: '🌐' },
+                { id: '扫榜', name: '扫榜数据', icon: '📈' },
+                { id: '大纲', name: '大纲管理', icon: '📋' }
+            ]
+        },
+        {
             section: '核心功能',
             items: [
                 { id: 'dashboard', name: '控制台', icon: '📊' },
@@ -164,25 +183,6 @@ const SCHEMA = {
                 { id: '对话库', name: '对话库', icon: '💬' },
                 { id: '金句库', name: '金句库', icon: '✨' },
                 { id: '幽默素材库', name: '幽默素材库', icon: '😄' }
-            ]
-        },
-        {
-            section: '创作工作台',
-            items: [
-                { id: 'daily', name: '每日工作台', icon: '⏰' },
-                { id: 'chapter-check', name: '章节质量检查', icon: '✅' },
-                { id: 'analysis', name: '拆文分析', icon: '🔬' },
-                { id: 'maintenance', name: '素材库维护', icon: '🔧' },
-                { id: 'projects', name: '项目管理', icon: '📁' },
-                { id: 'revenue', name: '收益计算器', icon: '💰' }
-            ]
-        },
-        {
-            section: '辅助工具',
-            items: [
-                { id: 'hotspot', name: '热点中心', icon: '🌐' },
-                { id: '扫榜', name: '扫榜数据', icon: '📈' },
-                { id: '大纲', name: '大纲管理', icon: '📋' }
             ]
         }
     ],
