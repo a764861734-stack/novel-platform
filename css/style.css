@@ -1380,7 +1380,59 @@ body {
 .hs-comment-likes { color: var(--text-light); white-space: nowrap; }
 .hs-card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid var(--border-light); }
 .hs-time { font-size: 11px; color: var(--text-light); }
-.hs-actions { display: flex; gap: 4px; }
+.hs-actions { display: flex; gap: 4px; flex-wrap: wrap; }
+
+/* 分页系统 */
+.hs-page-size-bar { display: flex; align-items: center; gap: 10px; padding: 8px 0 12px; }
+.hs-page-size-label { font-size: 13px; color: var(--text-secondary); white-space: nowrap; }
+.hs-page-size-select { width: auto !important; min-width: 120px; }
+.hs-page-info { font-size: 13px; color: var(--text-light); }
+.hs-pagination { display: flex; align-items: center; gap: 4px; justify-content: center; padding: 16px 0; flex-wrap: wrap; }
+.hs-page-btn { min-width: 34px; height: 32px; padding: 0 10px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--bg-card); color: var(--text-secondary); font-size: 13px; cursor: pointer; transition: all 0.15s; }
+.hs-page-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+.hs-page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.hs-page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.hs-page-ellipsis { color: var(--text-light); padding: 0 4px; }
+.hs-page-jump { font-size: 13px; color: var(--text-secondary); margin-left: 12px; display: flex; align-items: center; gap: 4px; }
+.hs-page-jump input { padding: 4px 6px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); font-size: 13px; text-align: center; }
+
+/* 晋江标签展示 */
+.hs-jj-tags { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin: 8px 0; padding: 8px; background: var(--bg-input); border-radius: var(--radius-sm); }
+.hs-jj-cat { font-size: 11px; color: var(--text-light); white-space: nowrap; }
+.hs-jj-tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; cursor: pointer; transition: all 0.15s; white-space: nowrap; }
+.hs-jj-tag:hover { opacity: 0.8; transform: translateY(-1px); }
+.hs-jj-track { background: rgba(99,102,241,0.15); color: var(--primary); }
+.hs-jj-character { background: rgba(168,85,247,0.15); color: var(--accent); }
+.hs-jj-plot { background: rgba(236,72,153,0.15); color: #ec4899; }
+.hs-jj-emotion { background: rgba(245,158,11,0.15); color: #d97706; }
+.hs-jj-jjStyle { background: rgba(34,197,94,0.15); color: var(--success); }
+.hs-jj-timeType { background: rgba(100,116,139,0.15); color: var(--text-secondary); }
+
+/* 标签编辑器 */
+.hs-tag-editor { padding: 4px 0; }
+.hs-tag-editor-header { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
+.hs-tag-editor-title { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.hs-tag-editor-meta { font-size: 12px; color: var(--text-light); }
+.hs-tag-cat { margin-bottom: 14px; }
+.hs-tag-cat-header { font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 8px; }
+.hs-tag-cat-tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.hs-tag-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border: 1px solid var(--border-light); border-radius: 16px; cursor: pointer; font-size: 12px; color: var(--text-secondary); background: var(--bg-card); transition: all 0.15s; }
+.hs-tag-chip:hover { border-color: var(--primary); }
+.hs-tag-chip.checked { border-color: var(--primary); background: rgba(99,102,241,0.1); color: var(--primary); font-weight: 500; }
+.hs-tag-chip input { display: none; }
+.hs-tag-add-input { border: 1px dashed var(--border-light); border-radius: 16px; padding: 4px 10px; font-size: 12px; color: var(--text-light); background: transparent; width: 140px; }
+.hs-tag-add-input:focus { outline: none; border-color: var(--primary); color: var(--text-primary); }
+.hs-tag-editor-actions { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border-light); }
+
+/* 编辑器中的晋江标签 */
+.hs-editor-jj-tags { display: flex; flex-direction: column; gap: 10px; max-height: 320px; overflow-y: auto; padding: 10px; background: var(--bg-input); border-radius: var(--radius-sm); }
+.hs-editor-jj-cat { }
+.hs-editor-jj-cat-header { font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 6px; }
+.hs-editor-jj-cat-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* 批量标签编辑提示 */
+.hs-batch-tag-tip { padding: 10px 12px; background: rgba(99,102,241,0.08); border-radius: var(--radius-sm); font-size: 12px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.5; }
+.hs-batch-tag-tip b { color: var(--primary); }
 
 /* 多库标签 */
 .hs-lib-tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0; padding: 8px; background: var(--bg-input); border-radius: var(--radius-sm); }
