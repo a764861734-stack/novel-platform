@@ -17,6 +17,7 @@ const HotspotModule = {
     filters: { platform: 'all', type: 'all', keyword: '', jjTag: { cat: 'all', tag: 'all' } },
     selected: new Set(),
     _initialized: false,
+    _loading: false,
     pageSize: 80,
     currentPage: 1,
 
@@ -192,13 +193,23 @@ const HotspotModule = {
                 item.jjTags = this.autoTagJJ(item);
             }
         }
+        // 立即渲染一次本地数据
+        if (typeof currentPage !== 'undefined' && currentPage === 'hotspot') {
+            this.render();
+        }
         this.loadRemote();
     },
 
     loadRemote: function() {
+        this._loading = true;
+        if (typeof currentPage !== 'undefined' && currentPage === 'hotspot') {
+            this.render(); // 先更新工具栏按钮状态
+            this.renderLoadingHint();
+        }
         fetch('js/data/hot-topics.json?t=' + Date.now())
             .then(r => { if (!r.ok) throw new Error('Not found'); return r.json(); })
             .then(json => {
+                this._loading = false;
                 if (json && json.items) {
                     this.remoteData = json.items;
                     this.lastUpdate = json.lastUpdate || '';
@@ -208,7 +219,28 @@ const HotspotModule = {
                     }
                 }
             })
-            .catch(e => { console.log('热点抓取数据暂未就绪，使用本地数据'); });
+            .catch(e => { 
+                this._loading = false;
+                console.log('热点抓取数据暂未就绪，使用本地数据', e);
+                if (typeof currentPage !== 'undefined' && currentPage === 'hotspot') {
+                    this.render();
+                    if (this.data.length === 0) {
+                        showToast('暂无远程热点数据，可手动新增或等待自动任务更新', 'info');
+                    }
+                }
+            });
+    },
+
+    renderLoadingHint: function() {
+        const wrap = document.getElementById('hsList');
+        if (!wrap) return;
+        if (this.data.length === 0) {
+            wrap.innerHTML = `<div style="text-align:center;padding:60px;color:var(--text-light);">
+                <div style="font-size:32px;margin-bottom:12px;">⏳</div>
+                <div>正在加载热点数据...</div>
+                <div style="font-size:13px;margin-top:8px;">首次访问需从服务器读取，请稍候</div>
+            </div>`;
+        }
     },
 
     mergeRemote: function(remoteItems, lastUpdate) {
@@ -365,9 +397,12 @@ const HotspotModule = {
     },
 
     refresh: function() {
-        showToast('正在重新加载热点数据...', 'info');
+        if (this._loading) {
+            showToast('正在刷新中，请稍候...', 'info');
+            return;
+        }
+        showToast('正在从服务器重新加载热点数据...', 'info');
         this._initialized = false;
-        this.data = [];
         this.selected.clear();
         this.currentPage = 1;
         this.init();
@@ -469,7 +504,7 @@ const HotspotModule = {
 
             <div class="hs-info-bar">
                 <span class="hs-info-icon">ℹ️</span>
-                <span>数据来源：自动抓取任务每天 8:00 / 20:00 执行，写入 hot-topics.json 后自动合并到本地。<b>打开页面不会重新抓取</b>，只加载已有数据。单次抓取量 50-80 条，无前端展示上限。</span>
+                <span>数据来源：自动抓取任务每天 8:00 / 20:00 执行，写入 hot-topics.json 后自动合并到本地。<b>打开页面不会重新抓取</b>，只加载已有数据。"刷新热点数据"是从服务器重新读取已抓取的数据，不是实时爬取。单次抓取量 50-80 条，无前端展示上限。</span>
             </div>
 
             <div class="hs-toolbar">
@@ -493,7 +528,7 @@ const HotspotModule = {
                     ${this.filters.jjTag.cat !== 'all' ? (jjTagOptions[this.filters.jjTag.cat] || []).map(t => `<option value="${t}" ${this.filters.jjTag.tag===t?'selected':''}>${t}</option>`).join('') : ''}
                 </select>
                 <button class="btn btn-primary" onclick="HotspotModule.openEditor()">+ 手动新增</button>
-                <button class="btn btn-secondary" onclick="HotspotModule.refresh()">🔄 刷新数据</button>
+                <button class="btn btn-secondary" onclick="HotspotModule.refresh()" ${this._loading?'disabled':''}>🔄 刷新热点数据</button>
                 <button class="btn btn-success" onclick="HotspotModule.batchImport()">📥 批量入库</button>
                 ${selectedCount > 0 ? `<button class="btn btn-accent" onclick="HotspotModule.openBatchTagEditor()">🏷️ 批量打标签(${selectedCount})</button>` : ''}
                 ${selectedCount > 0 ? `<button class="btn btn-danger" onclick="HotspotModule.batchDeleteSelected()">🗑️ 删除选中(${selectedCount})</button>` : ''}
