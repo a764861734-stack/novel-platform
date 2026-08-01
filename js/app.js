@@ -54,7 +54,9 @@ function renderNav() {
         html += `<div class="nav-section-title">${section.section}</div>`;
         for (const item of section.items) {
             const count = stats[item.id] || 0;
-            const badge = count > 0 ? `<span class="nav-badge">${count}</span>` : '';
+            const countBadge = count > 0 ? `<span class="nav-badge">${count}</span>` : '';
+            const customBadge = item.badge ? `<span class="nav-badge nav-badge-custom">${item.badge}</span>` : '';
+            const badge = customBadge || countBadge;
             const active = currentPage === item.id ? 'active' : '';
             html += `<div class="nav-item ${active}" onclick="navigateTo('${item.id}')">
                 <span class="nav-icon">${item.icon}</span>
@@ -65,6 +67,20 @@ function renderNav() {
         html += `</div>`;
     }
     navMenu.innerHTML = html;
+    
+    // 滚动提示
+    setTimeout(() => {
+        const menu = document.getElementById('navMenu');
+        if (!menu) return;
+        const hasScroll = menu.scrollHeight > menu.clientHeight;
+        if (hasScroll && !menu.querySelector('.nav-scroll-hint')) {
+            menu.classList.add('can-scroll');
+            const hint = document.createElement('div');
+            hint.className = 'nav-scroll-hint';
+            hint.innerHTML = '↓ 向下滚动查看更多';
+            menu.appendChild(hint);
+        }
+    }, 50);
 }
 
 // ============ 页面路由 ============
@@ -139,7 +155,7 @@ function navigateTo(pageId) {
         RevenueModule.render();
     } else if (pageId === 'hotspot') {
         pageTitle.textContent = '🌐 热点中心';
-        topActions.innerHTML = `<button class="btn btn-primary" onclick="HotspotModule.openEditor()">+ 手动新增热点</button><button class="btn btn-secondary" onclick="HotspotModule.refresh()">🔄 刷新抓取数据</button>`;
+        topActions.innerHTML = `<button class="btn btn-primary" onclick="HotspotModule.openEditor()">+ 手动新增热点</button><button class="btn btn-secondary" onclick="HotspotModule.refresh()" ${HotspotModule._loading?'disabled':''}>🔄 刷新热点数据</button>`;
         HotspotModule.render();
     } else if (pageId === '扫榜') {
         pageTitle.textContent = '📈 扫榜数据';
