@@ -42,6 +42,8 @@ const Store = {
         data['扫榜'] = { name: '扫榜', headers: ['章节','章节标题','内容提要','字数','点击','更新时间','文章名','作者','标签'], items: [] };
         // 初始化大纲
         data['大纲'] = { name: '大纲', headers: ['故事阶段','大事件','章节名称','事业线','感情线','时间','事件内容','主要人物','看点','问题','流程','伏笔','知识','写后梗概'], items: [] };
+        // 初始化灵感收纳库
+        data['灵感收纳库'] = { name: '灵感收纳库', items: [] };
         return data;
     },
 
@@ -248,6 +250,20 @@ const Store = {
             }
         }
         return null;
+    },
+
+    // ============ 获取灵感列表 ============
+    getInspirations: function() {
+        return (this.data['灵感收纳库'] && this.data['灵感收纳库'].items) || [];
+    },
+
+    // ============ 保存灵感列表 ============
+    saveInspirations: function(items) {
+        if (!this.data['灵感收纳库']) {
+            this.data['灵感收纳库'] = { items: [] };
+        }
+        this.data['灵感收纳库'].items = items;
+        this.save();
     },
 
     // ============ 获取故事线数据 ============
