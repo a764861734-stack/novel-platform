@@ -8,7 +8,8 @@
  * 5. 一键/批量导入热点到对应素材库
  * 6. 按平台/类型/时间筛选
  * 7. 高赞评论金句导入金句库
- * 8. 批量管理和操作
+ * 8. 批量管理和操作（批量选择、批量删除、重复检测）
+ * 9. 原文链接展示
  */
 const HotspotModule = {
     // 本地存储的热点数据
@@ -17,6 +18,10 @@ const HotspotModule = {
     remoteData: [],
     // 筛选状态
     filters: { platform: 'all', type: 'all', keyword: '' },
+    // 批量选择状态
+    selected: new Set(),
+    // 是否已初始化
+    _initialized: false,
 
     STORAGE_KEY: 'hotspot_data',
 
@@ -95,6 +100,8 @@ const HotspotModule = {
     },
 
     init: function() {
+        if (this._initialized) return;
+        this._initialized = true;
         // 加载本地存储的热点
         this.data = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
         // 给旧数据补齐 targetLibs
@@ -103,13 +110,14 @@ const HotspotModule = {
                 item.targetLibs = this.analyzeTargetLibs(item);
             }
         }
-        // 尝试加载远程抓取数据
+        // 尝试加载远程抓取数据（只加载一次，不重复抓取）
         this.loadRemote();
     },
 
     // 加载自动抓取的热点数据文件
     loadRemote: function() {
-        fetch('js/data/hot-topics.json')
+        // 加上时间戳防止缓存
+        fetch('js/data/hot-topics.json?t=' + Date.now())
             .then(r => {
                 if (!r.ok) throw new Error('Not found');
                 return r.json();
@@ -117,6 +125,7 @@ const HotspotModule = {
             .then(json => {
                 if (json && json.items) {
                     this.remoteData = json.items;
+                    this.lastUpdate = json.lastUpdate || '';
                     // 合并远程数据到本地（去重）
                     this.mergeRemote(json.items, json.lastUpdate || '');
                     // 只有当前还在热点页面时才重新渲染，避免覆盖其他模块
@@ -252,8 +261,11 @@ const HotspotModule = {
     },
 
     refresh: function() {
-        showToast('正在刷新热点数据...', 'info');
-        this.loadRemote();
+        showToast('正在重新加载热点数据...', 'info');
+        this._initialized = false;
+        this.data = [];
+        this.selected.clear();
+        this.init();
     },
 
     // 获取筛选后的数据
@@ -296,8 +308,28 @@ const HotspotModule = {
         return Array.from(set);
     },
 
+    // 检测重复热点（标题相同或高度相似）
+    findDuplicates: function() {
+        const groups = {};
+        for (let i = 0; i < this.data.length; i++) {
+            const title = (this.data[i].title || '').trim();
+            if (!title) continue;
+            // 用标题前15字作为分组key
+            const key = title.substring(0, 15);
+            if (!groups[key]) groups[key] = [];
+            groups[key].push(i);
+        }
+        const dupIndices = new Set();
+        for (const key in groups) {
+            if (groups[key].length > 1) {
+                groups[key].forEach(idx => dupIndices.add(idx));
+            }
+        }
+        return dupIndices;
+    },
+
     render: function() {
-        if (!this.data.length) this.init();
+        if (!this._initialized) this.init();
         const content = document.getElementById('contentArea');
         const platforms = this.getPlatforms();
         const types = this.getTypes();
@@ -305,6 +337,8 @@ const HotspotModule = {
         const autoCount = this.data.filter(d => d.source === 'auto').length;
         const manualCount = this.data.filter(d => d.source !== 'auto').length;
         const importedCount = this.data.filter(d => d.imported).length;
+        const dupIndices = this.findDuplicates();
+        const selectedCount = this.selected.size;
 
         let html = `
         <div class="hotspot-module">
@@ -325,7 +359,13 @@ const HotspotModule = {
                     <span class="hs-stat-num">${importedCount}</span>
                     <span class="hs-stat-label">已入库</span>
                 </div>
+                ${dupIndices.size > 0 ? `<div class="hs-stat" style="background:#fff3cd;"><span class="hs-stat-num" style="color:#856404;">${dupIndices.size}</span><span class="hs-stat-label">疑似重复</span></div>` : ''}
                 ${this.lastUpdate ? `<div class="hs-stat"><span class="hs-stat-num" style="font-size:14px;">${this.lastUpdate}</span><span class="hs-stat-label">最近抓取</span></div>` : ''}
+            </div>
+
+            <div class="hs-info-bar">
+                <span class="hs-info-icon">ℹ️</span>
+                <span>数据来源：自动抓取任务每天 8:00 / 20:00 执行，写入 hot-topics.json 后自动合并到本地。<b>打开页面不会重新抓取</b>，只会加载已有数据。点「🔄 刷新」可重新加载。</span>
             </div>
 
             <div class="hs-toolbar">
@@ -341,8 +381,10 @@ const HotspotModule = {
                     ${types.map(t => `<option value="${t}" ${this.filters.type===t?'selected':''}>${t}</option>`).join('')}
                 </select>
                 <button class="btn btn-primary" onclick="HotspotModule.openEditor()">+ 手动新增</button>
-                <button class="btn btn-secondary" onclick="HotspotModule.refresh()">🔄 刷新抓取</button>
+                <button class="btn btn-secondary" onclick="HotspotModule.refresh()">🔄 刷新数据</button>
                 <button class="btn btn-success" onclick="HotspotModule.batchImport()">📥 批量入库</button>
+                ${selectedCount > 0 ? `<button class="btn btn-danger" onclick="HotspotModule.batchDeleteSelected()">🗑️ 删除选中(${selectedCount})</button>` : ''}
+                ${dupIndices.size > 0 ? `<button class="btn btn-warning" onclick="HotspotModule.selectDuplicates()">⚠️ 选中${dupIndices.size}条重复</button>` : ''}
             </div>
 
             <div id="hsList"></div>
@@ -356,6 +398,7 @@ const HotspotModule = {
         const wrap = document.getElementById('hsList');
         if (!wrap) return;
         const items = this.getFiltered();
+        const dupIndices = this.findDuplicates();
 
         if (items.length === 0) {
             wrap.innerHTML = `<div style="text-align:center;padding:60px;color:var(--text-light);">
@@ -366,12 +409,20 @@ const HotspotModule = {
             return;
         }
 
-        let html = '<div class="hs-card-list">';
+        // 全选 checkbox
+        let html = '<div class="hs-batch-header">';
+        html += `<label class="hs-select-all"><input type="checkbox" onchange="HotspotModule.toggleSelectAll(this.checked)" ${this.selected.size === items.length && items.length > 0 ? 'checked' : ''}> 全选</label>`;
+        html += `<span style="color:var(--text-light);font-size:13px;">显示 ${items.length} / ${this.data.length} 条</span>`;
+        html += '</div>';
+
+        html += '<div class="hs-card-list">';
         for (let i = 0; i < items.length; i++) {
             const item = items[i];
             const realIdx = this.data.indexOf(item);
             const platformIcon = this.getPlatformIcon(item.platform);
             const heatBar = item.heat ? `<div class="hs-heat"><span class="hs-heat-label">热度</span><div class="hs-heat-bar"><div class="hs-heat-fill" style="width:${Math.min(item.heat, 100)}%"></div></div><span class="hs-heat-val">${item.heat || '—'}</span></div>` : '';
+            const isDup = dupIndices.has(realIdx);
+            const isSelected = this.selected.has(realIdx);
 
             // 多库标签展示
             const targetLibs = item.targetLibs || [];
@@ -383,37 +434,53 @@ const HotspotModule = {
 
             // 主要推荐库
             const primaryLib = targetLibs.find(t => t.checked) || targetLibs[0];
-            const primaryBtn = primaryLib ? `📥 入 ${primaryLib.libId}` : '📥 入库';
+            const primaryBtn = item.imported
+                ? `<button class="btn btn-sm btn-secondary" disabled>✅ 已入库</button>`
+                : (primaryLib ? `<button class="btn btn-sm btn-success" onclick="HotspotModule.openMultiImport(${realIdx})">📥 入 ${primaryLib.libId}</button>` : '📥 入库');
+
+            // 原文链接
+            const urlLink = item.url
+                ? `<a href="${escapeAttr(item.url)}" target="_blank" class="hs-source-link" title="查看原文">🔗 原文链接</a>`
+                : (item.sourceUrl
+                    ? `<a href="${escapeAttr(item.sourceUrl)}" target="_blank" class="hs-source-link" title="查看原文">🔗 原文链接</a>`
+                    : '');
 
             html += `
-            <div class="hs-card ${item.imported ? 'imported' : ''} ${item.source === 'auto' ? 'auto' : 'manual'}">
-                <div class="hs-card-header">
-                    <span class="hs-platform">${platformIcon} ${item.platform || '未知'}</span>
-                    <span class="hs-category">${item.category || item.type || '未分类'}</span>
-                    ${item.source === 'auto' ? '<span class="hs-source-badge">🤖 自动</span>' : '<span class="hs-source-badge manual">✍️ 手动</span>'}
-                    ${item.imported ? '<span class="hs-imported-badge">✅ 已入库</span>' : ''}
+            <div class="hs-card ${item.imported ? 'imported' : ''} ${item.source === 'auto' ? 'auto' : 'manual'} ${isDup ? 'duplicate' : ''} ${isSelected ? 'selected' : ''}">
+                <div class="hs-card-select">
+                    <input type="checkbox" ${isSelected ? 'checked' : ''} onchange="HotspotModule.toggleSelect(${realIdx}, this.checked)">
                 </div>
-                <div class="hs-card-title">${escapeHtml(item.title || '无标题')}</div>
-                <div class="hs-card-content">${escapeHtml((item.content || '').substring(0, 200))}${(item.content || '').length > 200 ? '...' : ''}</div>
-                ${item.tags && item.tags.length ? `<div class="hs-card-tags">${item.tags.map(t => `<span class="hs-tag">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
-                ${libTags ? `<div class="hs-lib-tags"><span class="hs-lib-tags-label">可入库角度：</span>${libTags}</div>` : ''}
-                ${heatBar}
-                ${item.comments && item.comments.length ? `
-                <div class="hs-comments">
-                    <div class="hs-comments-title">💬 高赞评论 (${item.comments.length})</div>
-                    ${item.comments.slice(0, 3).map(c => `
-                        <div class="hs-comment">
-                            <span class="hs-comment-text">"${escapeHtml(c.text || c.content || '')}"</span>
-                            <span class="hs-comment-likes">👍 ${c.likes || 0}</span>
+                <div class="hs-card-body">
+                    <div class="hs-card-header">
+                        <span class="hs-platform">${platformIcon} ${item.platform || '未知'}</span>
+                        <span class="hs-category">${item.category || item.type || '未分类'}</span>
+                        ${item.source === 'auto' ? '<span class="hs-source-badge">🤖 自动</span>' : '<span class="hs-source-badge manual">✍️ 手动</span>'}
+                        ${item.imported ? '<span class="hs-imported-badge">✅ 已入库</span>' : ''}
+                        ${isDup ? '<span class="hs-dup-badge">⚠️ 疑似重复</span>' : ''}
+                    </div>
+                    <div class="hs-card-title">${escapeHtml(item.title || '无标题')}</div>
+                    <div class="hs-card-content">${escapeHtml((item.content || '').substring(0, 200))}${(item.content || '').length > 200 ? '...' : ''}</div>
+                    ${urlLink}
+                    ${item.tags && item.tags.length ? `<div class="hs-card-tags">${item.tags.map(t => `<span class="hs-tag">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+                    ${libTags ? `<div class="hs-lib-tags"><span class="hs-lib-tags-label">可入库角度：</span>${libTags}</div>` : ''}
+                    ${heatBar}
+                    ${item.comments && item.comments.length ? `
+                    <div class="hs-comments">
+                        <div class="hs-comments-title">💬 高赞评论 (${item.comments.length})</div>
+                        ${item.comments.slice(0, 3).map(c => `
+                            <div class="hs-comment">
+                                <span class="hs-comment-text">"${escapeHtml(c.text || c.content || '')}"</span>
+                                <span class="hs-comment-likes">👍 ${c.likes || 0}</span>
+                            </div>
+                        `).join('')}
+                    </div>` : ''}
+                    <div class="hs-card-footer">
+                        <span class="hs-time">${item.time || item.createdAt || ''}</span>
+                        <div class="hs-actions">
+                            <button class="btn btn-sm btn-success" onclick="HotspotModule.openMultiImport(${realIdx})">${item.imported ? '🔄 重新入库' : (primaryLib ? '📥 入 ' + primaryLib.libId : '📥 入库')}</button>
+                            <button class="btn btn-sm btn-secondary" onclick="HotspotModule.openEditor(${realIdx})">编辑</button>
+                            <button class="btn btn-sm btn-danger" onclick="HotspotModule.delete(${realIdx})">删除</button>
                         </div>
-                    `).join('')}
-                </div>` : ''}
-                <div class="hs-card-footer">
-                    <span class="hs-time">${item.time || item.createdAt || ''}</span>
-                    <div class="hs-actions">
-                        <button class="btn btn-sm btn-success" onclick="HotspotModule.openMultiImport(${realIdx})">${primaryBtn}</button>
-                        <button class="btn btn-sm btn-secondary" onclick="HotspotModule.openEditor(${realIdx})">编辑</button>
-                        <button class="btn btn-sm btn-danger" onclick="HotspotModule.delete(${realIdx})">删除</button>
                     </div>
                 </div>
             </div>`;
@@ -424,6 +491,100 @@ const HotspotModule = {
         html += `<div style="text-align:center;padding:16px;color:var(--text-light);font-size:13px;">显示 ${items.length} / ${this.data.length} 条热点</div>`;
 
         wrap.innerHTML = html;
+    },
+
+    // 切换单个选择
+    toggleSelect: function(idx, checked) {
+        if (checked) {
+            this.selected.add(idx);
+        } else {
+            this.selected.delete(idx);
+        }
+        // 更新工具栏的选中计数（不重新渲染整个列表，只更新按钮文字）
+        this.updateSelectionUI();
+    },
+
+    // 全选/取消全选
+    toggleSelectAll: function(checked) {
+        const items = this.getFiltered();
+        if (checked) {
+            for (const item of items) {
+                const realIdx = this.data.indexOf(item);
+                this.selected.add(realIdx);
+            }
+        } else {
+            this.selected.clear();
+        }
+        this.renderList();
+    },
+
+    // 选中所有重复项
+    selectDuplicates: function() {
+        const dupIndices = this.findDuplicates();
+        // 对每组重复，保留第一条（最早的），选中其余的
+        const groups = {};
+        const indices = Array.from(dupIndices).sort((a, b) => a - b);
+        for (const idx of indices) {
+            const title = (this.data[idx].title || '').trim().substring(0, 15);
+            if (!groups[title]) groups[title] = [];
+            groups[title].push(idx);
+        }
+        for (const title in groups) {
+            // 保留第一条，选中其余
+            for (let i = 1; i < groups[title].length; i++) {
+                this.selected.add(groups[title][i]);
+            }
+        }
+        showToast(`已选中 ${this.selected.size} 条重复热点（每组保留最早一条）`, 'info');
+        this.render();
+    },
+
+    // 更新选择UI（不重新渲染列表）
+    updateSelectionUI: function() {
+        // 更新全选checkbox
+        const selectAllCb = document.querySelector('.hs-select-all input');
+        if (selectAllCb) {
+            const items = this.getFiltered();
+            const allSelected = items.length > 0 && items.every(item => this.selected.has(this.data.indexOf(item)));
+            selectAllCb.checked = allSelected;
+        }
+        // 更新或显示删除按钮
+        const toolbar = document.querySelector('.hs-toolbar');
+        if (!toolbar) return;
+        let btn = document.getElementById('hs-batch-del-btn');
+        if (this.selected.size > 0) {
+            if (!btn) {
+                btn = document.createElement('button');
+                btn.id = 'hs-batch-del-btn';
+                btn.className = 'btn btn-danger';
+                btn.onclick = () => this.batchDeleteSelected();
+                toolbar.appendChild(btn);
+            }
+            btn.textContent = `🗑️ 删除选中(${this.selected.size})`;
+        } else if (btn) {
+            btn.remove();
+        }
+    },
+
+    // 批量删除选中
+    batchDeleteSelected: function() {
+        if (this.selected.size === 0) {
+            showToast('请先选择要删除的热点', 'info');
+            return;
+        }
+        const count = this.selected.size;
+        if (!confirm(`确定删除选中的 ${count} 条热点吗？此操作不可撤销。`)) return;
+
+        // 从大到小排序删除，避免索引偏移
+        const indices = Array.from(this.selected).sort((a, b) => b - a);
+        for (const idx of indices) {
+            this.data.splice(idx, 1);
+        }
+        this.selected.clear();
+        this.save();
+        showToast(`已删除 ${count} 条热点`, 'success');
+        this.render();
+        renderNav();
     },
 
     getPlatformIcon: function(platform) {
@@ -439,6 +600,13 @@ const HotspotModule = {
     openMultiImport: function(idx) {
         const item = this.data[idx];
         if (!item) return;
+
+        // 防重复入库提示
+        if (item.imported) {
+            if (!confirm('该热点已入库，确定要再次入库吗？这会在素材库中创建重复条目。')) {
+                return;
+            }
+        }
 
         // 确保有分析结果
         if (!item.targetLibs || !item.targetLibs.length) {
@@ -485,7 +653,8 @@ const HotspotModule = {
         modalBody.innerHTML = `
             <div class="hs-mi-header">
                 <div class="hs-mi-source-title">${escapeHtml(item.title || '')}</div>
-                <div class="hs-mi-source-meta">${item.platform || ''} · 热度 ${item.heat || '—'}</div>
+                <div class="hs-mi-source-meta">${item.platform || ''} · 热度 ${item.heat || '—'}${item.imported ? ' · ⚠️ 已入库过' : ''}</div>
+                ${item.url || item.sourceUrl ? `<a href="${escapeAttr(item.url || item.sourceUrl)}" target="_blank" class="hs-source-link">🔗 查看原文</a>` : ''}
             </div>
             <div class="hs-mi-list">
                 ${rows || '<div style="padding:20px;text-align:center;color:var(--text-light);">暂无推荐入库角度</div>'}
@@ -838,7 +1007,7 @@ const HotspotModule = {
         const isEdit = idx !== undefined && idx !== null;
         const item = isEdit ? this.data[idx] : {
             title: '', content: '', platform: '', category: '热梗',
-            tags: [], heat: 50, source: 'manual', comments: [], targetLibs: []
+            tags: [], heat: 50, source: 'manual', comments: [], targetLibs: [], url: ''
         };
 
         // 确保编辑时有分析结果
@@ -892,6 +1061,10 @@ const HotspotModule = {
                     </div>
                 </div>
                 <div class="form-group" style="grid-column:1/-1;">
+                    <label>原文链接 URL</label>
+                    <input type="text" id="hs-url" value="${escapeAttr(item.url || item.sourceUrl || '')}" placeholder="https://...  （可选，方便回溯原文）">
+                </div>
+                <div class="form-group" style="grid-column:1/-1;">
                     <label>内容详情</label>
                     <textarea id="hs-content" rows="5" placeholder="热点内容、故事梗概、改编方向等">${escapeHtml(item.content || '')}</textarea>
                 </div>
@@ -927,6 +1100,7 @@ const HotspotModule = {
         const content = document.getElementById('hs-content').value.trim();
         const tagsStr = document.getElementById('hs-tags').value.trim();
         const commentsStr = document.getElementById('hs-comments').value.trim();
+        const url = document.getElementById('hs-url').value.trim();
 
         if (!title) { showToast('请输入标题', 'warning'); return; }
 
@@ -944,7 +1118,7 @@ const HotspotModule = {
 
         const item = {
             id: isEdit ? baseItem.id : ('hot_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6)),
-            title, platform, category, heat, content, tags, comments,
+            title, platform, category, heat, content, tags, comments, url,
             source: isEdit ? baseItem.source : 'manual',
             imported: isEdit ? baseItem.imported : false,
             time: isEdit ? baseItem.time : new Date().toISOString().slice(0, 16).replace('T', ' '),
@@ -982,6 +1156,14 @@ const HotspotModule = {
         if (!item) return;
         if (confirm(`确定删除 "${item.title}" 吗？`)) {
             this.data.splice(idx, 1);
+            this.selected.delete(idx);
+            // 修正选中索引（删除后后面的索引前移）
+            const newSelected = new Set();
+            for (const selIdx of this.selected) {
+                if (selIdx > idx) newSelected.add(selIdx - 1);
+                else newSelected.add(selIdx);
+            }
+            this.selected = newSelected;
             this.save();
             showToast('已删除', 'success');
             this.render();
@@ -995,6 +1177,7 @@ const HotspotModule = {
         if (imported.length === 0) { showToast('没有已入库的热点', 'info'); return; }
         if (confirm(`确定清除 ${imported.length} 条已入库热点？（不会影响已导入素材库的数据）`)) {
             this.data = this.data.filter(d => !d.imported);
+            this.selected.clear();
             this.save();
             showToast('已清除', 'success');
             this.render();
