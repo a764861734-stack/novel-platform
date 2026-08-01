@@ -1366,6 +1366,53 @@ body {
 .hs-time { font-size: 11px; color: var(--text-light); }
 .hs-actions { display: flex; gap: 4px; }
 
+/* 多库标签 */
+.hs-lib-tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0; padding: 8px; background: var(--bg-input); border-radius: var(--radius-sm); }
+.hs-lib-tags-label { font-size: 12px; color: var(--text-light); white-space: nowrap; }
+.hs-lib-tag { font-size: 11px; padding: 3px 8px; border-radius: 10px; background: rgba(100,116,139,0.1); color: var(--text-secondary); border: 1px solid transparent; cursor: help; }
+.hs-lib-tag.checked { background: rgba(34,197,94,0.12); color: var(--success); border-color: rgba(34,197,94,0.3); }
+.hs-lib-tag small { opacity: 0.7; margin-left: 2px; }
+
+/* 多库入库弹窗 */
+.hs-mi-header { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border-light); }
+.hs-mi-source-title { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.hs-mi-source-meta { font-size: 12px; color: var(--text-light); }
+.hs-mi-list { display: flex; flex-direction: column; gap: 8px; max-height: 420px; overflow-y: auto; padding-right: 4px; }
+.hs-mi-row { display: flex; gap: 10px; padding: 10px; border: 1px solid var(--border-light); border-radius: var(--radius-md); cursor: pointer; transition: all 0.15s; background: var(--bg-card); }
+.hs-mi-row:hover { border-color: var(--primary); background: rgba(99,102,241,0.04); }
+.hs-mi-row.checked { border-color: var(--success); background: rgba(34,197,94,0.06); }
+.hs-mi-check { padding-top: 2px; }
+.hs-mi-info { flex: 1; min-width: 0; }
+.hs-mi-title { display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.hs-mi-icon { font-size: 14px; }
+.hs-mi-confidence { font-size: 11px; padding: 1px 6px; border-radius: 8px; background: var(--bg-input); color: var(--text-light); font-weight: 500; }
+.hs-mi-reason { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
+.hs-mi-preview { background: var(--bg-input); border-radius: var(--radius-sm); padding: 8px; font-size: 11px; line-height: 1.5; }
+.hs-mi-preview-line { color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hs-mi-preview-line b { color: var(--text-primary); font-weight: 500; }
+.hs-mi-add { display: flex; gap: 8px; align-items: center; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-light); }
+.hs-mi-add label { font-size: 13px; color: var(--text-secondary); white-space: nowrap; }
+.hs-mi-add select { flex: 1; padding: 6px 10px; border: 1px solid var(--border-light); border-radius: var(--radius-sm); background: var(--bg-input); font-size: 13px; }
+.hs-mi-tip { font-size: 12px; color: var(--text-light); margin-top: 10px; }
+
+/* 编辑热点 - 可入库角度选择 */
+.hs-editor-libs { display: flex; flex-wrap: wrap; gap: 8px; }
+.hs-editor-lib { display: flex; align-items: center; gap: 4px; padding: 5px 10px; border: 1px solid var(--border-light); border-radius: 16px; cursor: pointer; font-size: 12px; color: var(--text-secondary); background: var(--bg-card); transition: all 0.15s; }
+.hs-editor-lib:hover { border-color: var(--primary); }
+.hs-editor-lib.checked { border-color: var(--success); background: rgba(34,197,94,0.08); color: var(--success); }
+.hs-editor-lib input { cursor: pointer; }
+
+/* 批量入库确认 */
+.hs-batch-summary { background: var(--bg-input); border-radius: var(--radius-md); padding: 14px; margin-bottom: 14px; }
+.hs-batch-count { font-size: 16px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
+.hs-batch-tip { font-size: 12px; color: var(--text-light); margin-bottom: 10px; }
+.hs-batch-stats { display: flex; flex-wrap: wrap; gap: 8px; }
+.hs-batch-stat { display: flex; justify-content: space-between; gap: 16px; flex: 1; min-width: 140px; padding: 8px 12px; background: var(--bg-card); border-radius: var(--radius-sm); font-size: 13px; }
+.hs-batch-num { font-weight: 600; color: var(--primary); }
+.hs-batch-list { max-height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; }
+.hs-batch-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: var(--bg-card); border-radius: var(--radius-sm); font-size: 12px; border-left: 3px solid var(--border-light); }
+.hs-batch-item span { color: var(--text-light); white-space: nowrap; margin-left: 8px; }
+
 /* 批量导入引导 */
 .batch-import-guide { padding: 8px 0; }
 .batch-import-guide code { background: var(--bg-input); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
