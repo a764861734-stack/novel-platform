@@ -639,11 +639,11 @@ const HotspotModule = {
                 ? `<button class="btn btn-sm btn-secondary" disabled>✅ 已入库</button>`
                 : (primaryLib ? `<button class="btn btn-sm btn-success" onclick="HotspotModule.openMultiImport(${realIdx})">📥 入 ${primaryLib.libId}</button>` : '📥 入库');
 
-            const urlLink = item.url
-                ? `<a href="${escapeAttr(item.url)}" target="_blank" class="hs-source-link" title="查看原文">🔗 原文链接</a>`
-                : (item.sourceUrl
-                    ? `<a href="${escapeAttr(item.sourceUrl)}" target="_blank" class="hs-source-link" title="查看原文">🔗 原文链接</a>`
-                    : '');
+            const sourceUrl = this.getSourceUrl(item);
+            const hasRealUrl = !!(item.url || item.sourceUrl);
+            const urlLink = sourceUrl
+                ? `<a href="${escapeAttr(sourceUrl)}" target="_blank" rel="noopener" class="hs-source-link" title="${hasRealUrl ? '查看原文' : '在' + (item.platform || '百度') + '搜索此热点'}">${hasRealUrl ? '🔗 查看原文' : '🔍 在' + (item.platform || '百度') + '搜索'}</a>`
+                : '';
 
             html += `
             <div class="hs-card ${item.imported ? 'imported' : ''} ${item.source === 'auto' ? 'auto' : 'manual'} ${isDup ? 'duplicate' : ''} ${isSelected ? 'selected' : ''}">
@@ -652,7 +652,7 @@ const HotspotModule = {
                 </div>
                 <div class="hs-card-body">
                     <div class="hs-card-header">
-                        <span class="hs-platform">${platformIcon} ${item.platform || '未知'}</span>
+                        <a href="${escapeAttr(sourceUrl)}" target="_blank" rel="noopener" class="hs-platform-link" title="点击在${item.platform || '百度'}搜索">${platformIcon} ${item.platform || '未知'}</a>
                         <span class="hs-category">${item.category || item.type || '未分类'}</span>
                         ${item.source === 'auto' ? '<span class="hs-source-badge">🤖 自动</span>' : '<span class="hs-source-badge manual">✍️ 手动</span>'}
                         ${item.imported ? '<span class="hs-imported-badge">✅ 已入库</span>' : '<span class="hs-unimported-badge">⬜ 未入库</span>'}
@@ -1033,6 +1033,30 @@ const HotspotModule = {
         return icons[platform] || '📌';
     },
 
+    // 根据平台和标题生成搜索链接（用于没有具体url的热点）
+    getSourceUrl: function(item) {
+        // 优先使用已有url
+        if (item.url) return item.url;
+        if (item.sourceUrl) return item.sourceUrl;
+        // 没有url，根据平台生成搜索链接
+        const title = encodeURIComponent(item.title || '');
+        if (!title) return '';
+        const platform = item.platform || '';
+        const searchUrls = {
+            '微博': 'https://s.weibo.com/weibo?q=' + title,
+            '知乎': 'https://www.zhihu.com/search?type=content&q=' + title,
+            '小红书': 'https://www.xiaohongshu.com/search_result?keyword=' + title,
+            '抖音': 'https://www.douyin.com/search/' + title,
+            '今日头条': 'https://so.toutiao.com/search?keyword=' + title,
+            'B站': 'https://search.bilibili.com/all?keyword=' + title,
+            '豆瓣': 'https://www.douban.com/search?q=' + title,
+            '快手': 'https://www.kuaishou.com/search/video?searchKey=' + title,
+            '百度': 'https://www.baidu.com/s?wd=' + title,
+            '腾讯新闻': 'https://www.so.com/s?q=' + title
+        };
+        return searchUrls[platform] || ('https://www.baidu.com/s?wd=' + title);
+    },
+
     openMultiImport: function(idx) {
         const item = this.data[idx];
         if (!item) return;
@@ -1082,7 +1106,7 @@ const HotspotModule = {
                 <div class="hs-mi-source-title">${escapeHtml(item.title || '')}</div>
                 <div class="hs-mi-source-meta">${item.platform || ''} · 热度 ${item.heat || '—'}${item.imported ? ' · ✅ 已入库' : ' · ⬜ 未入库'}</div>
                 ${item.imported && item.importedLibs && item.importedLibs.length ? `<div class="hs-mi-imported-info">已入库到：${item.importedLibs.map(libId => { const lib = SCHEMA.getLibrary(libId); return `${lib ? lib.icon : '📌'} ${libId}`; }).join('、')}</div>` : ''}
-                ${item.url || item.sourceUrl ? `<a href="${escapeAttr(item.url || item.sourceUrl)}" target="_blank" class="hs-source-link">🔗 查看原文</a>` : ''}
+                ${(() => { const su = this.getSourceUrl(item); const hasReal = !!(item.url || item.sourceUrl); return su ? `<a href="${escapeAttr(su)}" target="_blank" rel="noopener" class="hs-source-link">${hasReal ? '🔗 查看原文' : '🔍 在' + (item.platform || '百度') + '搜索'}</a>` : ''; })()}
             </div>
             <div class="hs-mi-list">${rows || '<div style="padding:20px;text-align:center;color:var(--text-light);">暂无推荐入库角度</div>'}</div>
             <div class="hs-mi-add">
@@ -1331,7 +1355,9 @@ const HotspotModule = {
             <div class="hs-batch-list">
                 ${unimported.map((item, i) => {
                     const libs = (item.targetLibs || []).filter(t => t.checked).map(t => t.libId).join('、') || '无';
-                    return `<div class="hs-batch-item"><b>${escapeHtml(item.title || '无标题')}</b><span>→ ${libs}</span></div>`;
+                    const su = this.getSourceUrl(item);
+                    const linkHtml = su ? ` <a href="${escapeAttr(su)}" target="_blank" rel="noopener" class="hs-source-link" style="font-size:12px;">${item.url || item.sourceUrl ? '🔗原文' : '🔍搜索'}</a>` : '';
+                    return `<div class="hs-batch-item"><b>${escapeHtml(item.title || '无标题')}</b>${linkHtml}<span>→ ${libs}</span></div>`;
                 }).join('')}
             </div>
         `;
