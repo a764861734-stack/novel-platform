@@ -103,6 +103,10 @@ function navigateTo(pageId) {
         pageTitle.textContent = '故事控制器';
         topActions.innerHTML = '';
         Controller.render();
+    } else if (pageId === 'inspiration') {
+        pageTitle.textContent = '💡 灵感收纳库';
+        topActions.innerHTML = `<button class="btn btn-primary" onclick="Inspiration.openQuickAdd()">💡 快速记录</button><button class="btn btn-secondary" onclick="Inspiration.openDetailAdd()">📝 新建完整</button>`;
+        Inspiration.render();
     } else if (SCHEMA.libraries[pageId]) {
         const lib = SCHEMA.getLibrary(pageId);
         pageTitle.textContent = `${lib.icon} ${pageId}`;
@@ -172,6 +176,11 @@ function renderDashboard() {
             <div class="stat-icon">🎮</div>
             <div class="stat-value">${(Store.getStoryLines() || []).length}</div>
             <div class="stat-label">故事线素材</div>
+        </div>
+        <div class="stat-card" style="border-left-color:var(--accent);" onclick="navigateTo('inspiration')">
+            <div class="stat-icon">💡</div>
+            <div class="stat-value">${(Store.getInspirations() || []).length}</div>
+            <div class="stat-label">灵感收纳</div>
         </div>
         <div class="stat-card" style="border-left-color:var(--info);">
             <div class="stat-icon">📚</div>
@@ -1103,7 +1112,7 @@ function exportAllData() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `清钰创作平台_数据备份_${new Date().toISOString().slice(0,10)}.json`;
+    a.download = `章屿の渡星屿_数据备份_${new Date().toISOString().slice(0,10)}.json`;
     a.click();
     URL.revokeObjectURL(url);
     showToast('数据已导出', 'success');
