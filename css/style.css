@@ -1516,7 +1516,7 @@ body {
 .hs-card { background: var(--bg-card); border-radius: var(--radius-md); padding: 16px; box-shadow: var(--shadow-sm); border-left: 3px solid var(--border-light); transition: border-color 0.2s; display: flex; gap: 12px; }
 .hs-card.auto { border-left-color: var(--info); }
 .hs-card.manual { border-left-color: var(--accent); }
-.hs-card.imported { opacity: 0.75; }
+.hs-card.imported { opacity: 0.85; border-left: 3px solid var(--success); }
 .hs-card.duplicate { border-left-color: #f59e0b; background: rgba(245,158,11,0.04); }
 .hs-card.selected { border-color: var(--danger); background: rgba(239,68,68,0.04); }
 .hs-card-select { flex-shrink: 0; padding-top: 2px; }
@@ -1538,7 +1538,12 @@ body {
 .hs-category { font-size: 12px; font-weight: 600; color: var(--primary); background: rgba(99,102,241,0.1); padding: 2px 8px; border-radius: 12px; }
 .hs-source-badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: rgba(59,130,246,0.1); color: var(--info); }
 .hs-source-badge.manual { background: rgba(168,85,247,0.1); color: var(--accent); }
-.hs-imported-badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: rgba(34,197,94,0.1); color: var(--success); }
+.hs-imported-badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: rgba(34,197,94,0.15); color: var(--success); font-weight: 600; }
+.hs-unimported-badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: rgba(59,130,246,0.1); color: var(--info); }
+.hs-imported-libs { margin-bottom: 8px; padding: 6px 10px; background: rgba(34,197,94,0.06); border-radius: 6px; border-left: 3px solid var(--success); }
+.hs-imported-libs-label { font-size: 12px; font-weight: 600; color: var(--success); margin-right: 4px; }
+.hs-imported-lib-tag { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 4px; background: rgba(34,197,94,0.12); color: var(--success); margin-right: 4px; margin-bottom: 2px; font-weight: 500; }
+.hs-mi-imported-info { font-size: 13px; color: var(--success); margin-top: 4px; padding: 6px 10px; background: rgba(34,197,94,0.06); border-radius: 4px; }
 .hs-card-title { font-size: 15px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
 .hs-card-content { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 8px; }
 .hs-card-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
