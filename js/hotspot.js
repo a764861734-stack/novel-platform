@@ -536,7 +536,7 @@ const HotspotModule = {
                     ${Object.entries(this.JJ_TAG_SYSTEM).map(([k,v]) => `<option value="${k}" ${this.filters.jjTag.cat===k?'selected':''}>${v.icon} ${v.label}</option>`).join('')}
                 </select>
                 <select class="filter-select" id="hsJJTagSel" onchange="HotspotModule.filters.jjTag.tag=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()" ${this.filters.jjTag.cat==='all'?'disabled':''}>
-                    <option value="all">标签: 全部</option>
+                    <option value="all">${this.filters.jjTag.cat==='all' ? '标签：请先选择上方「晋江标签」' : '标签: 全部'}</option>
                     ${this.filters.jjTag.cat !== 'all' ? (jjTagOptions[this.filters.jjTag.cat] || []).map(t => `<option value="${t}" ${this.filters.jjTag.tag===t?'selected':''}>${t}</option>`).join('') : ''}
                 </select>
                 <button class="btn btn-primary" onclick="HotspotModule.openEditor()">+ 手动新增</button>
