@@ -14,7 +14,7 @@
 const HotspotModule = {
     data: [],
     remoteData: [],
-    filters: { platform: 'all', type: 'all', keyword: '', jjTag: { cat: 'all', tag: 'all' } },
+    filters: { platform: 'all', type: 'all', keyword: '', jjTag: { cat: 'all', tag: 'all' }, importStatus: 'all' },
     selected: new Set(),
     _initialized: false,
     _loading: false,
@@ -410,6 +410,11 @@ const HotspotModule = {
 
     getFiltered: function() {
         let items = this.data;
+        if (this.filters.importStatus === 'imported') {
+            items = items.filter(i => i.imported);
+        } else if (this.filters.importStatus === 'unimported') {
+            items = items.filter(i => !i.imported);
+        }
         if (this.filters.platform !== 'all') {
             items = items.filter(i => (i.platform || '') === this.filters.platform);
         }
@@ -488,6 +493,7 @@ const HotspotModule = {
         const autoCount = this.data.filter(d => d.source === 'auto').length;
         const manualCount = this.data.filter(d => d.source !== 'auto').length;
         const importedCount = this.data.filter(d => d.imported).length;
+        const unimportedCount = this.data.filter(d => !d.imported).length;
         const dupIndices = this.findDuplicates();
         const selectedCount = this.selected.size;
 
@@ -498,6 +504,7 @@ const HotspotModule = {
                 <div class="hs-stat"><span class="hs-stat-num">${autoCount}</span><span class="hs-stat-label">自动抓取</span></div>
                 <div class="hs-stat"><span class="hs-stat-num">${manualCount}</span><span class="hs-stat-label">手动录入</span></div>
                 <div class="hs-stat"><span class="hs-stat-num">${importedCount}</span><span class="hs-stat-label">已入库</span></div>
+                <div class="hs-stat" style="background:rgba(59,130,246,0.08);"><span class="hs-stat-num" style="color:var(--info);">${unimportedCount}</span><span class="hs-stat-label">待入库</span></div>
                 ${dupIndices.size > 0 ? `<div class="hs-stat" style="background:#fff3cd;"><span class="hs-stat-num" style="color:#856404;">${dupIndices.size}</span><span class="hs-stat-label">疑似重复</span></div>` : ''}
                 ${this.lastUpdate ? `<div class="hs-stat"><span class="hs-stat-num" style="font-size:14px;">${this.lastUpdate}</span><span class="hs-stat-label">最近抓取</span></div>` : ''}
             </div>
@@ -511,6 +518,11 @@ const HotspotModule = {
                 <div class="search-box">
                     <input type="text" id="hsSearch" placeholder="搜索标题/内容/标签/晋江标签..." value="${this.filters.keyword}" oninput="HotspotModule.filters.keyword=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()">
                 </div>
+                <select class="filter-select" onchange="HotspotModule.filters.importStatus=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()">
+                    <option value="all" ${this.filters.importStatus==='all'?'selected':''}>入库状态: 全部</option>
+                    <option value="unimported" ${this.filters.importStatus==='unimported'?'selected':''}>⬜ 未入库</option>
+                    <option value="imported" ${this.filters.importStatus==='imported'?'selected':''}>✅ 已入库</option>
+                </select>
                 <select class="filter-select" onchange="HotspotModule.filters.platform=this.value; HotspotModule.currentPage=1; HotspotModule.renderList()">
                     <option value="all">平台: 全部</option>
                     ${platforms.map(p => `<option value="${p}" ${this.filters.platform===p?'selected':''}>${p}</option>`).join('')}
@@ -643,7 +655,7 @@ const HotspotModule = {
                         <span class="hs-platform">${platformIcon} ${item.platform || '未知'}</span>
                         <span class="hs-category">${item.category || item.type || '未分类'}</span>
                         ${item.source === 'auto' ? '<span class="hs-source-badge">🤖 自动</span>' : '<span class="hs-source-badge manual">✍️ 手动</span>'}
-                        ${item.imported ? '<span class="hs-imported-badge">✅ 已入库</span>' : ''}
+                        ${item.imported ? '<span class="hs-imported-badge">✅ 已入库</span>' : '<span class="hs-unimported-badge">⬜ 未入库</span>'}
                         ${isDup ? '<span class="hs-dup-badge">⚠️ 疑似重复</span>' : ''}
                     </div>
                     <div class="hs-card-title">${escapeHtml(item.title || '无标题')}</div>
@@ -651,6 +663,7 @@ const HotspotModule = {
                     ${urlLink}
                     ${jjTagsHtml}
                     ${item.tags && item.tags.length ? `<div class="hs-card-tags">${item.tags.map(t => `<span class="hs-tag">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
+                    ${item.imported && item.importedLibs && item.importedLibs.length ? `<div class="hs-imported-libs"><span class="hs-imported-libs-label">✅ 已入库到：</span>${item.importedLibs.map(libId => { const lib = SCHEMA.getLibrary(libId); return `<span class="hs-imported-lib-tag">${lib ? lib.icon : '📌'} ${libId}</span>`; }).join('')}</div>` : ''}
                     ${libTags ? `<div class="hs-lib-tags"><span class="hs-lib-tags-label">可入库角度：</span>${libTags}</div>` : ''}
                     ${heatBar}
                     ${item.comments && item.comments.length ? `
@@ -1067,7 +1080,8 @@ const HotspotModule = {
         modalBody.innerHTML = `
             <div class="hs-mi-header">
                 <div class="hs-mi-source-title">${escapeHtml(item.title || '')}</div>
-                <div class="hs-mi-source-meta">${item.platform || ''} · 热度 ${item.heat || '—'}${item.imported ? ' · ⚠️ 已入库过' : ''}</div>
+                <div class="hs-mi-source-meta">${item.platform || ''} · 热度 ${item.heat || '—'}${item.imported ? ' · ✅ 已入库' : ' · ⬜ 未入库'}</div>
+                ${item.imported && item.importedLibs && item.importedLibs.length ? `<div class="hs-mi-imported-info">已入库到：${item.importedLibs.map(libId => { const lib = SCHEMA.getLibrary(libId); return `${lib ? lib.icon : '📌'} ${libId}`; }).join('、')}</div>` : ''}
                 ${item.url || item.sourceUrl ? `<a href="${escapeAttr(item.url || item.sourceUrl)}" target="_blank" class="hs-source-link">🔗 查看原文</a>` : ''}
             </div>
             <div class="hs-mi-list">${rows || '<div style="padding:20px;text-align:center;color:var(--text-light);">暂无推荐入库角度</div>'}</div>
@@ -1132,6 +1146,10 @@ const HotspotModule = {
                     goldenCount++;
                 }
             }
+        }
+        if (!item.importedLibs) item.importedLibs = [];
+        for (const t of selected) {
+            if (!item.importedLibs.includes(t.libId)) item.importedLibs.push(t.libId);
         }
         item.imported = true;
         this.save();
@@ -1348,6 +1366,10 @@ const HotspotModule = {
                     }
                 }
             }
+            if (!item.importedLibs) item.importedLibs = [];
+            for (const t of selected) {
+                if (!item.importedLibs.includes(t.libId)) item.importedLibs.push(t.libId);
+            }
             item.imported = true;
         }
         this.save();
@@ -1494,6 +1516,7 @@ const HotspotModule = {
             title, platform, category, heat, content, tags, comments, url, jjTags,
             source: isEdit ? baseItem.source : 'manual',
             imported: isEdit ? baseItem.imported : false,
+            importedLibs: isEdit ? (baseItem.importedLibs || []) : [],
             time: isEdit ? baseItem.time : new Date().toISOString().slice(0, 16).replace('T', ' '),
             createdAt: isEdit ? baseItem.createdAt : new Date().toISOString()
         };
