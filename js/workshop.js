@@ -809,6 +809,22 @@ const MaintenanceModule = {
         html += '<div id="ma-recent-list"></div>';
         html += '</div>';
 
+        // ====== 重复素材筛查 ======
+        html += '<div class="ma-dup-section"><h3>🔍 重复素材筛查</h3>';
+        html += '<div class="ma-recent-toolbar">';
+        html += '<select id="ma-dup-lib-filter" class="filter-select">';
+        html += '<option value="all">全部库</option>';
+        for (const libId of SCHEMA.getLibraryIds()) {
+            html += `<option value="${libId}">${libId}</option>`;
+        }
+        html += '</select>';
+        html += '<button class="btn btn-sm btn-warning" onclick="MaintenanceModule.scanDuplicates()">🔍 扫描重复</button>';
+        html += '<button class="btn btn-sm btn-danger" onclick="MaintenanceModule.batchDeleteDuplicates()" id="ma-dup-delete-btn" style="display:none;">🗑 删除选中重复</button>';
+        html += '<span style="font-size:12px;color:var(--text-light);margin-left:auto;" id="ma-dup-count"></span>';
+        html += '</div>';
+        html += '<div id="ma-dup-result"></div>';
+        html += '</div>';
+
         // ====== 任务清单 ======
         html += '<div class="ma-tasks-section"><h3>📋 维护任务清单</h3>';
 
