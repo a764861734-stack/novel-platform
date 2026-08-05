@@ -245,27 +245,61 @@ const HotspotModule = {
 
     mergeRemote: function(remoteItems, lastUpdate) {
         let newCount = 0;
+        let updateCount = 0;
         for (const item of remoteItems) {
-            const sig = (item.title || '') + (item.content || '').substring(0, 50);
-            const exists = this.data.some(d => {
-                const dSig = (d.title || '') + (d.content || '').substring(0, 50);
-                return dSig === sig;
+            // 规范化签名：去除空白、取标题+内容前80字符，提高匹配率
+            const normTitle = (item.title || '').replace(/\s+/g, '').trim();
+            const normContent = (item.content || '').replace(/\s+/g, '').substring(0, 80);
+            const sig = normTitle + '|' + normContent;
+
+            const existIdx = this.data.findIndex(d => {
+                const dNormTitle = (d.title || '').replace(/\s+/g, '').trim();
+                const dNormContent = (d.content || '').replace(/\s+/g, '').substring(0, 80);
+                const dSig = dNormTitle + '|' + dNormContent;
+                return dSig === sig || (normTitle && dNormTitle === normTitle);
             });
-            if (!exists) {
+
+            if (existIdx === -1) {
+                // 新热点
                 item.source = 'auto';
                 item.imported = false;
+                item.importedLibs = [];
                 item.id = item.id || ('hot_' + Date.now() + '_' + Math.random().toString(36).substr(2, 6));
                 item.targetLibs = this.analyzeTargetLibs(item);
-                // 自动打晋江标签
                 if (!item.jjTags) {
                     item.jjTags = this.autoTagJJ(item);
                 }
                 this.data.unshift(item);
                 newCount++;
+            } else {
+                // 已存在：更新远程字段，但保留本地入库状态
+                const local = this.data[existIdx];
+                const wasImported = local.imported;
+                const wasImportedLibs = local.importedLibs || [];
+                // 更新热度、评论等可能变化的字段
+                if (item.heat !== undefined) local.heat = item.heat;
+                if (item.comments && item.comments.length > (local.comments || []).length) {
+                    local.comments = item.comments;
+                }
+                if (item.tags && item.tags.length > (local.tags || []).length) {
+                    local.tags = item.tags;
+                }
+                if (item.url && !local.url) local.url = item.url;
+                // 严格保护本地入库状态
+                local.imported = wasImported;
+                local.importedLibs = wasImportedLibs;
+                // 重新分析目标库（如果之前没有的话）
+                if (!local.targetLibs || !local.targetLibs.length) {
+                    local.targetLibs = this.analyzeTargetLibs(local);
+                }
+                if (!local.jjTags) {
+                    local.jjTags = this.autoTagJJ(local);
+                }
+                updateCount++;
             }
         }
-        if (newCount > 0) {
-            this.save();
+        if (newCount > 0 || updateCount > 0) {
+            this._persist();
         }
         this.lastUpdate = lastUpdate;
     },
@@ -392,8 +426,11 @@ const HotspotModule = {
         return results;
     },
 
-    save: function() {
+    _persist: function() {
         localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.data));
+        if (typeof CloudSync !== 'undefined') {
+            CloudSync.markDirty();
+        }
     },
 
     refresh: function() {
@@ -840,7 +877,7 @@ const HotspotModule = {
         const indices = Array.from(this.selected).sort((a, b) => b - a);
         for (const idx of indices) { this.data.splice(idx, 1); }
         this.selected.clear();
-        this.save();
+        this._persist();
         showToast(`已删除 ${count} 条热点`, 'success');
         this.render();
         renderNav();
@@ -928,7 +965,7 @@ const HotspotModule = {
             allNew[catKey] = checked;
         });
         item.jjTags = allNew;
-        this.save();
+        this._persist();
         closeModal();
         showToast('标签已保存', 'success');
         this.renderList();
@@ -1018,7 +1055,7 @@ const HotspotModule = {
             }
             updated++;
         }
-        this.save();
+        this._persist();
         closeModal();
         showToast(`已为 ${updated} 条热点追加标签`, 'success');
         this.renderList();
@@ -1139,54 +1176,80 @@ const HotspotModule = {
         if (!item.targetLibs) item.targetLibs = [];
         if (item.targetLibs.some(t => t.libId === libId)) { showToast('该库已在列表中', 'warning'); return; }
         item.targetLibs.push({ libId, confidence: 60, reason: '手动添加', checked: true });
-        this.save();
+        this._persist();
         this.openMultiImport(idx);
     },
 
     confirmMultiImport: function(idx) {
         const item = this.data[idx];
-        if (!item || !item.targetLibs) return;
-        item.targetLibs.forEach((t, i) => {
-            const cb = document.getElementById(`mi-check-${i}`);
-            if (cb) t.checked = cb.checked;
-        });
-        const selected = item.targetLibs.filter(t => t.checked);
-        if (selected.length === 0) { showToast('请至少选择一个素材库', 'warning'); return; }
-
-        let importedCount = 0;
-        let goldenCount = 0;
-        for (const t of selected) {
-            if (this.importSingleToLib(item, t.libId)) importedCount++;
+        if (!item) { showToast('热点数据不存在', 'error'); closeModal(); return; }
+        if (!item.targetLibs || !item.targetLibs.length) {
+            showToast('该热点没有可入库的素材库，请先编辑添加', 'warning');
+            return;
         }
-        if (!selected.some(t => t.libId === '金句库') && item.comments && item.comments.length) {
-            for (const comment of item.comments) {
-                if (comment.likes && comment.likes >= 100) {
-                    const jjFields = {};
-                    jjFields['编号'] = SCHEMA.generateId('JJ', Store.getExistingIds('金句库'));
-                    jjFields['金句内容'] = comment.text || comment.content || '';
-                    jjFields['类型标签'] = '#高赞评论 #' + (item.platform || '');
-                    jjFields['关联热梗'] = item.title || '';
-                    Store.addItem('金句库', jjFields);
-                    goldenCount++;
+        try {
+            item.targetLibs.forEach((t, i) => {
+                const cb = document.getElementById(`mi-check-${i}`);
+                if (cb) t.checked = cb.checked;
+            });
+            const selected = item.targetLibs.filter(t => t.checked);
+            if (selected.length === 0) { showToast('请至少勾选一个素材库', 'warning'); return; }
+
+            let importedCount = 0;
+            let goldenCount = 0;
+            let errors = [];
+            for (const t of selected) {
+                try {
+                    if (this.importSingleToLib(item, t.libId)) importedCount++;
+                } catch(e) {
+                    errors.push(t.libId + ': ' + e.message);
                 }
             }
+            // 高赞评论导入金句库
+            if (!selected.some(t => t.libId === '金句库') && item.comments && item.comments.length) {
+                for (const comment of item.comments) {
+                    if (comment.likes && comment.likes >= 100) {
+                        try {
+                            const jjFields = {};
+                            jjFields['编号'] = SCHEMA.generateId('JJ', Store.getExistingIds('金句库'));
+                            jjFields['金句内容'] = comment.text || comment.content || '';
+                            jjFields['类型标签'] = '#高赞评论 #' + (item.platform || '');
+                            jjFields['关联热梗'] = item.title || '';
+                            Store.addItem('金句库', jjFields);
+                            goldenCount++;
+                        } catch(e) { errors.push('金句: ' + e.message); }
+                    }
+                }
+            }
+            if (!item.importedLibs) item.importedLibs = [];
+            for (const t of selected) {
+                if (!item.importedLibs.includes(t.libId)) item.importedLibs.push(t.libId);
+            }
+            item.imported = true;
+            this._persist();
+            closeModal();
+            if (errors.length) {
+                showToast(`入库 ${importedCount} 个库${goldenCount ? '（含' + goldenCount + '条金句）' : ''}，${errors.length} 个失败: ${errors[0]}`, 'warning');
+            } else {
+                showToast(`已入库 ${importedCount} 个素材库${goldenCount ? '（含' + goldenCount + '条高赞金句）' : ''}`, 'success');
+            }
+            this.renderList();
+            renderNav();
+        } catch(e) {
+            console.error('入库失败:', e);
+            closeModal();
+            showToast('入库失败: ' + e.message, 'error');
         }
-        if (!item.importedLibs) item.importedLibs = [];
-        for (const t of selected) {
-            if (!item.importedLibs.includes(t.libId)) item.importedLibs.push(t.libId);
-        }
-        item.imported = true;
-        this.save();
-        closeModal();
-        showToast(`已入库 ${importedCount} 个素材库${goldenCount ? '（含' + goldenCount + '条高赞金句）' : ''}`, 'success');
-        this.renderList();
-        renderNav();
     },
 
     importSingleToLib: function(item, libId) {
         const lib = SCHEMA.getLibrary(libId);
-        if (!lib) return false;
+        if (!lib) { console.warn('Unknown library:', libId); return false; }
         const fields = this.buildFieldsForLib(item, libId);
+        if (!fields || Object.keys(fields).length === 0) {
+            // 即使字段为空也入库，至少有编号
+            fields['编号'] = SCHEMA.generateId(lib.prefix, Store.getExistingIds(libId));
+        }
         Store.addItem(libId, fields);
         return true;
     },
@@ -1370,39 +1433,53 @@ const HotspotModule = {
 
     confirmBatchImport: function() {
         const unimported = this.data.filter(d => !d.imported);
-        if (unimported.length === 0) return;
-        let totalImported = 0;
-        let totalGolden = 0;
-        for (const item of unimported) {
-            if (!item.targetLibs || !item.targetLibs.length) continue;
-            const selected = item.targetLibs.filter(t => t.checked);
-            for (const t of selected) {
-                if (this.importSingleToLib(item, t.libId)) totalImported++;
-            }
-            if (!selected.some(t => t.libId === '金句库') && item.comments && item.comments.length) {
-                for (const comment of item.comments) {
-                    if (comment.likes && comment.likes >= 100) {
-                        const jjFields = {};
-                        jjFields['编号'] = SCHEMA.generateId('JJ', Store.getExistingIds('金句库'));
-                        jjFields['金句内容'] = comment.text || comment.content || '';
-                        jjFields['类型标签'] = '#高赞评论 #' + (item.platform || '');
-                        jjFields['关联热梗'] = item.title || '';
-                        Store.addItem('金句库', jjFields);
-                        totalGolden++;
+        if (unimported.length === 0) { showToast('没有待入库的热点', 'info'); closeModal(); return; }
+        try {
+            let totalImported = 0;
+            let totalGolden = 0;
+            let errorCount = 0;
+            for (const item of unimported) {
+                if (!item.targetLibs || !item.targetLibs.length) continue;
+                const selected = item.targetLibs.filter(t => t.checked);
+                if (selected.length === 0) continue;
+                for (const t of selected) {
+                    try {
+                        if (this.importSingleToLib(item, t.libId)) totalImported++;
+                    } catch(e) { errorCount++; }
+                }
+                if (!selected.some(t => t.libId === '金句库') && item.comments && item.comments.length) {
+                    for (const comment of item.comments) {
+                        if (comment.likes && comment.likes >= 100) {
+                            try {
+                                const jjFields = {};
+                                jjFields['编号'] = SCHEMA.generateId('JJ', Store.getExistingIds('金句库'));
+                                jjFields['金句内容'] = comment.text || comment.content || '';
+                                jjFields['类型标签'] = '#高赞评论 #' + (item.platform || '');
+                                jjFields['关联热梗'] = item.title || '';
+                                Store.addItem('金句库', jjFields);
+                                totalGolden++;
+                            } catch(e) { errorCount++; }
+                        }
                     }
                 }
+                if (!item.importedLibs) item.importedLibs = [];
+                for (const t of selected) {
+                    if (!item.importedLibs.includes(t.libId)) item.importedLibs.push(t.libId);
+                }
+                item.imported = true;
             }
-            if (!item.importedLibs) item.importedLibs = [];
-            for (const t of selected) {
-                if (!item.importedLibs.includes(t.libId)) item.importedLibs.push(t.libId);
-            }
-            item.imported = true;
+            this._persist();
+            closeModal();
+            let msg = `批量入库完成：${totalImported} 条素材${totalGolden ? '（含' + totalGolden + '条高赞金句）' : ''}`;
+            if (errorCount) msg += `，${errorCount} 条失败`;
+            showToast(msg, errorCount ? 'warning' : 'success');
+            this.render();
+            renderNav();
+        } catch(e) {
+            console.error('批量入库失败:', e);
+            closeModal();
+            showToast('批量入库失败: ' + e.message, 'error');
         }
-        this.save();
-        closeModal();
-        showToast(`批量入库完成：${totalImported} 条素材${totalGolden ? '（含' + totalGolden + '条高赞金句）' : ''}`, 'success');
-        this.render();
-        renderNav();
     },
 
     openEditor: function(idx) {
@@ -1503,12 +1580,12 @@ const HotspotModule = {
         `;
         modalFooter.innerHTML = `
             <button class="btn btn-secondary" onclick="closeModal()">取消</button>
-            <button class="btn btn-primary" onclick="HotspotModule.save(${isEdit ? idx : -1})">${isEdit ? '保存' : '创建'}</button>
+            <button class="btn btn-primary" onclick="HotspotModule.saveItem(${isEdit ? idx : -1})">${isEdit ? '保存' : '创建'}</button>
         `;
         openModal();
     },
 
-    save: function(idx) {
+    saveItem: function(idx) {
         const title = document.getElementById('hs-title').value.trim();
         const platform = document.getElementById('hs-platform').value;
         const category = document.getElementById('hs-category').value;
@@ -1560,7 +1637,7 @@ const HotspotModule = {
             this.data.unshift(item);
             showToast('热点已创建', 'success');
         }
-        this.save();
+        this._persist();
         closeModal();
         this.render();
         renderNav();
@@ -1578,7 +1655,7 @@ const HotspotModule = {
                 else newSelected.add(selIdx);
             }
             this.selected = newSelected;
-            this.save();
+            this._persist();
             showToast('已删除', 'success');
             this.render();
             renderNav();
@@ -1591,7 +1668,7 @@ const HotspotModule = {
         if (confirm(`确定清除 ${imported.length} 条已入库热点？（不会影响已导入素材库的数据）`)) {
             this.data = this.data.filter(d => !d.imported);
             this.selected.clear();
-            this.save();
+            this._persist();
             showToast('已清除', 'success');
             this.render();
             renderNav();
