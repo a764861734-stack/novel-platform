@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-08 21:23:05",
+  "lastUpdate": "2026-08-08 21:24:02",
   "items": [
     {
       "id": "hot_001",
@@ -7233,7 +7233,786 @@
       "category": "情绪",
       "time": "2026-08-08 21:23",
       "source": "auto"
+    },
+    {
+      "title": "新疆交警妈妈式叮嘱火了",
+      "platform": "微博",
+      "content": "摩旅爱好者在新疆骑行途中接连遇到交警，每次都被拦下收到妈妈同款暖心唠叨：保持车距、注意安全、天黑了就在服务区休息。网友直呼新疆交警个个像亲妈。适合改编为旅途中陌生人善意、基层工作者温情、公路治愈向故事。",
+      "url": "https://weibo.com/2041405051/5329742095191305",
+      "tags": [
+        "暖心",
+        "基层工作者",
+        "公路文",
+        "陌生人善意",
+        "治愈"
+      ],
+      "heat": 88,
+      "id": "hot_115",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['治愈']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "慢热治愈"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "暴雨中平凡身影温暖京城",
+      "platform": "微博",
+      "content": "北京暴雨中，女民警冲进雨里扶起摔倒老人，4名外卖小哥冒雨喊着口号合力搬开断枝疏路。平凡人在恶劣天气里自发互助，适合作为都市群像、人间烟火、职业尊严类素材。",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_0656a76cb4434452",
+      "tags": [
+        "暴雨",
+        "城市温度",
+        "外卖员",
+        "群像",
+        "互助"
+      ],
+      "heat": 85,
+      "id": "hot_116",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['外卖', '老人']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['温暖']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "大器晚成",
+          "温柔强者"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "慢热治愈"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "一场迟到36年的婚礼",
+      "platform": "微博",
+      "content": "广州一对兄妹耗时两个月瞒着父母补办婚礼，弥补父母年轻时仅有两三桌亲友和一辆自行车的遗憾。父亲眼含热泪说下辈子还相守。适合改编为家庭亲情、时代遗憾、孝心反哺题材。",
+      "url": "http://gzylhyzx.com/detail.html?cpid=T17&newsId=47514236",
+      "tags": [
+        "家庭",
+        "孝心",
+        "婚礼",
+        "时代遗憾",
+        "温情"
+      ],
+      "heat": 90,
+      "id": "hot_117",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['父亲']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "外卖员狂奔8公里送药被网暴打赏太少",
+      "platform": "微博",
+      "content": "外卖小哥17分钟狂奔8公里送救命药，顾客打赏50元却遭网友指责太抠。人民日报评论：善意不该被金钱绑架。适合改编为网络暴力、道德绑架、双向善意的社会议题故事。",
+      "url": "https://www.163.com/dy/article/L3QPC006055246H8.html",
+      "tags": [
+        "网暴",
+        "道德绑架",
+        "外卖员",
+        "善意",
+        "社会议题"
+      ],
+      "heat": 92,
+      "id": "hot_118",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['外卖']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "新疆摊主为游客开热点付款",
+      "platform": "抖音",
+      "content": "外地游客手机没信号无法扫码买烤肠，新疆摊主爽快说开热点，魔性弹舌口音逗笑游客。小事被人民日报转发，展现陌生人之间的信任与地域善意。",
+      "url": "https://www.toutiao.com/w/1872918754061386",
+      "tags": [
+        "信任",
+        "陌生人善意",
+        "新疆",
+        "烟火气",
+        "治愈"
+      ],
+      "heat": 86,
+      "id": "hot_119",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "仙侠"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "爽点密集"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "7万硕士送外卖背后的全家期待",
+      "platform": "知乎",
+      "content": "全国约7万名硕士在送外卖，舆论聚焦学历贬值与家庭期待之间的撕裂。真正压垮人的不是工作服，而是硕士就该坐办公室的刻板观念。适合改编为职场困境、代际期待、向下流动的焦虑题材。",
+      "url": "https://www.163.com/dy/article/L3QMSJVI05497CHS.html",
+      "tags": [
+        "学历焦虑",
+        "职场困境",
+        "代际期待",
+        "外卖员",
+        "生存"
+      ],
+      "heat": 89,
+      "id": "hot_120",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['外卖']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "平凡高光"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "当生娃变成高利贷",
+      "platform": "知乎",
+      "content": "民办高校面临招不到学生的断代警告，生育率跌破警戒线背后是学区房、培训班、隐形消费的经济账。适合改编为婚育焦虑、家庭财务、社会结构反思类故事。",
+      "url": "https://www.toutiao.com/article/7671540111347139106",
+      "tags": [
+        "生育焦虑",
+        "家庭财务",
+        "社会议题",
+        "婚育",
+        "内卷"
+      ],
+      "heat": 83,
+      "id": "hot_122",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['学生']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "丈夫说男孩就这样，妻子列出育儿清单",
+      "platform": "知乎",
+      "content": "丈夫以男孩本就难带为由推卸育儿责任，妻子用一张密密麻麻的任务表反击：分配任务、提醒任务都要我做，那只是一张表。折射出当代育儿分工、丧偶式育儿与婚姻博弈。",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_2826a6702f086552",
+      "tags": [
+        "育儿",
+        "婚姻",
+        "性别分工",
+        "家庭矛盾",
+        "职场妈妈"
+      ],
+      "heat": 87,
+      "id": "hot_123",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "活得不如爸妈的孩子越来越多",
+      "platform": "知乎",
+      "content": "985硕士毕业漂在大城市十年，房没买、车没买、娃不敢生。70后父母发现孩子的人生起点就是自己当年的终点。适合改编为代际落差、内卷焦虑、都市漂泊故事。",
+      "url": "http://www.71396.com/s-1-f01dc516543bf3ac/",
+      "tags": [
+        "代际落差",
+        "内卷",
+        "都市漂泊",
+        "焦虑",
+        "学历贬值"
+      ],
+      "heat": 88,
+      "id": "hot_124",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "巴彦淖尔95后残疾姑娘白天上班晚上摆摊",
+      "platform": "抖音",
+      "content": "95后姑娘因早产落下残疾，会计专业毕业求职屡屡被拒，白天当会计晚上摆摊卖瓜果，空余时间备考中级会计。烧烤店老板拍摄后想教她做直播授人以渔。适合改编为励志逆袭、小城女性、残疾群体自强故事。",
+      "url": "https://new.qq.com/rain/a/20260808A0BG4K00?refer=cp_1009",
+      "tags": [
+        "励志",
+        "逆袭",
+        "残疾",
+        "小城女性",
+        "自强"
+      ],
+      "heat": 91,
+      "id": "hot_125",
+      "targetLibs": [
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['逆袭']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['摆摊']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "黄毛少年十年念母一篇作文看哭全网",
+      "platform": "抖音",
+      "content": "15岁少年因母亲离家十年，从叛逆打架到工地打工，最终在瓜田写下《我的妈妈》。没有撕心裂肺却戳中千万网友。适合改编为原生家庭、留守儿童、成长救赎题材。",
+      "url": "https://www.163.com/dy/article/L3Q7M8Q605566S5I.html",
+      "tags": [
+        "原生家庭",
+        "留守儿童",
+        "成长",
+        "救赎",
+        "亲情缺失"
+      ],
+      "heat": 93,
+      "id": "hot_126",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['少年', '妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['工地']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['哭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生",
+          "坚韧女主",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "闪送员父亲请路人喝水庆祝女儿上北大",
+      "platform": "抖音",
+      "content": "闪送员父亲在电动车后挂满饮料，红纸上写女儿考上北大请大家喝水。六年风雨无阻接女儿放学、从未缺席家长会。真正的富养不是砸钱而是陪伴。适合改编为亲情、教育公平、底层励志故事。",
+      "url": "https://www.163.com/dy/article/L3Q3S8QH05469P4I.html",
+      "tags": [
+        "亲情",
+        "教育",
+        "底层励志",
+        "父爱",
+        "陪伴"
+      ],
+      "heat": 94,
+      "id": "hot_127",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['父亲']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "安徽小伙牵着盲母求医八年",
+      "platform": "抖音",
+      "content": "母亲失明，儿子高建立志学医，说想凭本事治好妈妈的眼睛。母亲回应：你念多少年，我就陪你多少年。适合改编为亲情、医患、求学励志、反哺题材。",
+      "url": "https://www.cnr.cn/ah/news/20260807/t20260807_527752403.shtml",
+      "tags": [
+        "亲情",
+        "医患",
+        "求学",
+        "反哺",
+        "励志"
+      ],
+      "heat": 89,
+      "id": "hot_128",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['少年', '妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "对话库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['回应']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生",
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
+    },
+    {
+      "title": "四川女孩8岁成孤儿靠菜刀壮胆逆袭上一本",
+      "platform": "抖音",
+      "content": "8岁时父爷爷离世、母亲离家，女孩张筝独自在老屋生活两年，床头放菜刀壮胆。后被小学老师收养八年，2026年高考考上四川师范大学公费师范专业。适合改编为教育逆袭、师生情、原生家庭救赎故事。",
+      "url": "https://www.toutiao.com/a1872651530801164",
+      "tags": [
+        "教育逆袭",
+        "师生情",
+        "原生家庭",
+        "救赎",
+        "励志"
+      ],
+      "heat": 92,
+      "id": "hot_129",
+      "targetLibs": [
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['逆袭']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['爷爷']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "坚韧女主",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集",
+          "虐恋情深"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-08 21:24",
+      "source": "auto"
     }
   ],
-  "totalCount": 113
+  "totalCount": 127
 }
