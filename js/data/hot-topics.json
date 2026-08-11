@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-11 07:51:44",
+  "lastUpdate": "2026-08-12 07:55:21",
   "items": [
     {
       "id": "hot_001",
@@ -11457,7 +11457,802 @@
       "category": "情绪",
       "time": "2026-08-11 07:51",
       "source": "auto"
+    },
+    {
+      "title": "小女孩鼓起勇气给流浪小猫撑伞挡雨",
+      "platform": "微博",
+      "content": "8月11日湖北暴雨，一名小女孩撑着伞蹲在路边，浑身紧张却依然坚持为一只流浪小猫遮雨。她一边害怕猫咪靠近，一边又不忍心看它被淋湿。这一幕被网友拍下后刷屏：孩子的善良战胜了恐惧，没有说教，只有一个弱小生命对另一个弱小生命的本能守护。适合改编为儿童视角的治愈短篇或成长故事。",
+      "url": "https://m.weibo.cn/status/5330991105180809?wm=90207_90001&featurecode=qbreyi_9999_01",
+      "tags": [
+        "儿童善意",
+        "动物治愈",
+        "暴雨中的温暖"
+      ],
+      "heat": 85,
+      "id": "hot_194",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['治愈', '善良']",
+          "checked": true
+        },
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['刷屏']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "热血励志",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "慢热治愈",
+          "成长型主角"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "00后女村支书体重99斤却能扛170斤",
+      "platform": "微博",
+      "content": "一名00后女大学生回村担任村支书，体重不到百斤，却能扛起170斤的担子。网友调侃\"这就是年轻的优势\"，但她背后是与村民打交道的琐碎、乡村振兴的压力和代际质疑。年轻女性基层干部的成长故事，既有青春热血，也有现实重量。",
+      "url": "https://www.sina.cn/media/1704185933",
+      "tags": [
+        "00后干部",
+        "乡村振兴",
+        "女性成长"
+      ],
+      "heat": 88,
+      "id": "hot_195",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['学生']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "人间清醒"
+        ],
+        "plot": [
+          "冲破偏见"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "现实向",
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "环卫工网恋约见面女主播称路塌了",
+      "platform": "微博",
+      "content": "浙江张女士爆料，70岁的环卫工父亲在直播间结识30多岁女主播，被喊\"老公\"后三年打赏近8万。女主播以各种理由推脱见面，甚至称\"路塌了\"。老人的孤独、网络的陷阱、子女对父母情感需求的忽视交织在一起，是一出典型的中老年婚恋骗局，也拷问着家庭陪伴的缺失。",
+      "url": "https://www.sina.cn/media/1704185933",
+      "tags": [
+        "中老年诈骗",
+        "直播打赏",
+        "家庭关系"
+      ],
+      "heat": 86,
+      "id": "hot_196",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 94,
+          "reason": "关键词匹配(8分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 91,
+          "reason": "关键词匹配(7分): ['老人', '父亲', '环卫工']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "大器晚成"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "女子3万全款购入宝鸡40平米住宅",
+      "platform": "微博",
+      "content": "陕西宝鸡，95后女孩小童花3万元全款买下40平米老房，朋友更以8000元拿下同小区顶楼。在房价高企的当下，这种\"低房价生活\"引发年轻人热议：逃离北上广、退居小城、重新定义成功。小说可挖掘年轻人与家庭期望的冲突、小城生活的失落与自足。",
+      "url": "https://www.sina.cn/media/1704185933",
+      "tags": [
+        "低房价小城",
+        "年轻人选择",
+        "逃离北上广"
+      ],
+      "heat": 84,
+      "id": "hot_197",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['小区']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "新疆沙漠边有座梦想足球场",
+      "platform": "微博",
+      "content": "新疆塔克拉玛干沙漠边缘，一群大人为了不扫孩子们的兴，用不到4万元在荒漠边建起一座梦想足球场。没有专业设计师，只有邻里合力、就地取材。这个关于乡土、童真与集体善意的画面，适合写成少年成长或乡村群像故事。",
+      "url": "https://www.sina.cn/media/2411544002",
+      "tags": [
+        "乡村群像",
+        "儿童梦想",
+        "集体善意"
+      ],
+      "heat": 83,
+      "id": "hot_198",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['少年']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "女子贷款救丈夫丈夫离去后一直自责",
+      "platform": "微博",
+      "content": "女子为救重病丈夫四处贷款，最终仍未能留住丈夫，事后长期陷入自责。大冰在直播间暖心安慰，劝她\"你已经尽力了\"。一个关于爱与遗憾、债务与重生的故事，女性在失去伴侣后如何面对经济压力与心理创伤，极具现实主义改编空间。",
+      "url": "https://weibo.com/1304881564/5330991990442308",
+      "tags": [
+        "丧偶之痛",
+        "债务危机",
+        "心理重建"
+      ],
+      "heat": 90,
+      "id": "hot_199",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['高密度对白']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者",
+          "向死而生"
+        ],
+        "plot": [
+          "双向治愈",
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "月薪6万夫妻回家不说话成婚姻第一杀手",
+      "platform": "知乎",
+      "content": "2026情感报告显示，夫妻冷战已超越出轨和婆媳矛盾，成为婚姻最大隐患。月薪6万的工作、体面的生活，回到家却只剩各自刷手机。一对38岁夫妻起诉离婚的由头很小：连续三年没一起吃过年夜饭、没一起逛过超市。婚姻变成功能性合作，情感连接被工作榨干。",
+      "url": "https://www.toutiao.com/article/7669264436439384614",
+      "tags": [
+        "中年婚姻",
+        "情感沉默",
+        "冷战"
+      ],
+      "heat": 91,
+      "id": "hot_200",
+      "targetLibs": [
+        {
+          "libId": "冲突素材库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['起诉', '离婚']",
+          "checked": true
+        },
+        {
+          "libId": "法律风险库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['起诉']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "破镜重圆"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "父母叫豆包豆包我已经应激了",
+      "platform": "知乎",
+      "content": "话题\"父母叫豆包豆包我已经应激了\"登上热搜。年轻人吐槽长辈凡事问AI、把豆包答案当权威：干涉专业选择、裁断家庭争吵、甚至用AI催婚。新技术正在重塑中国家庭的权力结构，老一辈从\"我吃的盐比你多\"变成\"豆包说的\"，代际冲突有了新形态。",
+      "url": "https://new.qq.com/rain/a/20260802A09W6B00",
+      "tags": [
+        "AI时代",
+        "代际冲突",
+        "家庭权力"
+      ],
+      "heat": 87,
+      "id": "hot_201",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 98,
+          "reason": "关键词匹配(12分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['热搜']",
+          "checked": true
+        },
+        {
+          "libId": "冲突素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['争吵']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "科幻"
+        ],
+        "character": [
+          "人间清醒"
+        ],
+        "plot": [
+          "冲破偏见"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "最寒心的家庭真相坏情绪留给家人",
+      "platform": "知乎",
+      "content": "一位丈夫投稿：妻子在外是温和包容的项目负责人，回到家却因为水杯偏离两厘米、拖鞋没对齐而崩溃争吵。导师一来，她立刻恢复通情达理。\"坏情绪留给家人，理智体面全给外人\"戳中无数家庭。小说可深挖职场女性的情绪劳动、婚姻里的沉默暴力与自我救赎。",
+      "url": "https://www.toutiao.com/article/7669228811141022252",
+      "tags": [
+        "情绪劳动",
+        "婚姻僵局",
+        "职场女性"
+      ],
+      "heat": 89,
+      "id": "hot_202",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['崩溃']",
+          "checked": true
+        },
+        {
+          "libId": "冲突素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['争吵']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "原生拖累",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "45岁女士哭诉做住家保姆1年",
+      "platform": "知乎",
+      "content": "广西45岁刘女士做住家保姆一年，工作轻松但内心痛苦。雇主是双腿残疾的中年男人，对她百分百信任，把生活费都交她管。两人在朝夕相处中形成复杂情感：不是爱情，却比婚姻更像婚姻；没有名分，却承担着彼此生活的重量。适合改编为底层女性情感与生存的现实主义作品。",
+      "url": "https://c.m.163.com/news/a/L3ARN8UJ05529GDP.html",
+      "tags": [
+        "住家保姆",
+        "底层女性",
+        "残缺关系"
+      ],
+      "heat": 88,
+      "id": "hot_203",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['哭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "年轻人的离婚理由一锅没洗的碗",
+      "platform": "知乎",
+      "content": "2026年8月，一份离婚协议截图走红：丈夫不洗锅、买早餐不按她口味、念错\"茭白\"、舍不得换掉陪了十年的旧电饭煲。网友吵翻，有人说矫情，有人说这是压垮婚姻的最后一根稻草。小说可写当代年轻人对情绪价值的高要求，以及生活细节如何一点点耗尽爱情。",
+      "url": "https://www.toutiao.com/article/7671237951086477826",
+      "tags": [
+        "离婚理由",
+        "情绪价值",
+        "生活细节"
+      ],
+      "heat": 86,
+      "id": "hot_204",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['走红']",
+          "checked": true
+        },
+        {
+          "libId": "冲突素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['离婚']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['翻']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累",
+          "人间清醒"
+        ],
+        "plot": [
+          "破镜重圆"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "单亲妈妈带自闭症儿子出游破防",
+      "platform": "抖音",
+      "content": "河北衡水一位单亲妈妈带10岁自闭症儿子出游，本想记录幸福日常，转头却看见儿子独自蹲在草地上，与周围世界格格不入。她忍不住落泪，儿子却突然走过来擦掉眼泪，亲了亲她，小声说：\"妈妈，脑袋是空空的。\"26万网友破防。一个关于特殊儿童家庭、母爱与微小奇迹的故事。",
+      "url": "https://www.163.com/dy/article/L4327JOS052682N1.html",
+      "tags": [
+        "自闭症",
+        "单亲妈妈",
+        "特殊儿童"
+      ],
+      "heat": 93,
+      "id": "hot_205",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['破防']",
+          "checked": true
+        },
+        {
+          "libId": "对话库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "36岁网红为救父亲不幸去世妻子接棒家乡梦",
+      "platform": "抖音",
+      "content": "吉林蛟河36岁乡土博主\"逍遥客\"家中氨气泄漏，为救父亲吸入毒气不幸离世。妻子在17天后发布讣告，宣布接手账号继续推广家乡。一个关于至孝本能、生命代价与遗孀继承梦想的故事，东北农场、四季风物和直播间里的乡愁，构成强烈的现实主义底色。",
+      "url": "https://k.sina.com.cn/article_7879996351_1d5af33bf06802kcfu.html",
+      "tags": [
+        "舍身救父",
+        "遗孀",
+        "乡土直播"
+      ],
+      "heat": 92,
+      "id": "hot_206",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['高密度对白']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['父亲']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
+    },
+    {
+      "title": "河北90后货车司机拼命养家撞破妻子背叛",
+      "platform": "抖音",
+      "content": "河北一名90后货车司机常年跑长途，几乎全年无休，只为让妻儿过上好日子。一次提前归家想给妻子惊喜，却撞见陌生男子仓皇跳窗逃跑。妻子毫无愧疚，第一时间躲回娘家要求离婚。故事充满底层男性的屈辱、劳动与情感的撕裂，以及婚姻信任崩塌后的孤立无援。",
+      "url": "https://www.163.com/dy/article/L3J2AKSU05561STF.html",
+      "tags": [
+        "货车司机",
+        "婚姻背叛",
+        "底层男性"
+      ],
+      "heat": 90,
+      "id": "hot_207",
+      "targetLibs": [
+        {
+          "libId": "冲突素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['离婚']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 53,
+          "reason": "关键词匹配(1分): ['跑']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "古言"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "破镜重圆"
+        ],
+        "emotion": [
+          "热血励志",
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-12 07:55",
+      "source": "auto"
     }
   ],
-  "totalCount": 186
+  "totalCount": 200
 }
