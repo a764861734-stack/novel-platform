@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-17 12:16:13",
+  "lastUpdate": "2026-08-18 07:53:09",
   "items": [
     {
       "id": "hot_001",
@@ -18511,7 +18511,795 @@
       "category": "情绪",
       "time": "2026-08-17 12:16",
       "source": "auto"
+    },
+    {
+      "title": "暴雨中骑手妈妈把孩子托付超市",
+      "platform": "微博",
+      "content": "上海暴雨当天,独自带娃跑单的外卖员妈妈小燕,被路面积水逼到外卖落水的危急时刻,只能把16个月大的宝宝临时托给街边超市。老板娘王女士一家接力照料近4小时,为孩子换湿衣裹被褥,轮流安抚,还赠零食。婆婆卧病、公公年迈、丈夫回乡照看老人和农田,小燕一人带娃扛起全家生计。极目新闻。",
+      "url": "https://www.163.com/dy/article/L49NV1LC053469LG.html",
+      "tags": [
+        "善意传递",
+        "母爱坚韧",
+        "陌生人互助",
+        "中年女性困境"
+      ],
+      "heat": 88,
+      "id": "hot_320",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 98,
+          "reason": "关键词匹配(10分): ['外卖', '骑手', '老人']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['海']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 53,
+          "reason": "关键词匹配(1分): ['跑']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "平凡高光",
+          "大器晚成",
+          "坚韧女主",
+          "向死而生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "闪送员挂满饮料庆祝女儿考上北大",
+      "platform": "微博",
+      "content": "广西南宁闪送员李师傅,女儿考取北大后,没有摆酒席也没有发朋友圈,只是在电动车后挂满饮料,贴一张红纸写着「我女考上北大请大家喝水」。平台回应「学费我们管」,饮料品牌接力「水我们管够」。朴素的分享完成了最动人的情感闭环,被网友称为一堂家风课。新京报快评。",
+      "url": "https://www.163.com/dy/article/L3ED96TT0512D3VJ.html",
+      "tags": [
+        "励志逆袭",
+        "父爱如山",
+        "普通人荣光",
+        "家风传承"
+      ],
+      "heat": 92,
+      "id": "hot_321",
+      "targetLibs": [
+        {
+          "libId": "对话库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['回应']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "罕见病女孩捐出救命钱被双倍回赠",
+      "platform": "微博",
+      "content": "重庆罕见病女孩胡心瑶突发急症吐血,围观路人众筹99999元救命。她全额捐出所有善款给嫣然天使基金帮扶其他病友。李亚鹏得知后通过重庆红十字基金会捐出两笔独立99999元,一笔兜底胡心瑶医疗,一笔扶持她创立的病友互助团体。零剧本零炒作的双向善意,撕开了功利公益的外衣。",
+      "url": "https://www.toutiao.com/a1872740143284234",
+      "tags": [
+        "善良循环",
+        "陌生人间的双向救赎",
+        "公益觉醒"
+      ],
+      "heat": 85,
+      "id": "hot_322",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者",
+          "向死而生"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "女儿偷办护照出国母亲当场吓哭",
+      "platform": "微博",
+      "content": "一名女孩悄悄办好护照准备出国,直到出发前家人才知道。妈妈接到电话当场崩溃哭喊:「她啥时候办的护照,我完全蒙在鼓里」。事件折射两代人之间关于人生选择、亲情边界、秘密与坦诚的深层冲突。人民正能量账号话题热议。",
+      "url": "http://www.sina.cn/media/2307318984",
+      "tags": [
+        "代际冲突",
+        "亲情撕裂",
+        "人生选择",
+        "秘密与坦诚"
+      ],
+      "heat": 78,
+      "id": "hot_323",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['哭', '崩溃']",
+          "checked": true
+        },
+        {
+          "libId": "钩子素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['秘密']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "妈妈没收碎蛋糕赔款反问外卖小哥一天挣多少",
+      "platform": "微博",
+      "content": "黑龙江妈妈给孩子订的生日蛋糕,外卖小哥送来时一脸歉意说「姐不好意思蛋糕碎了」,主动赔钱。妈妈没接话,反问小哥一天挣多少。小哥老实答:「刚出门,一天也就一百来块。」妈妈扭头冲屋里喊:「姑娘,这哥哥不容易,要不就将就吃这个蛋糕。」",
+      "url": "http://www.sina.cn/media/2307318984",
+      "tags": [
+        "善意共情",
+        "普通人间的体面",
+        "互不相识的温柔"
+      ],
+      "heat": 80,
+      "id": "hot_324",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['外卖', '妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "对话库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['反问']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "46岁老报关员负债65万失业8个月",
+      "platform": "知乎",
+      "content": "80年生、46岁的老报关员,2026年元旦正式失业,8个月间背65万负债,投几百份简历。上了三天半被嫌「速度有点慢」,再上一份只做1天。外卖骑手也限45岁,最底兜底都被堵死。评论区同龄人诉说着被「35岁歧视」「经验通胀」压垮的同一代困境。",
+      "url": "https://www.163.com/dy/article/L3GM3H9D0553F5QV.html",
+      "tags": [
+        "中年危机",
+        "结构性失业",
+        "35岁困境",
+        "现实困境"
+      ],
+      "heat": 90,
+      "id": "hot_325",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 97,
+          "reason": "关键词匹配(9分): ['外卖', '骑手', '失业']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "跨界转行"
+        ],
+        "plot": [
+          "冲破偏见"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "家庭富足却争吵不断的失衡现状",
+      "platform": "知乎",
+      "content": "没有经济困难的家庭常年被矛盾争吵裹挟。长辈过度干预晚辈小家、从职业婚恋到教育细节都要管;父母对孩子全包办导致年轻人不会扛责;亲情现实化倾向,长辈失去行动能力即被疏远;7成夫妻感情裂痕与长辈干预相关;对比式打击、翻旧账成日常。",
+      "url": "https://www.toutiao.com/article/7670106983663419904",
+      "tags": [
+        "代际冲突",
+        "家庭伦理",
+        "亲情冷漠化",
+        "婚姻挤压"
+      ],
+      "heat": 83,
+      "id": "hot_326",
+      "targetLibs": [
+        {
+          "libId": "冲突素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['争吵']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['翻']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志",
+          "唏嘘感慨",
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "现实向",
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "中年打工人的无声崩溃",
+      "platform": "知乎",
+      "content": "成年人的世界没有任性资格:不敢辞职、不敢生病、不敢休息、不敢喊累。房贷车贷、孩子学费、父母医药费、人情往来,每一笔躲不开。35岁裁员普遍,中年人崩溃都是无声的——白天笑脸迎人,晚上独自释放。身后空无一人,却全家人都在依靠自己。",
+      "url": "https://www.toutiao.com/article/7671665766311412247",
+      "tags": [
+        "中年危机",
+        "职场困境",
+        "无声崩溃",
+        "顶梁柱困境"
+      ],
+      "heat": 87,
+      "id": "hot_327",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['裁员']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['崩溃']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "跨界转行",
+          "向死而生",
+          "人生重开"
+        ],
+        "plot": [
+          "人生重启"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "年轻人吐槽父母辈托关系办事",
+      "platform": "知乎",
+      "content": "在知乎B站年轻人集体吐槽父母辈「托关系」行为:找工作、装修、出行,父母眼中靠谱的人情捷径,年轻人眼中却是低效、质量差、人情债。一网通办在线挂号让规则更公平。当人情撞规则,两代人陷入选择困境。",
+      "url": "https://www.cz001.com.cn/theory/detail/388788",
+      "tags": [
+        "代际冲突",
+        "规则与人情",
+        "年轻人困境",
+        "观念碰撞"
+      ],
+      "heat": 72,
+      "id": "hot_328",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "人间清醒"
+        ],
+        "plot": [
+          "冲破偏见"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "湖北小女孩为流浪猫撑伞自己淋雨",
+      "platform": "抖音",
+      "content": "湖北保康小女孩上学路遇流浪猫蜷缩车底,明知自己猫毛过敏、胆怯畏猫,仍把雨伞倾斜向猫,宁愿自己全身湿透。视频700万浏览、80多万点赞,人民日报等70多家媒体转发。妈妈感叹:「爱是一把会倾斜的伞」。",
+      "url": "https://www.163.com/dy/article/L47IPIJ7053469LG.html",
+      "tags": [
+        "童心善意",
+        "敬畏生命",
+        "逆境中的温柔"
+      ],
+      "heat": 86,
+      "id": "hot_329",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "15岁搬瓜少年与643万留守儿童的暑假",
+      "platform": "抖音",
+      "content": "甘肃会宁15岁少年马正,母亲在他一年级时离家,十年未归。中考后被体校录取却因钉鞋上千放弃,转读职高。暑假每天搬上万斤西瓜,深夜还要去搬水泥。视频近300万点赞,博主接力报道:搬瓜少年的《我的妈妈》,看哭全网。",
+      "url": "https://www.163.com/dy/article/L3MI39D40556BJPY.html",
+      "tags": [
+        "留守儿童",
+        "困境少年",
+        "坚韧生长",
+        "家庭破碎"
+      ],
+      "heat": 89,
+      "id": "hot_330",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['少年', '妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['哭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生",
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "小苹果阿姨大儿子抑郁离世",
+      "platform": "抖音",
+      "content": "博主用双倍薪资请劳务市场占阿姨做饭,阿姨全花400元买鱼买肉招待,平时自己只吃素。聊天中她透露大儿子因抑郁症去世,「看到博主和我儿子年纪差不多就忍不住哭了」。视频走红后阿姨开账号「小苹果阿姨」,4条视频22万粉,评论区变「心灵树洞」。",
+      "url": "https://www.toutiao.com/article/7671530530445230607",
+      "tags": [
+        "丧子之痛",
+        "陌生人间的母爱投射",
+        "心灵树洞"
+      ],
+      "heat": 84,
+      "id": "hot_331",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['走红']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['哭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "瘫痪10年妻子在丈夫自创神器下重新站起",
+      "platform": "抖音",
+      "content": "河南巩义张女士因车祸截瘫10年,医生说康复黄金期仅半年。丈夫每天背她出门做康复,四年风雨无阻,在墙上钉满杆子、用砖块自制「康复神器」。他说:「放弃她的事儿我做不到」。张女士含泪:「远嫁几百里地不后悔,嫁对人了」。",
+      "url": "https://health.hsw.cn/system/2026/0810/90740.shtml",
+      "tags": [
+        "婚姻坚守",
+        "十年不离不弃",
+        "爱是奇迹",
+        "绝境中的希望"
+      ],
+      "heat": 87,
+      "id": "hot_332",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['医生']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
+    },
+    {
+      "title": "山区女孩摆摊卖菌子收到北大通知书",
+      "platform": "抖音",
+      "content": "山区普通农户女孩,凌晨进山采菌,午后街边摆摊贴补家用。酷暑中边做生意边看书,长期自我约束、不虚度假期。最终收到北京大学录取通知书。「寒门难出贵子」的传言被击碎,网友:一个人的优秀,从来不由家境决定。",
+      "url": "https://www.toutiao.com/article/7670667916710330903",
+      "tags": [
+        "寒门逆袭",
+        "高考励志",
+        "拒绝躺平",
+        "普通人蜕变"
+      ],
+      "heat": 85,
+      "id": "hot_333",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['摆摊']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['山']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-18 07:53",
+      "source": "auto"
     }
   ],
-  "totalCount": 308
+  "totalCount": 322
 }
