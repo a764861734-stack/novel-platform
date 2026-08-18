@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-18 07:53:09",
+  "lastUpdate": "2026-08-19 07:54:27",
   "items": [
     {
       "id": "hot_001",
@@ -19299,7 +19299,751 @@
       "category": "情绪",
       "time": "2026-08-18 07:53",
       "source": "auto"
+    },
+    {
+      "title": "00后外卖员8年献血82次",
+      "platform": "微博",
+      "content": "杭州00后外卖员朱琳在送餐途中因低血糖晕倒，拦停警车求助。他曾是消防员、蓝天救援队成员，因执行任务受伤退出；8年间献血82次，总量超3万毫升。从「救人的人」到「被救的人」，这份身份反转与陌生人的善意回应，适合写城市里的微光与命运无常。",
+      "url": "https://www.toutiao.com/article/7675512996411605554/",
+      "tags": [
+        "外卖员",
+        "善意传递",
+        "生命价值"
+      ],
+      "heat": 88,
+      "id": "hot_334",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 88,
+          "reason": "关键词匹配(6分): ['外卖', '消防员']",
+          "checked": true
+        },
+        {
+          "libId": "反转素材库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['反转']",
+          "checked": true
+        },
+        {
+          "libId": "对话库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['回应']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "温柔强者",
+          "人间清醒"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "男子下班救下世界最神秘鸟",
+      "platform": "微博",
+      "content": "江西赣州一男子下班路上，看见两只狗追逐一只怪鸟，上前救下后发现竟是国家一级保护动物海南鳽，全球野外仅存约1500只。一个普通人「多管闲事」的瞬间，可能关系到整个物种的存续，适合改编成人与自然、偶然与责任交织的故事。",
+      "url": "https://cj.sina.com.cn/article/norm_detail?url=https%3A%2F%2Ffinance.sina.com.cn%2Fjjxw%2F2026-08-19%2Fdoc-ininuzkx7075553.shtml&finpagefr=w_110",
+      "tags": [
+        "环境保护",
+        "凡人善举",
+        "珍稀动物"
+      ],
+      "heat": 82,
+      "id": "hot_335",
+      "targetLibs": [
+        {
+          "libId": "反转素材库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['竟是']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['海']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['追']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈",
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "早餐店主见备注塞100元现金",
+      "platform": "微博",
+      "content": "安徽合肥早餐店主王贤黄看到外卖备注「孩子化疗」后，不仅电话确认口味，还悄悄在餐袋里塞了100元现金和两杯豆浆，留言「祝孩子早日康复」。孩子患急性淋巴细胞白血病，这份陌生人之间的守望相助，展现出困境中最质朴的温暖。",
+      "url": "https://k.sina.com.cn/article_7879848929_1d5acf3e106801hgcy.html",
+      "tags": [
+        "陌生人善意",
+        "病患家庭",
+        "城市温度"
+      ],
+      "heat": 90,
+      "id": "hot_336",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['外卖']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['温暖']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "温柔强者",
+          "向死而生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "慢热治愈"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "八旬老人公交塞600元红包谢司机",
+      "platform": "微博",
+      "content": "青岛一位八旬老人在112路公交车上找回失物后，次日特意将装有600元现金的红包塞给驾驶员，转身离去。公交公司联合媒体发起全城寻人，希望归还这份「厚重的心意」。老人与司机之间的双向善意，适合写城市记忆与代际信任。",
+      "url": "https://new.qq.com/rain/a/20260819A02SEP00?refer=cp_1009",
+      "tags": [
+        "代际信任",
+        "双向善意",
+        "城市记忆"
+      ],
+      "heat": 85,
+      "id": "hot_337",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['老人']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['公交']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "大器晚成"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "嵊州青年冒雨送小笼包暖城",
+      "platform": "抖音",
+      "content": "温州医科大学学生王聪颖与「嵊小笼」青年主播体验官们，在嵊州街头把刚出笼的小笼包送给环卫工人、外卖骑手和快递员。突降暴雨也没有阻止他们的脚步。青年与城市守护者之间的朴素温情，可作为群像故事中善意传递的切口。",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_8736a84e98799352",
+      "tags": [
+        "青年志愿者",
+        "城市守护者",
+        "美食温情"
+      ],
+      "heat": 80,
+      "id": "hot_338",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 98,
+          "reason": "关键词匹配(11分): ['外卖', '骑手', '学生']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['街头']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光"
+        ],
+        "plot": [
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "石老人浴场守岸人父女",
+      "platform": "抖音",
+      "content": "青岛石老人海水浴场，保安队长徐国刚与女儿日复一日在沙滩巡逻，守护游客安全。他们的工作日常是与时间赛跑，寻找并帮助遇险者。「已找到」三个字背后，是父女两代人对责任的坚守和陌生人命运的牵挂。",
+      "url": "https://new.qq.com/rain/a/20260819A02SEP00?refer=cp_1009",
+      "tags": [
+        "父女",
+        "责任坚守",
+        "海边救援"
+      ],
+      "heat": 78,
+      "id": "hot_339",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['老人', '保安']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['海']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 53,
+          "reason": "关键词匹配(1分): ['跑']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈",
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "佳木斯摊主医院门口免费送热饭",
+      "platform": "抖音",
+      "content": "黑龙江佳木斯市肿瘤结核医院门前，58岁盒饭摊主迟景新暑假以来每日为困难病患及家属免费送上百份热饭。他曾见一家三口合吃一份盒饭，于是动了善念。昔日同窗、患者家属、陌生市民纷纷加入，形成一场自发的善意循环。",
+      "url": "https://news.ifeng.com/c/8vh5LNAqJM5",
+      "tags": [
+        "病患家庭",
+        "免费餐食",
+        "善意循环"
+      ],
+      "heat": 86,
+      "id": "hot_340",
+      "targetLibs": [
+        {
+          "libId": "场景库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['医院']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "向死而生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "34岁二孩宝妈重回职场逆袭",
+      "platform": "抖音",
+      "content": "武汉蔡甸34岁全职妈妈杨婵，丈夫月薪不足3000元，她应聘家门口串串店迎宾，主动上夜班、存下一千多名老顾客电话，四个月内从迎宾晋升主管再到店长，工资半年涨3倍，还贷款买了近30万的新车。一个被生活困住的母亲，靠主动与韧性挣回尊严。",
+      "url": "https://www.topnews.cn/news/145ED2E242BE4B78",
+      "tags": [
+        "全职妈妈",
+        "职场逆袭",
+        "女性成长"
+      ],
+      "heat": 89,
+      "id": "hot_341",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['宝妈', '妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['逆袭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "外卖骑手三入火场救人圆梦大学",
+      "platform": "抖音",
+      "content": "浙江桐乡外卖骑手胡家龙曾三度逆行冲入火场救下10多名群众，年少辍学、背负巨债、友人背叛，都没有压垮他。他一边跑单还债，一边自学备考，最终收到西南科技大学录取通知书。从「跑单王」到「桐乡好人」再到大学生，适合写底层逆袭与向善而行。",
+      "url": "https://epaper.gmw.cn/wzb/html/content/202608/05/content_21858.html",
+      "tags": [
+        "外卖员",
+        "见义勇为",
+        "寒门逆袭"
+      ],
+      "heat": 92,
+      "id": "hot_342",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 94,
+          "reason": "关键词匹配(8分): ['外卖', '骑手', '学生']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['好人']",
+          "checked": true
+        },
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['逆袭']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 53,
+          "reason": "关键词匹配(1分): ['跑']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "温柔强者"
+        ],
+        "plot": [
+          "逆袭打脸",
+          "双向治愈"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "高职生逆袭考上硕士",
+      "platform": "知乎",
+      "content": "湖北水利水电职业技术学院学生任思权，从高职到本科再到南京工业大学硕士研究生拟录取。基础不算扎实的他，用「踏实」二字概括逆袭密码：课堂专注、课后补缺、放弃休闲泡实训室。职业教育出身照样能走到硕士殿堂，适合写教育公平与长期主义。",
+      "url": "http://www.szonline.cn/qc/2026/0803/730245.html",
+      "tags": [
+        "职业教育",
+        "考研逆袭",
+        "长期主义"
+      ],
+      "heat": 84,
+      "id": "hot_343",
+      "targetLibs": [
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['逆袭']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['学生']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "跨国家庭定居河南爆发婚姻危机",
+      "platform": "知乎",
+      "content": "河南姑娘安娴与美国丈夫山姆卖掉美国自住房、带孩子回河南定居，却因文化差异、婆媳关系、丈夫事业停滞等问题矛盾爆发。安娴停更9天暴瘦9斤，直播称「靠自己才是最好的」。跨国婚姻、返乡选择、女性独立，三者交织成极具张力的家庭叙事。",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_2026a84ec8a31552",
+      "tags": [
+        "跨国婚姻",
+        "代际冲突",
+        "女性独立"
+      ],
+      "heat": 87,
+      "id": "hot_344",
+      "targetLibs": [
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['山']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "八年婚姻三孩均非亲生案开庭",
+      "platform": "知乎",
+      "content": "陕西汉中，男子韦先生结婚八年，抚养三个孩子长大，亲子鉴定却发现均非亲生。妻子庭审时未道歉，还称不知孩子生父是谁。男方搬出家中租住城中村，想起孩子叫爸爸的样子又疼又酸。背叛、亲情、身份崩塌，是极具戏剧冲突的家庭伦理素材。",
+      "url": "https://www.163.com/dy/article/L4ISIKOR0556GQRN.html",
+      "tags": [
+        "婚姻背叛",
+        "亲子鉴定",
+        "男性困境"
+      ],
+      "heat": 91,
+      "id": "hot_345",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
+    },
+    {
+      "title": "35岁被优化后全职考公",
+      "platform": "知乎",
+      "content": "一线城市互联网大厂员工阿凯，35岁被优化，年薪三十多万瞬间归零。投递几百份简历、面试二三十家企业，皆因年龄超标或薪资腰斩被拒。挣扎五个月后，他选择全职备考公务员。中年失业、考公大军、理想与现实的落差，适合写职场困境中的自救。",
+      "url": "https://www.toutiao.com/article/7672202915079127598/",
+      "tags": [
+        "中年失业",
+        "考公",
+        "互联网裁员"
+      ],
+      "heat": 88,
+      "id": "hot_346",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['失业']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "跨界转行",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "现实向",
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-19 07:54",
+      "source": "auto"
     }
   ],
-  "totalCount": 322
+  "totalCount": 335
 }
