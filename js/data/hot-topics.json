@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-08-23 08:11:09",
+  "lastUpdate": "2026-08-24 08:11:55",
   "items": [
     {
       "id": "hot_001",
@@ -24170,7 +24170,698 @@
       "category": "情绪",
       "time": "2026-08-23 08:11",
       "source": "auto"
+    },
+    {
+      "title": "买瓜忘娃！摊主幽默喊话寻家长",
+      "platform": "微博",
+      "content": "河北街头，一对夫妻买瓜后忘带年幼女儿便离开。摊主发现后抱起孩子安抚，发视频喊话：'十二点之前不来，俺就把这闺女昧下了'。不到一小时妈妈赶回，摊主却露出肉眼可见的失落。适合改编成市井温情小品：陌生人的善意、家长的粗心、底层小人物的幽默与柔软，以及网络围观下的两极评价。",
+      "url": "https://k.sina.com.cn/article_7879923104_1d5ae15a006801ikp2.html",
+      "tags": [
+        "市井温情",
+        "儿童安全",
+        "陌生人善意"
+      ],
+      "heat": 88,
+      "id": "hot_416",
+      "targetLibs": [
+        {
+          "libId": "幽默素材库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['幽默']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['街头']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['抱起']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主",
+          "原生拖累"
+        ],
+        "plot": [
+          "破镜重圆"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "淄博站客运员'举高高'3分钟寻母",
+      "platform": "微博",
+      "content": "暑运高峰，淄博火车站候车厅内一名5岁女童与家人走失大哭。客运值班员孔雷把孩子托举至肩头，以'举高高'方式扩大视野，周围旅客主动协助，不到3分钟母女相拥。该举高识别法已纳入全国120个枢纽车站培训。可改编为公共服务与人性微光交织的群像故事。",
+      "url": "https://m.sohu.com/a/1065296757_122066679",
+      "tags": [
+        "公共服务",
+        "走失儿童",
+        "陌生人协作"
+      ],
+      "heat": 92,
+      "id": "hot_417",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['哭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "安庆男孩公交上默默护睡乘客",
+      "platform": "微博",
+      "content": "安徽安庆一名十二三岁男孩在公交车上见前排乘客熟睡、头部随颠簸晃动，遂伸出手臂在乘客头侧悬停护持近两站路，未惊扰对方。视频走红后，网友称'他托住的不只是一个头'。适合刻画青少年隐性善意与德育成长，也可延伸为代际之间的静默守护。",
+      "url": "https://m.sohu.com/a/1064450497_122066679",
+      "tags": [
+        "青少年善意",
+        "公德心",
+        "城市温度"
+      ],
+      "heat": 85,
+      "id": "hot_418",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['走红']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['少年']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['公交']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生"
+        ],
+        "plot": [
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "轮椅母亲跨越2500公里送儿进军校",
+      "platform": "微博",
+      "content": "黑龙江小伙考上空军预警学院，妈妈坐轮椅跨越2500多公里到武汉送他报到。儿子将军装一件件拿给妈妈看，妈妈无法说话却一直笑着点头。适合书写残缺身体与完整母爱的对照，以及军旅梦想背后的家庭牺牲与沉默支持。",
+      "url": "https://www.sina.cn/media/6469061585",
+      "tags": [
+        "母爱",
+        "军旅",
+        "励志"
+      ],
+      "heat": 89,
+      "id": "hot_419",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "11岁双胞胎暑假做饭等爸妈下班",
+      "platform": "微博",
+      "content": "广东一对11岁双胞胎兄弟暑假分工合作，弟弟切配、哥哥炒菜，赶在爸妈下班前做好一桌热饭。两人用锅铲声代替催促，等父母推门就能吃上热乎饭。可作为'留守儿童/城市双职工家庭'孩子早熟的温情切片，展现责任与亲情在日常劳动中自然生长。",
+      "url": "https://www.sina.cn/media/6469061585",
+      "tags": [
+        "亲子",
+        "成长",
+        "家庭责任"
+      ],
+      "heat": 80,
+      "id": "hot_420",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "垃圾桶里捡到金项链和手机",
+      "platform": "微博",
+      "content": "深圳一小伙撞见情侣吵架后女生提着礼物盒离开，随后在垃圾桶上发现被丢掉的盒子里装着手机和一根金项链。小伙称失主可凭购买记录认领。适合改编为都市爱情黑色寓言：一时情绪失控造成的财富丢弃，以及旁观者对'吵架代价'的唏嘘。",
+      "url": "https://www.sina.cn/media/6469061585",
+      "tags": [
+        "都市情感",
+        "婚恋矛盾",
+        "意外之财"
+      ],
+      "heat": 75,
+      "id": "hot_421",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "破镜重圆"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "女儿交了保洁员家庭的朋友，母亲该不该引导？",
+      "platform": "知乎",
+      "content": "知乎热榜问题：二年级女儿与保洁员家庭的孩子成为好友，母亲纠结是否要'适度引导'。高赞回答撕裂成两派：一派强调职业无贵贱、孩子交友看人品；另一派则提醒警惕阶层差异与家长群的隐性霸凌。可深挖为家庭教育、阶层焦虑与儿童纯真友谊之间的冲突。",
+      "url": "https://readep.com/index.php/zhihu",
+      "tags": [
+        "家庭教育",
+        "阶层焦虑",
+        "儿童友谊"
+      ],
+      "heat": 87,
+      "id": "hot_422",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "人在什么时候最明白？",
+      "platform": "知乎",
+      "content": "知乎年度共鸣议题：人在倒霉、大病、退休、下台、缺钱时最明白。高赞答案用多个真实切片呈现——低谷识人心、大病知健康、退休后看淡名利。适合作为中年危机与人生顿悟的素材库，构建'失去后觉醒'的人物弧光。",
+      "url": "https://www.sohu.com/a/1063362466_122066679",
+      "tags": [
+        "中年危机",
+        "人生顿悟",
+        "失去与成长"
+      ],
+      "heat": 83,
+      "id": "hot_423",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "向死而生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "不放心把小孩给老人带怎么办？",
+      "platform": "知乎",
+      "content": "年轻父母因工作不得不将孩子交给老人，却担心隔代溺爱、育儿观念冲突、老人身体吃不消。回答中既有沟通协作方案，也有婆媳关系的微妙张力。适合改编为双职工家庭的育儿困境，代际权力拉锯与'谁才是真正为孩子好'的伦理冲突。",
+      "url": "https://jingyan.baidu.com/article/eb9f7b6d4dfa60869264e840.html",
+      "tags": [
+        "隔代教养",
+        "职场父母",
+        "代际冲突"
+      ],
+      "heat": 78,
+      "id": "hot_424",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['老人']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "'小苹果阿姨'一顿饭暖哭全网",
+      "platform": "抖音",
+      "content": "南京劳务市场，博主用双倍工资请一位姓占的阿姨做顿饭。阿姨把400元全买成鱼、肉、榴莲招待客人，闲聊中透露大儿子因抑郁症已去世两年。视频走红后阿姨开抖音账号，评论区成网友'心灵树洞'。适合改编为丧亲母亲与陌生人之间的双向治愈，以及网络时代'赛博亲情'的温情与边界。",
+      "url": "https://www.toutiao.com/article/7671530530445230607",
+      "tags": [
+        "丧亲治愈",
+        "陌生人温暖",
+        "网络共情"
+      ],
+      "heat": 91,
+      "id": "hot_425",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['治愈', '哭']",
+          "checked": true
+        },
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['走红']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "慢热治愈"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "哈尔滨暴雨中免费接送游客的私家车",
+      "platform": "抖音",
+      "content": "哈尔滨突降暴雨，来自郑州的一家三口在火车站外被浇透。车牌黑AF18709的私家车主主动停车：'要啥钱啊，免费的！'一路递纸巾、嘱咐玩得开心。视频收获14万赞。适合改编为旅游城市形象与人性善意的短篇，也可延伸为南北地域陌生人之间的信任瞬间。",
+      "url": "https://www.163.com/dy/article/L3QVBPDK0550LIJ8.html",
+      "tags": [
+        "城市温度",
+        "陌生人善意",
+        "旅游故事"
+      ],
+      "heat": 86,
+      "id": "hot_426",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "9岁男孩亲手炒菜为母亲庆生",
+      "platform": "抖音",
+      "content": "济南一名9岁男孩在母亲生日当天独立完成三菜一汤。母亲连续加班多日身体不适，孩子提前看视频学做菜，历时42分钟，说'你累的时候，我也可以是你的小灶台'。适合作为'角色互换''小大人''家庭反哺'等主题的温情素材。",
+      "url": "https://m.sohu.com/a/1059712805_122066679",
+      "tags": [
+        "孝心",
+        "亲子",
+        "早熟"
+      ],
+      "heat": 84,
+      "id": "hot_427",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
+    },
+    {
+      "title": "8岁男孩拾废品摆摊救烧伤母亲",
+      "platform": "抖音",
+      "content": "妈妈重度烧伤后高额医药费压垮家庭，8岁男孩纯纯每天课余捡拾塑料瓶、陪妈妈摆摊卖拖鞋，用稚嫩话语向路人求助。他还会用捡来的空瓶做花束送给妈妈。适合改编为困境儿童的坚韧成长、母子的双向救赎，以及网络曝光后善意涌入的群像。",
+      "url": "https://www.sohu.com/a/1061932020_531685",
+      "tags": [
+        "儿童担当",
+        "医疗困境",
+        "母子亲情"
+      ],
+      "heat": 90,
+      "id": "hot_428",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['妈妈', '摆摊']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-08-24 08:11",
+      "source": "auto"
     }
   ],
-  "totalCount": 404
+  "totalCount": 417
 }
