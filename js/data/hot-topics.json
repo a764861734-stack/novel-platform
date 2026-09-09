@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-08 08:04:37",
+  "lastUpdate": "2026-09-09 08:02:45",
   "items": [
     {
       "id": "hot_001",
@@ -36748,7 +36748,834 @@
       "category": "情绪",
       "time": "2026-09-08 08:04",
       "source": "auto"
+    },
+    {
+      "title": "广西老人借伞后拿笋感谢",
+      "platform": "微博",
+      "content": "广西百色一位老人在药店借走一把雨伞，事后专程乘车远道赶来归还，还带上自家竹笋向店员表达谢意。质朴守信的举动在网络上引发热议，网友感叹：一把伞借出的是信任，一把笋还回的是人心。这个微小事件适合改编为市井温情片段，刻画陌生人之间的诚信传递与乡土社会的人情味。",
+      "url": "https://www.sina.cn/media/6298334076",
+      "tags": [
+        "诚信",
+        "市井温情",
+        "陌生人善意"
+      ],
+      "heat": 78,
+      "id": "hot_635",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['老人']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "陕西男孩暑假捡废品赚243元",
+      "platform": "微博",
+      "content": "陕西一名男孩暑假期间每天花两小时捡拾废品，一共赚到243元。父亲表示赚钱多少并不重要，希望借此锻炼孩子的抗打击能力，让他在劳动中收获成长。这一事件折射出当代家庭教育中关于吃苦教育、金钱观与亲子沟通的复杂张力，适合作为少年成长线或家庭代际冲突的素材。",
+      "url": "https://www.sina.cn/media/6298334076",
+      "tags": [
+        "成长教育",
+        "亲子",
+        "吃苦"
+      ],
+      "heat": 75,
+      "id": "hot_636",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['少年', '父亲']",
+          "checked": true
+        },
+        {
+          "libId": "金句库",
+          "confidence": 53,
+          "reason": "关键词匹配(1分): ['表示']",
+          "checked": true
+        },
+        {
+          "libId": "对话库",
+          "confidence": 53,
+          "reason": "关键词匹配(1分): ['表示']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "江西货车侧翻大米散落村民自发抢救",
+      "platform": "微博",
+      "content": "江西吉水一辆满载三百多袋大米的货车发生侧翻，大米散落一地。交警迅速赶到现场处置险情，附近村民自发赶来帮忙，齐心协力抢救散落货物。没有哄抢，只有互助，暖心一幕令人动容。该事件适合改编为乡村群像场景，展现危机时刻普通人的集体善意与乡土共同体精神。",
+      "url": "https://www.sina.cn/media/6298334076",
+      "tags": [
+        "集体善意",
+        "乡村群像",
+        "危机互助"
+      ],
+      "heat": 80,
+      "id": "hot_637",
+      "targetLibs": [
+        {
+          "libId": "动作库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['翻']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "青岛赶海大叔负重被困海中获救",
+      "platform": "微博",
+      "content": "山东青岛一位大叔赶海收获大量蛤蜊，把蛤蜊拴在身上，不料负重太大被困海中无法上岸。危急时刻，两位热心群众及时伸出援手，将大叔平安营救上岸。这个略带荒诞又紧张的场景，适合改编为海边小城的人物插曲，探讨普通人面对诱惑与风险时的侥幸心理，以及陌生人之间的仗义相救。",
+      "url": "https://www.sina.cn/media/6298334076",
+      "tags": [
+        "海边小城",
+        "救人",
+        "侥幸心理"
+      ],
+      "heat": 74,
+      "id": "hot_638",
+      "targetLibs": [
+        {
+          "libId": "场景库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['海', '山']",
+          "checked": true
+        },
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['不料']",
+          "checked": true
+        },
+        {
+          "libId": "景色库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['海边']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "浙江男子交会瞬间救下晕厥女司机",
+      "platform": "微博",
+      "content": "浙江海宁两车交会瞬间，一名男子凭借余光发现对向车辆状态异常，上前查看后发现女司机因高烧已经晕厥，及时伸出援手化解危险。平凡陌生人的敏锐与善意让不少网友为之动容。该素材适合改编为都市悬疑或温情桥段，一个偶然的对视成为挽救生命的关键。",
+      "url": "https://www.sina.cn/media/6524695997",
+      "tags": [
+        "都市温情",
+        "陌生人善意",
+        "救人"
+      ],
+      "heat": 82,
+      "id": "hot_639",
+      "targetLibs": [
+        {
+          "libId": "钩子素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['异常']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['海']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "悬疑推理"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "退伍男友归来婆婆神助攻推女友入怀",
+      "platform": "微博",
+      "content": "安徽一男子光荣退伍，女朋友和妈妈前来迎接。女生送上鲜花后害羞站在一旁，妈妈见状轻轻一推，将女孩推进儿子怀里。温馨一幕被网友称赞是满分神助攻。该场景适合改编为军旅爱情或家庭轻喜剧的开场，婆婆的开明与女孩的羞涩形成可爱反差，展现当代婚恋中代际关系的柔和一面。",
+      "url": "https://www.sina.cn/media/6524695997",
+      "tags": [
+        "军旅爱情",
+        "家庭轻喜剧",
+        "神助攻"
+      ],
+      "heat": 85,
+      "id": "hot_640",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "辽宁妹妹霸气护姐把肉弹进姐姐碗中",
+      "platform": "微博",
+      "content": "辽宁一家庭饭桌上，爸爸嫌姐姐胖不让姐姐吃肉，一旁的妹妹二话不说，果断把肉夹到姐姐碗里。可爱的一幕尽显姐妹情深，网友调侃爸爸一人得罪两姐妹。这个生活化场景适合改编为家庭喜剧或姐妹互助片段，以童言无忌反衬成人世界对身材的苛责，展现手足之间的天然同盟。",
+      "url": "https://www.sina.cn/media/6524695997",
+      "tags": [
+        "姐妹情深",
+        "家庭喜剧",
+        "童言无忌"
+      ],
+      "heat": 79,
+      "id": "hot_641",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "青岛让骑手从过路人变家里人",
+      "platform": "微博",
+      "content": "青岛创新实践解决网约配送骑手进门难、安居难、保障难等困境：试点双站长联动机制、盘活闲置资产打造低价公寓、推行一单一保职业伤害保障。城市释放善意，骑手也积极回馈社区，近500名骑手参与治理。该事件适合改编为新就业群体融入城市的群像故事，探讨城市治理与人情味的结合。",
+      "url": "https://lanjingshare.qtvnews.com/share-html/lanjing/share/newsDetailsLj.html?id=16680996",
+      "tags": [
+        "新就业群体",
+        "城市治理",
+        "双向善意"
+      ],
+      "heat": 83,
+      "id": "hot_642",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['骑手']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "衡阳69岁独臂老人替亡子还债",
+      "platform": "抖音",
+      "content": "湖南衡阳69岁独臂老人黄玉香坚持为去世儿子偿还债务，一句不还清我睡觉都不安稳感动数十万网友。她用最朴素的话讲述替亡子还债的故事，没有华丽辞藻，只有一位母亲用一只手臂撑起的一份沉甸甸承诺。该素材适合改编为诚信与母爱的催泪故事，刻画老年人面对丧子之痛时的尊严与执念。",
+      "url": "https://m.voc.com.cn/xhn/news/202609/33701660.html",
+      "tags": [
+        "诚信",
+        "母爱",
+        "老年困境"
+      ],
+      "heat": 90,
+      "id": "hot_643",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['感动']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['老人']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "坚韧女主"
+        ],
+        "plot": [
+          "逆袭打脸"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集",
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "甘肃残疾单亲妈妈蹲行养大两女",
+      "platform": "抖音",
+      "content": "甘肃庆阳华池县31岁女子果果两岁因重病落下终身残疾，双腿无法站立，只能蹲着行走。婚后不到两年丈夫意外离世，她怀着五个月身孕成为单亲妈妈；第二段婚姻短暂后又离婚，她独自抚养两个女儿。她靠拍短视频记录坚韧生活并开启直播带货，最终靠自己买房买车。该故事适合改编为女性励志长篇，展现身体残缺与精神强大的强烈反差。",
+      "url": "https://news.43o.com.cn/n/161527.html",
+      "tags": [
+        "单亲妈妈",
+        "残疾励志",
+        "女性逆袭"
+      ],
+      "heat": 88,
+      "id": "hot_644",
+      "targetLibs": [
+        {
+          "libId": "冲突素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['离婚']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['妈妈']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主",
+          "原生拖累",
+          "向死而生"
+        ],
+        "plot": [
+          "破镜重圆"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "江津残疾妈妈用嘴绣鞋垫养女",
+      "platform": "抖音",
+      "content": "重庆江津残疾妈妈代汝群双手双脚无法正常使用，只能靠嘴拉线绣鞋垫，靠摆摊和直播养活两个女儿。她曾说我没有觉得命运对我不公平，只要今天比昨天好，我就觉得生活充满希望。她的短视频成为许多人的心灵加油站。该素材适合改编为底层母亲的生存史诗，以极限身体条件下的劳动刻画母爱与尊严。",
+      "url": "https://kxzc.cn/news-center/detail/5000639251",
+      "tags": [
+        "底层母亲",
+        "手工生计",
+        "尊严"
+      ],
+      "heat": 87,
+      "id": "hot_645",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['妈妈', '摆摊']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['加油']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志",
+          "愤慨难平"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "通辽独臂妻子单手做村播夫妻共渡难关",
+      "platform": "抖音",
+      "content": "内蒙古通辽科尔沁区敖宝营子村，妻子杨露露幼年因车祸致右臂终身残疾，但她用左手重新掌握生活，从零学习短视频拍摄、剪辑、直播带货，成为拥有数十万粉丝的自强村播；丈夫胡祥宇默默付出，用双肩扛起家庭重担。夫妻俩以坚韧与深情作答，让平凡日子绽放光芒。该故事适合改编为乡村创业与夫妻互助的现实题材。",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_5846a71ce4694652",
+      "tags": [
+        "乡村创业",
+        "夫妻互助",
+        "残疾自强"
+      ],
+      "heat": 84,
+      "id": "hot_646",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['创业']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志",
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "现实向",
+          "成长型主角",
+          "甜宠"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "河南乡村教师用铅笔头换新文具",
+      "platform": "抖音",
+      "content": "河南南阳淅川县乡村教师王柯淇曾因农村生源缩减转岗，但始终放不下山里孩子，自费开办公益书屋。开学前夕，他留意到孩子们铅笔用到只剩短短铅笔头仍舍不得扔，便发起凭铅笔头兑换新文具活动。他说铅笔头换新笔换的是成长，新书包新文具给的是底气。该素材适合改编为乡村教育题材，展现留守儿童与坚守教师之间的双向治愈。",
+      "url": "https://new.qq.com/rain/a/20260908A0B2TF00",
+      "tags": [
+        "乡村教育",
+        "留守儿童",
+        "公益坚守"
+      ],
+      "heat": 89,
+      "id": "hot_647",
+      "targetLibs": [
+        {
+          "libId": "场景库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['农村', '山']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['治愈']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['教师']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "慢热治愈"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "苗岭兰妈妈三十年守护山村孩子",
+      "platform": "抖音",
+      "content": "湖南邵阳城步苗族自治县儒林镇中心小学教师兰朝红，年少时被希望工程和乡邻帮扶拉出困境，毕业后放弃省城安稳岗位回到大山，坚守讲台近三十年。她挨家挨户劝学、垫付学费、帮孩子缝补衣物，被学生亲切称为兰妈妈。该故事适合改编为乡村教师群像，展现教育如何完成一场跨越代际的温暖接力。",
+      "url": "https://www.toutiao.com/article/7683060325955961354/",
+      "tags": [
+        "乡村教师",
+        "代际接力",
+        "教育坚守"
+      ],
+      "heat": 86,
+      "id": "hot_648",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 88,
+          "reason": "关键词匹配(6分): ['教师', '学生', '妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['温暖']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['山']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主",
+          "温柔强者"
+        ],
+        "plot": [
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "慢热治愈"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
+    },
+    {
+      "title": "人到中年发现从未真正为自己活过",
+      "platform": "知乎",
+      "content": "2026年一句人到中年才发现从未真正为自己活过在社交平台被转发数百万次。文章指出许多中年人长期处于角色黏连症中：把热情外包给KPI，把好奇心外包给AI提示词，把人生节奏外包给家庭日程表，最后发现我字的笔画早被擦得只剩一个点。该话题适合改编为中年觉醒题材，探讨自我重建与家庭责任之间的张力。",
+      "url": "https://www.sohu.com/a/1056871305_122066679",
+      "tags": [
+        "中年觉醒",
+        "自我重建",
+        "家庭责任"
+      ],
+      "heat": 85,
+      "id": "hot_649",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "科幻"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-09-09 08:02",
+      "source": "auto"
     }
   ],
-  "totalCount": 617
+  "totalCount": 632
 }
