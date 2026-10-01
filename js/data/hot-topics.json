@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-09-30 13:40:51",
+  "lastUpdate": "2026-10-01 20:06:17",
   "items": [
     {
       "id": "hot_001",
@@ -42575,7 +42575,724 @@
       "category": "情绪",
       "time": "2026-09-30 13:40",
       "source": "auto"
+    },
+    {
+      "title": "河南女子八年独撑重病家庭",
+      "platform": "微博",
+      "content": "河南长垣，女子丈夫因脑出血卧床8年，公公随后也倒下，婆婆早年离世，家中还有3个孩子。她一年四季穿工装，七八年没给自己添新衣，工资优先支付医药费和孩子开销。中秋企业发放鲜花与红包，她第一时间捧进公公房间。一个普通女人用八年不离不弃，撑起了被疾病反复击碎的家，也照见底层家庭照护压力下个体的韧性。",
+      "url": "https://www.toutiao.com/w/1877726513486924/",
+      "tags": [
+        "女性坚韧",
+        "家庭重担",
+        "中年困境",
+        "照护压力"
+      ],
+      "heat": 90,
+      "id": "hot_731",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "向死而生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "男孩折纸十年摆满房间",
+      "platform": "微博",
+      "content": "一位男孩从少年时代爱上折纸，坚持整整十年。不用剪刀胶水，仅凭翻折塑形，作品从昆虫到立体机甲摆满家中。复杂结构常常要反复打磨好几天，稍有失误便从头再来。十年投入练就的不仅是手艺，更是专注与定力；家人的理解留出的空间，成了他持续创作的底气。",
+      "url": "https://h5detail.yiyouliao.com/rivers/newsfeed/1536235174142947329/ID3FR1YH7MBQ9U6.html",
+      "tags": [
+        "坚持",
+        "成长",
+        "家庭教育",
+        "兴趣"
+      ],
+      "heat": 75,
+      "id": "hot_732",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['少年']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['翻']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "虐恋情深"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "44岁父亲与残疾少年双双逆袭",
+      "platform": "微博",
+      "content": "44岁常年驻外打工的中年男子张志强，被女儿一句话点醒，挤出所有休息时间备考5个月，拿下985高校MBA录取通知书；安徽少年李鑫睿身患残疾，高中三年三次骨折卧床，靠躺着背书、支架演算，高考642分进入北京中医药大学本硕连读。两个没有家世加持的普通人，仅凭韧劲改写命运。",
+      "url": "https://www.toutiao.com/w/1872782982591500/",
+      "tags": [
+        "逆袭",
+        "教育",
+        "父爱",
+        "残疾自强"
+      ],
+      "heat": 91,
+      "id": "hot_733",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['少年', '父亲']",
+          "checked": true
+        },
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['逆袭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "逆袭重生"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "珠海53岁大叔跳河救人牺牲",
+      "platform": "微博",
+      "content": "广东珠海，一男子跳河轻生，53岁的曾维龙跃入河中救人，却因水情复杂、体力不支与轻生者双双沉入河中。2007年，他曾因孩子溺水不幸去世；16年后，这位父亲再次为救人付出生命。他与另一位下水救人的外卖骑手邹立彬将按程序被确认为见义勇为人员。",
+      "url": "https://weibo.com/1496814565/Np1XJp2Jv?mod=weibotime&wvr=6",
+      "tags": [
+        "见义勇为",
+        "牺牲",
+        "父子",
+        "人间大爱"
+      ],
+      "heat": 92,
+      "id": "hot_734",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 94,
+          "reason": "关键词匹配(8分): ['外卖', '骑手', '父亲']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['海']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "济南玉符河四人联手救人获表彰",
+      "platform": "微博",
+      "content": "济南玉符河漫水桥附近，一名年轻男子溺水。快递小哥贺欣欣率先跳河，轨道交通建设者杨伟东、在校大学生万金瑞、基层工作人员张晓紧随其后，四人默契配合将落水者救上岸，又实施十余分钟心肺复苏使其恢复自主呼吸。9月29日，四人被认定为济南市见义勇为先进群体。",
+      "url": "https://www.toutiao.com/article/7690904646583468598/",
+      "tags": [
+        "见义勇为",
+        "集体救援",
+        "陌生人善意"
+      ],
+      "heat": 85,
+      "id": "hot_735",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['学生']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者",
+          "人间清醒"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "十年婚姻耗尽期待后放手",
+      "platform": "知乎",
+      "content": "一段从青涩相恋到柴米油盐的十年婚姻，最终因日复一日的忽视与消耗走向终点。男方事事迁就、处处包容，却换来挑剔与冷漠；主动沟通被敷衍，努力维系被无视。十年耗尽热情与期待后，他选择及时止损。故事戳中许多中年夫妻：压垮婚姻的从不是某件事，而是无数次失望攒够后的清醒。",
+      "url": "https://h5detail.yiyouliao.com/rivers/newsfeed/1536235174142947329/ID3FR4PPJ1S79WT.html",
+      "tags": [
+        "婚姻失望",
+        "止损",
+        "情感共鸣",
+        "中年觉醒"
+      ],
+      "heat": 88,
+      "id": "hot_736",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "逆袭打脸"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "婆媳之间日复一日的挑剔耗尽婚姻",
+      "platform": "知乎",
+      "content": "一位女性结婚三年，从未与婆婆大吵，却在无数个深夜攒够失望。早起做饭、包揽家务、逢年过节送礼，所有付出被视作理所当然；一点水渍没擦干净便被当众数落，回娘家买水果被念叨胳膊肘外拐，丈夫永远只会说“她是我妈，你让着点”。她终于明白：婆媳之间最残忍的真相，是偏心长辈眼里你本就是外人。",
+      "url": "https://www.toutiao.com/article/7688894254449574461/",
+      "tags": [
+        "婆媳矛盾",
+        "婚姻边界",
+        "女性委屈"
+      ],
+      "heat": 86,
+      "id": "hot_737",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "原生拖累"
+        ],
+        "plot": [
+          "逆袭打脸"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "35岁被裁6个月再上岸",
+      "platform": "知乎",
+      "content": "一位在某大厂工作8年的产品经理，在36岁生日前一周收到裁员通知。经历失眠、焦虑、海投石沉大海后，他改用精准狙击策略，用项目作品集代替简历描述，把年龄包装成稳定性优势。6个月后，他拿到3个offer，薪资涨幅20%。他认为：被裁不是“我不行”，而是“公司不需要这个岗位了”。",
+      "url": "https://www.toutiao.com/a7680510493005513267",
+      "tags": [
+        "35岁危机",
+        "职场转型",
+        "求职经验"
+      ],
+      "heat": 85,
+      "id": "hot_738",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['裁员']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['海']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "跨界转行"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "35岁被裁一个月走出至暗时刻",
+      "platform": "知乎",
+      "content": "35岁的叶杰在深耕十年的公司收到裁员通知，第一反应是瞒住家人。连续失眠、自我怀疑一周后，妻子的一句“被裁是行业周期和企业战略的选择，不是你的错”成为救命稻草。他允许自己崩溃，复盘过往舒适区，重新定位价值，最终拿到新的入职offer。这是一个普通35岁打工人在职场危机里挣扎、清醒、重启的真实写照。",
+      "url": "https://maimai.cn/article/detail?fid=1901861299&efid=bxaF2SHhKDhOEv5HccIAww",
+      "tags": [
+        "中年失业",
+        "家庭支撑",
+        "心理重建"
+      ],
+      "heat": 84,
+      "id": "hot_739",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['裁员']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['崩溃']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "跨界转行",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "现实向",
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "杭州男孩用捡来的水瓶做花束送妈妈",
+      "platform": "抖音",
+      "content": "浙江杭州，一段视频火了：小男孩纯纯和妈妈陈心灵靠捡瓶子、摆摊还债。妈妈因意外爆炸毁容截肢，找不到工作；纯纯把捡瓶子当习惯，用捡来的水瓶做了一束花送给妈妈，说“妈妈我爱你，我永远跟你在一起”。妈妈则偷偷给他买了双20元的足球鞋。母子双向奔赴，让无数网友心疼又暖心。",
+      "url": "https://www.toutiao.com/article/7657358274664219174",
+      "tags": [
+        "亲子",
+        "逆境成长",
+        "双向奔赴",
+        "暖心"
+      ],
+      "heat": 90,
+      "id": "hot_740",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['妈妈', '摆摊']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['心疼']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "逆袭打脸"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "出租车司机深夜体面帮助只剩13元的女子",
+      "platform": "抖音",
+      "content": "河北邯郸，女子照料完住院父亲准备回家，身上只剩13元，公交车已停运。出租车司机张磊让她上车，一路询问老人病情，抵达村口后想免单，女子执意付费。张磊怕她有心理负担，只收了9元，把剩下的4元留给她做第二天去医院的公交路费，又打亮远光灯目送她走进村庄深处。",
+      "url": "https://m.gmw.cn/2026-10/01/content_1304570681.htm",
+      "tags": [
+        "陌生人善意",
+        "深夜",
+        "底层互助"
+      ],
+      "heat": 85,
+      "id": "hot_741",
+      "targetLibs": [
+        {
+          "libId": "场景库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['医院', '公交']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['老人', '父亲']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "温柔强者",
+          "向死而生"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "48岁女医生辞职卖馒头",
+      "platform": "抖音",
+      "content": "48岁的董敏从诊室走到蒸炉前，把听诊器换成擀面杖，3年开了两家馒头包子店。她说做包子很快乐，人生没有标准答案，什么时候转弯都不晚。揉面的手法利落、力道均匀、计时器精准，那是多年医生的严谨换了种输出方式。热气腾腾的馒头，蒸出了一个中年女人重新出发时的笃定。",
+      "url": "https://m.toutiao.com/article/7679338695853376040",
+      "tags": [
+        "中年转行",
+        "创业",
+        "女性自我",
+        "手艺人"
+      ],
+      "heat": 86,
+      "id": "hot_742",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['医生']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "人生重开"
+        ],
+        "plot": [
+          "人生重启"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
+    },
+    {
+      "title": "产后三月遭遇背叛单亲妈妈带娃旅行逆袭",
+      "platform": "抖音",
+      "content": "一位年轻宝妈产后三个月发现丈夫出轨，果断离婚，独自抚养孩子。她带着孩子旅行，用短视频记录单亲带娃的真实日常，账号迅速涨粉，后接品牌合作、分享育儿经验，稳定运营后月入十万。她用行动证明：婚姻的失败没有击垮她，女性的底气来自独立谋生的能力和不向困境低头的勇气。",
+      "url": "https://www.toutiao.com/a7671556521133670956",
+      "tags": [
+        "单亲妈妈",
+        "婚姻背叛",
+        "自媒体创业",
+        "女性独立"
+      ],
+      "heat": 87,
+      "id": "hot_743",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['宝妈', '妈妈']",
+          "checked": true
+        },
+        {
+          "libId": "冲突素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['离婚']",
+          "checked": true
+        },
+        {
+          "libId": "反转素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['逆袭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主",
+          "原生拖累",
+          "人间清醒"
+        ],
+        "plot": [
+          "破镜重圆"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "爽点密集",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-01 20:06",
+      "source": "auto"
     }
   ],
-  "totalCount": 712
+  "totalCount": 725
 }
