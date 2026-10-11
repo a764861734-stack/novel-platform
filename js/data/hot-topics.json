@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2026-10-10 08:04:23",
+  "lastUpdate": "2026-10-11 08:04:24",
   "items": [
     {
       "id": "hot_001",
@@ -49550,7 +49550,804 @@
       "category": "情绪",
       "time": "2026-10-10 08:04",
       "source": "auto"
+    },
+    {
+      "title": "江苏高邮众乡邻组团营救落水八旬老人",
+      "platform": "微博",
+      "content": "江苏高邮一八旬老人骑电三轮失控落水，村民管锡琴纵身跳入水中救人，乡邻闻讯赶来合力将老人救上岸。事后高邮市见义勇为基金会为管锡琴进行表彰。这个片段非常适合改编成乡村群像戏：没有主角光环的普通人，在危急时刻自发结成救人网络，水下的挣扎、岸上的呼喊、事后的淡泊，构成一幅基层善意的速写。",
+      "url": "https://m.weibo.cn/status/5352501232275649?wm=90207_90001&featurecode=qbreyi_9999_01",
+      "tags": [
+        "见义勇为",
+        "乡村群像",
+        "老人落水",
+        "邻里互助"
+      ],
+      "heat": 90,
+      "id": "hot_851",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['老人']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "亳州男子三秒冲刺徒手接住6米坠楼女童",
+      "platform": "微博",
+      "content": "2026年8月，亳州高新区华富广场，女童悬在约6米高的商铺檐边，手指一点点下滑。药材商户楚亮从起跑到站定、张开双臂不到三秒，用身体接住坠楼女童，自己左肩撕裂、右大腿受伤。女童仅脚踝轻微骨裂。10月9日中央政法委发布第三季度见义勇为勇士榜，楚亮上榜。小说改编点：一个普通生意人在电光火石间把自己变成人肉缓冲垫，事后的后怕与「值了」形成强烈反差。",
+      "url": "https://www.toutiao.com/article/7695052299680399906/",
+      "tags": [
+        "见义勇为",
+        "坠楼救援",
+        "普通人英雄",
+        "父女共情"
+      ],
+      "heat": 93,
+      "id": "hot_852",
+      "targetLibs": [
+        {
+          "libId": "动作库",
+          "confidence": 53,
+          "reason": "关键词匹配(1分): ['跑']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "无锡67岁老人纵身跳水救起落水女子",
+      "platform": "微博",
+      "content": "2026年7月，无锡市惠山区一辆白色小车撞断河岸护栏坠入河中，女子被困驾驶位、河水没过半身。67岁市民盖政权路过，先大声指导女子从后侧车门逃生，见她不会游泳仅靠电缆线支撑，又从两米多高河岸跳入2米多深的河中，将她托向岸边。上岸后他只是温和地说「人没事就好」。改编价值：古稀之年仍保有纵身一跃的勇气，生死关头的沉稳喊话与水中托举，是老年主角的高光时刻。",
+      "url": "https://www.163.com/dy/article/L8R7KCI705128U4M.html",
+      "tags": [
+        "见义勇为",
+        "老年英雄",
+        "车祸落水",
+        "生死救援"
+      ],
+      "heat": 90,
+      "id": "hot_853",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['老人']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['山']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "老君山工作人员背腿脚不便游客下山",
+      "platform": "微博",
+      "content": "河南洛阳老君山，一名腿脚不便的游客凭毅力登上山顶，下山时景区工作人员主动背起他，一步一步小心翼翼走下陡峭台阶。游客的坚持与工作人员的善意形成双向奔赴。适合改编为旅途温情短篇：一个想要证明自己还能「登顶」的残障游客，与一名沉默稳重的景区小哥，在陡峭山路上完成一场关于尊严与善意的接力。",
+      "url": "https://www.sina.cn/media/5054142308",
+      "tags": [
+        "景区温情",
+        "残障关怀",
+        "陌生人善意",
+        "双向奔赴"
+      ],
+      "heat": 86,
+      "id": "hot_854",
+      "targetLibs": [
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['山']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "热血励志"
+        ],
+        "jjStyle": [
+          "成长型主角"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "两女子骑车猛追归还爷爷卖粮钱",
+      "platform": "微博",
+      "content": "河南商丘，一位爷爷骑车时不小心掉了一千多元卖粮钱，两位陌生女子捡到后赶紧骑车追上去还钱，还叮嘱「钱要放好，我们都慌得撵你」。她们追的不只是钱，更是怕老人家白流了汗。小说改编点：农村老人一季的收成、年轻人对「血汗钱」的共情、追赶途中一次次加速的紧张感，可以写成一篇充满烟火气的市井善意小品。",
+      "url": "https://www.sina.cn/media/5054142308",
+      "tags": [
+        "市井善意",
+        "农民血汗钱",
+        "女性互助",
+        "追还失物"
+      ],
+      "heat": 85,
+      "id": "hot_855",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['老人', '爷爷']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['农村']",
+          "checked": true
+        },
+        {
+          "libId": "动作库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['追']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成",
+          "人间清醒"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "91岁奶奶在家人衣服上留下彩色手印",
+      "platform": "微博",
+      "content": "一家人聚在一起，91岁的老奶奶将彩色手印印在晚辈的衣服上。一个小小的手印，承载着奶奶对家人深深的牵挂与祝福。改编角度：高寿老人用身体留下「可触摸的祝福」，彩色颜料成为跨越代际的情感信物。适合家庭群像戏，也可以写成悬疑温情短篇——老人自知时日无多，用这种方式在每个孩子身上盖下「爱的印章」。",
+      "url": "https://www.sina.cn/media/5054142308",
+      "tags": [
+        "亲情",
+        "高龄老人",
+        "代际传承",
+        "家庭仪式"
+      ],
+      "heat": 88,
+      "id": "hot_856",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['老人', '奶奶']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['祝福']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "悬疑推理"
+        ],
+        "character": [
+          "大器晚成"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "烟台蓬莱志愿者「仙境红湾」暖哭游客",
+      "platform": "微博",
+      "content": "2026年国庆黄金周，山东烟台蓬莱区一群穿红马甲的志愿者用弯腰扶车、蹲地指路、递温水、帮老人拎行李等「微动作」，把政务新闻干成抖音单日播放破860万、微博话题冲上热搜TOP3的现象级传播。他们还把导览信息做成「仙境暖心卡」塞进车筐。改编价值：一座旅游城市被普通人重新定义，志愿红成为城市温度的视觉符号，适合写成群像散文式小说。",
+      "url": "https://m.sohu.com/a/1083910152_122066679",
+      "tags": [
+        "城市温度",
+        "志愿服务",
+        "国庆",
+        "群像"
+      ],
+      "heat": 87,
+      "id": "hot_857",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['热搜']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['老人']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['山']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['哭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "大器晚成"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "贵阳早餐阿姨请被撞餐又遭辱骂的小男孩吃汉堡",
+      "platform": "抖音",
+      "content": "10月11日早晨，贵阳一小男孩排队买好早餐后被人撞掉，鼓起勇气索赔反被路人辱骂，委屈落泪。旁边卖早餐的阿姨看到后，安慰他「这种大人不用理他」，并请孩子吃了一个汉堡。视频被阿姨拍摄记录后走红，网友纷纷说「这将是摊主最后清闲的时光」——意指会有很多人去光顾这位善良摊主。改编点：一顿早餐的得失、成年人的恶意与陌生人的善意形成对照，适合写成儿童视角的治愈短篇。",
+      "url": "https://www.toutiao.com/c/user/token/MS4wLjABAAAAeHw226pMhGFSUw9ODJ2FnDzIAM01JhsimSeK068jKS0DnG_5XRdB6zw84XtSJAiE",
+      "tags": [
+        "陌生人善意",
+        "儿童保护",
+        "早餐摊",
+        "治愈"
+      ],
+      "heat": 92,
+      "id": "hot_858",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 75,
+          "reason": "关键词匹配(5分): ['治愈', '善良']",
+          "checked": true
+        },
+        {
+          "libId": "热梗素材库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['走红']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防",
+          "激烈讨论"
+        ],
+        "jjStyle": [
+          "慢热治愈",
+          "现实向"
+        ],
+        "timeType": [
+          "短期流量梗（7天过期）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "郑州独居大爷中秋留外卖小哥吃火锅",
+      "platform": "抖音",
+      "content": "郑州一户普通人家里，女儿远在外地工作，中秋无法返乡，悄悄远程给独居父亲点了一桌火锅。外卖送到后，大爷看着满桌热菜却更感孤独，于是热情挽留外卖小哥留下吃饭，还拿出珍藏好酒招待。一老一少相对而坐，冷清的空屋被烟火气填满。改编价值：女儿缺席的孝心、外卖员的短暂陪伴、老人通透豁达的孤独，构成当代「临时家人」的温情图景。",
+      "url": "https://web.toutiao.com/c/user/token/Ciz-lvKrTzXrgWeKp1uvSbMCJs8Eggx0J5ViE4HkkHYeRX6Ggnupf6HX8-N2LBpJCjwAAAAAAAAAAAAAUOXMI2ugCB14GMGvv4EcjHL1y3CbJJfA8RdcL6x3Z76eColrjFrbA6UUs5X2gHcIuN8QtpecDhjDxYPqBCIBAzPXSU8=?source=profile",
+      "tags": [
+        "独居老人",
+        "中秋",
+        "外卖员",
+        "临时家人"
+      ],
+      "heat": 88,
+      "id": "hot_859",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 97,
+          "reason": "关键词匹配(9分): ['外卖', '老人', '大爷']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "大器晚成"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "远嫁女儿国庆偷偷返乡母亲猝不及防泪崩",
+      "platform": "抖音",
+      "content": "国庆假期，一名远嫁他乡的女儿平日难得陪伴父母，趁着长假没有提前告知悄悄返乡，想给母亲一个惊喜。当她突然出现在母亲面前时，毫无准备的母亲瞬间愣住，下一秒眼眶泛红、情绪失控落泪，母女紧紧相拥。改编角度：远距离亲情中的「突袭式团圆」，母亲从错愕到泪崩的情绪转折，适合写成亲情短片或长篇小说中的归乡章节。",
+      "url": "https://web.toutiao.com/c/user/token/CixQW4eO7FBUikI86wZm2eyOPS1kzd0VXl9TMNzYfmb-mo1JDnp2xbcxgN6gkBpJCjwAAAAAAAAAAAAAUOGI6xF2uiDcu6fNb8fKIhuVJTTU2XitgtnAG9BulhlsZJ1RBc03MLi15rQo6DpB_WwQmuabDhjDxYPqBCIBAy2V7WU=/?wid=1790266396677",
+      "tags": [
+        "远嫁",
+        "母女亲情",
+        "国庆返乡",
+        "团圆"
+      ],
+      "heat": 89,
+      "id": "hot_860",
+      "targetLibs": [
+        {
+          "libId": "热梗素材库",
+          "confidence": 45,
+          "reason": "默认分类（未匹配到特征词）",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "坚韧女主"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "唏嘘感慨"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "23个学生18个老师的「奢侈」乡村小学",
+      "platform": "抖音",
+      "content": "偏远乡村一所小学只有23名学生，却配备了18名在编教师，师生比不到1:1.3。外人看来像「养老天堂」，但真正的乡村教师知道这是「孤岛」——没有教研活动、没有热闹校园，甚至课间凑不齐打篮球的人。他们留下只因「如果连我们都走了，这几个孩子怎么办」。改编点：资源错配背后的教育坚守，可以写成一部关于「被留下的人」的群像小说。",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_5946ac3536191352",
+      "tags": [
+        "乡村教育",
+        "留守儿童",
+        "教师坚守",
+        "教育资源"
+      ],
+      "heat": 88,
+      "id": "hot_861",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 71,
+          "reason": "关键词匹配(4分): ['教师', '学生']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "平凡高光",
+          "人间清醒"
+        ],
+        "plot": [
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "乡村教师丁玉玲扎根皖北守护留守儿童",
+      "platform": "抖音",
+      "content": "安徽阜阳颍泉区董湖小学教师丁玉玲，扎根乡村讲台多年，学校里大多是父母外出务工的留守儿童。她陪孩子们谈心、补课、开展阅读手工活动，发现孩子缺少衣物就主动帮忙，被称为孩子们的「知心姐姐」。2026年7月获评「安徽好人」。改编价值：一个乡村女教师同时扮演老师、心理辅导员、代理家长的多重角色，适合写成温暖现实主义长篇。",
+      "url": "https://h5detail.yiyouliao.com/rivers/newsfeed/1536235174142947329/ID3G9TKYBLZ0295.html",
+      "tags": [
+        "乡村教师",
+        "留守儿童",
+        "安徽好人",
+        "教育坚守"
+      ],
+      "heat": 87,
+      "id": "hot_862",
+      "targetLibs": [
+        {
+          "libId": "情绪库",
+          "confidence": 88,
+          "reason": "关键词匹配(6分): ['温暖', '好人']",
+          "checked": true
+        },
+        {
+          "libId": "人设基因库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['教师']",
+          "checked": true
+        },
+        {
+          "libId": "场景库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['学校']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈",
+          "暗恋守护"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "慢热治愈",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "40岁被裁员，他在公司楼下坐了半小时才上楼",
+      "platform": "知乎",
+      "content": "一名40岁员工在公司待了九年后被裁，签字交接前后不到一小时。走出写字楼后，他在楼下花坛边坐了半小时，不是想哭，而是不知道该怎么回家、进门第一句该说什么。后来靠老同学介绍去了小公司，工资少两千，但日子还能过下去。他感悟：40岁以后靠的不是能力比别人强多少，而是手里得有几条退路。改编点：中年失业者在公司与家之间的「过渡地带」，那半小时的空白是绝佳的心理写实场景。",
+      "url": "https://www.toutiao.com/article/7691506131729957378",
+      "tags": [
+        "中年失业",
+        "被裁",
+        "家庭压力",
+        "心理写实"
+      ],
+      "heat": 90,
+      "id": "hot_863",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 88,
+          "reason": "关键词匹配(6分): ['裁员', '失业']",
+          "checked": true
+        },
+        {
+          "libId": "情绪库",
+          "confidence": 56,
+          "reason": "关键词匹配(2分): ['哭']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "职场"
+        ],
+        "character": [
+          "跨界转行"
+        ],
+        "plot": [
+          "人生重启",
+          "破局翻盘"
+        ],
+        "emotion": [
+          "治愈暖心"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
+    },
+    {
+      "title": "42岁被裁第131天，他开了家没有收入的书店",
+      "platform": "知乎",
+      "content": "42岁男子2026年5月底被裁，失业第131天仍未找到工作，身上背着40多万债务，网贷也借不出来。6月底把劳动诉讼材料交到法院后，他开了家小书店，目前还没有收入。他反思：以前同事提醒保存文件还嫌麻烦，现在才懂关系好时不用证据、关系坏了证据就是唯一能拿出来的东西。改编价值：中年人在失业、负债、诉讼三重压力下的自救，书店成为他重新夺回生活主动权的象征。",
+      "url": "https://m.163.com/dy/article/L8POD1OJ0556ATRB.html",
+      "tags": [
+        "中年失业",
+        "负债自救",
+        "书店",
+        "劳动诉讼"
+      ],
+      "heat": 89,
+      "id": "hot_864",
+      "targetLibs": [
+        {
+          "libId": "人设基因库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['失业']",
+          "checked": true
+        },
+        {
+          "libId": "法律风险库",
+          "confidence": 67,
+          "reason": "关键词匹配(3分): ['法院']",
+          "checked": true
+        }
+      ],
+      "jjTags": {
+        "track": [
+          "现代言情",
+          "现实治愈"
+        ],
+        "character": [
+          "跨界转行",
+          "温柔强者"
+        ],
+        "plot": [
+          "双向治愈"
+        ],
+        "emotion": [
+          "治愈暖心",
+          "感动破防"
+        ],
+        "jjStyle": [
+          "成长型主角",
+          "现实向"
+        ],
+        "timeType": [
+          "长效现实素材（长期留存）"
+        ]
+      },
+      "imported": false,
+      "importedLibs": [],
+      "comments": [],
+      "category": "情绪",
+      "time": "2026-10-11 08:04",
+      "source": "auto"
     }
   ],
-  "totalCount": 832
+  "totalCount": 846
 }
